@@ -1,0 +1,28 @@
+<ion-view view-title="医院">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#e9e9e9;">
+        <div class="bar bar-header item-input-inset">
+            <label class="item item-input-wrapper" style="padding:0 8px;">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="请输入医院名称" ng-model="nameFilter" ng-change="changeNameFilter(nameFilter)" onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')">
+            </label>
+            <button class="button button-small button-positive" ng-click="doRefresh()">搜索</button>
+        </div>
+        <div class="list card" ng-repeat="row in table.rows" style="border-radius:5px;margin:10px;">
+            <div class="item item-body" style="padding:0;">
+                <a class="item item-avatar item-icon-right item-text-wrap" href="#/tab/discover/act/{{row.id}}">
+                    <img style="max-width:76px; height:48px; border-radius:0;" ng-src="{{JAVA_URL + row.cropImageUrl}}">
+                    <h3 style="padding:0 0 0 42px;margin-top:8px;">{{row.title}}</h3>
+                    <i class="icon stable ion-ios-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+        </ion-infinite-scroll>
+        <div class="item item-image" ng-if="table.rows.length==0">
+            <img src="img/default.png">
+        </div>
+    </ion-content>
+</ion-view>

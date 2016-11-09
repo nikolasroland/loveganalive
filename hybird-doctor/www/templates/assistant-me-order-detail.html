@@ -1,0 +1,125 @@
+<ion-view cache-view="false" view-title="订单详情">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <ion-list>
+            <div class="item fr-order-detail">
+                <h2><strong>{{orderDetail.pro_name}}</strong></h2>
+            </div>
+            <div class="item fr-order-detail">
+                <div class="line"></div>
+            </div>
+            <div class="item fr-order-detail">
+                <p>订单生成时间：<span class="item-note">{{orderDetail.create_date | date:"yyyy-MM-dd"}}</span></p>
+            </div>
+            <div class="item fr-order-detail">
+                <p>订单号：<span class="item-note">{{orderDetail.order_code}}</span></p>
+            </div>
+            <div class="item fr-order-detail">
+                <p>患者姓名：<span class="item-note">{{orderDetail.insurance_people}}</span></p>
+            </div>
+            <div class="item fr-order-detail">
+                <p>患者电话：<span class="item-note">{{orderDetail.insurance_mobile}}</span></p>
+            </div>
+            <div class="item fr-order-detail">
+                <p>患者地址：<span class="item-note">{{orderDetail.insurance_address}}</span></p>
+            </div>
+            <div class="item fr-order-detail">
+                <p>支付状态：<span class="item-note">{{orderDetail.paymentStatusName}}</span></p>
+            </div>
+            <div ng-if="orderDetail.payment!='2' && orderDetail.paymentStatus=='01'" class="item fr-order-detail">
+                <p>开具发票：
+                <a ng-if="!orderDetail.proInvoiceStatus || orderDetail.proInvoiceStatus == '00' || orderDetail.proInvoiceStatus == ''" class="button button-positive button-small" href="#/tab/assistant/me/order-invoice" style="float:right;padding:2px 16px;max-height:26px;min-height:26px;line-height:18px;">申请</a>
+                <span ng-if="orderDetail.proInvoiceStatus == '01'" class="item-note">已开具</span>
+                <span ng-if="orderDetail.proInvoiceStatus == '02'" class="item-note">开具中</span>
+                </p>
+            </div>
+            <div class="item fr-order-detail" ng-if="orderDetail.subjectCode!='45'">
+                <p>保险申请状态：<span class="item-note">{{orderDetail.insuranceNo ? orderDetail.policyTypeName : '申请中'}}</span></p>
+            </div>
+            <div class="item fr-order-detail" ng-if="orderDetail.subjectCode!='45'">
+                <p>保险凭证号：<span class="item-note">{{orderDetail.insuranceNo}}</span></p>
+            </div>
+            <div class="item fr-order-detail">
+                <p>处方照片：<img onclick="scaleImg(this)" style="float:right;border:1px solid #a1a1a1;height:82px;width:78px;border-radius:4px;" ng-src="{{JAVA_URL + orderDetail.insurancePrescription}}" /></p>
+            </div>
+            <div ng-if="orderDetail.setTradeOrderProductList" class="item fr-order-detail">
+                <p>服务列表：</p>
+                <p ng-repeat="item in orderDetail.setTradeOrderProductList">{{item.productName}} <span class="item-note">￥{{(item.price) | number:2}} x {{item.productCount}}</span></p>
+            </div>
+            <div class="item fr-order-detail" ng-if="orderDetail.subjectCode!='45'">
+                <p>发货周期：<span class="item-note">{{orderDetail.distribution}}</span></p>
+            </div>
+            <div ng-if="orderDetail.distribution=='按年/一次性' || orderDetail.distribution==''">
+                <div class="item fr-order-detail">
+                    <p>发货信息：<span class="item-note">{{orderDetail.oneQuarterExpressNo ? '已发货' : '未发货'}}</span></p>
+                </div>
+                <div ng-if="orderDetail.oneQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递公司：<span class="item-note">{{orderDetail.oneQuarterExpressCom}}</span></p>
+                </div>
+                <div ng-if="orderDetail.oneQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递单号：<span class="item-note"><a href="#/tab/assistant/me/order-express/{{orderDetail.oneQuarterExpressComCode}}/{{orderDetail.oneQuarterExpressNo}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{orderDetail.oneQuarterExpressNo}}</a></span></p>
+                </div>
+            </div>
+            <div ng-if="orderDetail.distribution=='按季'">
+                <div class="item fr-order-detail">
+                    <p>第一季度发货信息：<span class="item-note">{{orderDetail.oneQuarterExpressNo ? '已发货' : '未发货'}}</span></p>
+                </div>
+                <div ng-if="orderDetail.oneQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递公司：<span class="item-note">{{orderDetail.oneQuarterExpressCom}}</span></p>
+                </div>
+                <div ng-if="orderDetail.oneQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递单号：<span class="item-note"><a href="#/tab/assistant/me/order-express/{{orderDetail.oneQuarterExpressComCode}}/{{orderDetail.oneQuarterExpressNo}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{orderDetail.oneQuarterExpressNo}}</a></span></p>
+                </div>
+                <div class="item fr-order-detail">
+                    <p>第二季度发货信息：<span class="item-note">{{orderDetail.twoQuarterExpressNo ? '已发货' : '未发货'}}</span></p>
+                </div>
+                <div ng-if="orderDetail.twoQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递公司：<span class="item-note">{{orderDetail.twoQuarterExpressCom}}</span></p>
+                </div>
+                <div ng-if="orderDetail.twoQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递单号：<span class="item-note"><a href="#/tab/assistant/me/order-express/{{orderDetail.twoQuarterExpressComCode}}/{{orderDetail.twoQuarterExpressNo}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{orderDetail.twoQuarterExpressNo}}</a></span></p>
+                </div>
+                <div class="item fr-order-detail">
+                    <p>第三季度发货信息：<span class="item-note">{{orderDetail.threeQuarterExpressNo ? '已发货' : '未发货'}}</span></p>
+                </div>
+                <div ng-if="orderDetail.threeQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递公司：<span class="item-note">{{orderDetail.threeQuarterExpressCom}}</span></p>
+                </div>
+                <div ng-if="orderDetail.threeQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递单号：<span class="item-note"><a href="#/tab/assistant/me/order-express/{{orderDetail.threeQuarterExpressComCode}}/{{orderDetail.threeQuarterExpressNo}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{orderDetail.threeQuarterExpressNo}}</a></span></p>
+                </div>
+                <div class="item fr-order-detail">
+                    <p>第四季度发货信息：<span class="item-note">{{orderDetail.fourQuarterExpressNo ? '已发货' : '未发货'}}</span></p>
+                </div>
+                <div ng-if="orderDetail.fourQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递公司：<span class="item-note">{{orderDetail.fourQuarterExpressCom}}</span></p>
+                </div>
+                <div ng-if="orderDetail.fourQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递单号：<span class="item-note"><a href="#/tab/assistant/me/order-express/{{orderDetail.fourQuarterExpressComCode}}/{{orderDetail.fourQuarterExpressNo}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{orderDetail.fourQuarterExpressNo}}</a></span></p>
+                </div>
+            </div>
+            <div ng-if="orderDetail.distribution=='按半年'">
+                <div class="item fr-order-detail">
+                    <p>前半年发货信息：<span class="item-note">{{orderDetail.oneQuarterExpressNo ? '已发货' : '未发货'}}</span></p>
+                </div>
+                <div ng-if="orderDetail.oneQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递公司：<span class="item-note">{{orderDetail.oneQuarterExpressCom}}</span></p>
+                </div>
+                <div ng-if="orderDetail.oneQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递单号：<span class="item-note"><a href="#/tab/assistant/me/order-express/{{orderDetail.oneQuarterExpressComCode}}/{{orderDetail.oneQuarterExpressNo}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{orderDetail.oneQuarterExpressNo}}</a></span></p>
+                </div>
+                <div class="item fr-order-detail">
+                    <p>后半年发货信息：<span class="item-note">{{orderDetail.twoQuarterExpressNo ? '已发货' : '未发货'}}</span></p>
+                </div>
+                <div ng-if="orderDetail.twoQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递公司：<span class="item-note">{{orderDetail.twoQuarterExpressCom}}</span></p>
+                </div>
+                <div ng-if="orderDetail.twoQuarterExpressNo" class="item fr-order-detail">
+                    <p>快递单号：<span class="item-note"><a href="#/tab/assistant/me/order-express/{{orderDetail.twoQuarterExpressComCode}}/{{orderDetail.twoQuarterExpressNo}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{orderDetail.twoQuarterExpressNo}}</a></span></p>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,15 @@
+<ion-view view-title="签约服务" cache-view="false">
+    <ion-content style="background-color:#fff;">
+        <div class="item text-center" style="border:none;margin:0;">
+            <h2>{{order.productName}}</h2>
+        </div>
+        <div id="qrcode" class="item text-center item-text-wrap" style="border:none;margin:0;" ng-bind-html="order.QrCode | to_trusted">
+        </div>
+        <div class="item" style="border:none;margin:0;padding-left:40px;">
+        	<h2 style="padding-bottom: 12px;">患者姓名：{{order.realname}}</h2>
+        	<h2 style="padding-bottom: 12px;">手机号码：{{order.telphone}}</h2>
+        	<h2 style="padding-bottom: 12px;">订单编号：{{order.orderCode}}</h2>
+        	<h2 style="padding-bottom: 12px;">应付金额：{{order.price}}元</h2>
+        </div>
+    </ion-content>
+</ion-view>

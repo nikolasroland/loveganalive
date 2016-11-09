@@ -1,0 +1,98 @@
+<ion-view hide-nav-bar="true" view-title="收货地址">
+    <ion-content id="sanshengContent" style="background-color:#f1f1f1;top:0;" has-header="false">
+        <div ng-if="!isBuy">
+            <div ng-hide="true" class="list">
+                <div id="picfileRecipe" class="item item-input act-canvas">
+                    <input class="picfile" name="insuranceRecipe" accept="image/*" capture="camera" type="file" />
+                    <button class="button act-button-file icon-top ion-plus-round btnfile">上传登记表</button>
+                    <div class="imgzip" onclick="scaleImg(this)">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="list">
+                <div id="picfilePrescription" class="item item-input act-canvas">
+                    <input class="picfile" name="insurancePrescription" accept="image/*" capture="camera" type="file" />
+                    <button class="button act-button-file icon-top ion-plus-round btnfile">上传处方</button>
+                    <div class="imgzip" onclick="scaleImg(this)">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="list act-list">
+                <div style="width:100px;display:inline-block;text-align:center;" ng-repeat="item in list">
+                    <label class="act-radio">
+                        <input type="radio" name="productCode" ng-value="item.id" ng-model="$parent.productCode" />
+                        <div class="act-radio-content">{{item.productName}}</div>
+                    </label>
+                    <a class="act-radio-a" href="#/detail" ng-click="viewDetail();">查看详情</a>
+                </div>
+            </div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">收件人</span>
+                    <input maxlength="10" id='txt' name="insurancePeople" ng-model="insurancePeople" type="text" placeholder="请使用真实姓名" />
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">联系电话</span>
+                    <input maxlength="15" name="insuranceMobile" ng-model="insuranceMobile" type="tel" placeholder="您的手机号" />
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">详细地址</span>
+                    <textarea maxlength="140" name="insuranceAddress" style="width:70%" ng-model="insuranceAddress" cols="30" rows="2" placeholder="您的收货地址"></textarea>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">备注</span>
+                    <input maxlength="140" name="detail" ng-model="detail" type="text" />
+                </label>
+                <div class="item item-input row">
+                    <label class="item item-radio col col-25" style="border:0;">
+                        <input type="radio" name="choice" ng-model="insuranceDistribution" value="00">
+                        <div class="item-content" style="padding:16px 0px 16px 22px;font-size:14px;">
+                            按季度
+                        </div>
+                        <i class="radio-icon ion-checkmark" style="color:#39d059;left:0px;top:4px;font-size:22px;"></i>
+                        <div style="height:22px;width:22px;border:1px solid #bbb;position:absolute;top:22px;left:4px;z-index:4;"></div>
+                    </label>
+                    <label class="item item-radio col col-25" style="border:0;">
+                        <input type="radio" name="choice" ng-model="insuranceDistribution" value="02">
+                        <div class="item-content" style="padding:16px 0px 16px 22px;font-size:14px;">
+                            按半年
+                        </div>
+                        <i class="radio-icon ion-checkmark" style="color:#39d059;left:0px;top:4px;font-size:22px;"></i>
+                        <div style="height:22px;width:22px;border:1px solid #bbb;position:absolute;top:22px;left:4px;z-index:4;"></div>
+                    </label>
+                    <label class="item item-radio col col-50" style="border:0;">
+                        <input type="radio" name="choice" ng-model="insuranceDistribution" value="01">
+                        <div class="item-content" style="padding:16px 0px 16px 22px;font-size:14px;">
+                            按年/一次性
+                        </div>
+                        <i class="radio-icon ion-checkmark" style="color:#39d059;left:0px;top:4px;font-size:22px;"></i>
+                        <div style="height:22px;width:22px;border:1px solid #bbb;position:absolute;top:22px;left:4px;z-index:4;"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="padding">
+                <button type="submit" ng-click="saveProduct(insurancePeople, insuranceMobile, insuranceAddress, insuranceDistribution, productCode, detail)" class="button button-block button-positive">确 认</button>
+            </div>
+            <div style="height:240px;"></div>
+        </div>
+        <div ng-if="isBuy">
+            <div class="list">
+                <div class="item item-avatar item-text-wrap" style="margin-bottom:6px" ng-repeat="item in list">
+                    <img src="./img/icon.png">
+                    <p>订单：<a href="#/order/{{item.id}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{item.order_code}}</a></p>
+                    <p>订单日期：{{item.create_time | date:"yyyy-MM-dd"}}</p>
+                    <p>已预订：{{item.pro_name}}</p>
+                    <button ng-disabled="item.btnDisabled" ng-if="item.payment_status=='00'" class="button button-small button-positive" style="float:right;padding:2px 16px;max-height:26px;min-height:26px;line-height:18px;clear:right;" ng-click="pay(item.amount, item.order_code, item.pro_name)">支付</button>
+                    <span ng-if="item.payment_status=='01'" class="item-note">已支付</span>
+                    <span ng-if="item.payment_status=='03'" class="item-note">已取消</span>
+                    <p>金额：{{item.amount | number:2}} 元</p>
+                </div>
+            </div>
+            <div class="padding">
+                <button type="button" ng-click="changeIsBuy()" class="button button-block button-positive">继续购买</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

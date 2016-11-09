@@ -1,0 +1,45 @@
+<ion-view hide-tabs="true" view-title="订单详情">
+    <ion-content class="main" style="background-color:#fff;">
+        <div class="padding" style="border:none;border-radius: 8px;">
+            <div class="list item-text-wrap">
+                <div class="item fr-order-detail">
+                    <p>订单编号：<span class="item-note">{{orderDetail.orderCode}}</span></p>
+                </div>
+                <div class="item fr-order-detail">
+                    <p>服务项目：<span class="item-note">{{orderDetail.proName}}</span></p>
+                </div>
+                <div class="item fr-order-detail">
+                    <p>下单时间：<span class="item-note" style="white-space:nowrap;">{{orderDetail.createDate | date:"yyyy/MM/dd HH:mm:ss"}}</span></p>
+                </div>
+                <div class="item fr-order-detail">
+                    <p>支付金额：<span class="item-note">￥{{orderDetail.amount | number:2}}</span></p>
+                </div>
+            </div>
+            <div class="list item-text-wrap" style="height:154px;">
+                <a href="#/tab/me/order-overseas-detail-edit/1" class="item fr-order-detail item-icon-right" style="padding-right:54px;">
+                    <p>患者姓名：<span class="item-note">{{orderDetail.insurancePeople}}</span></p>
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+                </a>
+                <a href="#/tab/me/order-overseas-detail-edit/2"  class="item fr-order-detail item-icon-right" style="padding-right:54px;">
+                    <p>手机号码：<span class="item-note">{{orderDetail.insuranceMobile}}</span></p>
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+                </a>
+                <a href="#/tab/me/order-overseas-detail-edit/3"  class="item fr-order-detail item-icon-right" style="padding-right:54px;height:66px;">
+                    <p>地址：<span class="item-note" style="max-width:140px;">{{orderDetail.insuranceProvince}} {{orderDetail.insuranceCity}} {{orderDetail.insuranceAddress}}</span></p>
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+                </a>
+            </div>
+            <div class="list item-text-wrap">
+                <div class="item fr-order-detail">
+                    <p>订单跟踪：</p>
+                </div>
+                <div class="item fr-order-detail" ng-repeat="item in orderDetail.tradeOrderLog" style="z-index:{{100-$index}}">
+                    <div class="circle-line" ng-if="$index!==orderDetail.tradeOrderLog.length-1" style="position:absolute;height:68px;width:1px;left:24px;background-color:#50a6dd;z-index:10;"></div>
+                    <div class="circle" style="position:absolute;width:16px;height:16px;border-radius:50%;background-color:#50a6dd;"></div>
+                    <h2 style="padding-left:24px;">{{item.typeName}}<span class="item-note" style="white-space:nowrap;">{{item.createDate | date:"yyyy/MM/dd HH:mm:ss"}}</span></h2>
+                    <p style="padding-left:24px;">{{item.detail}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

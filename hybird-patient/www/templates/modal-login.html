@@ -1,0 +1,31 @@
+<ion-modal-view>
+        <ion-content>
+            <ion-list class="tab-list no-lines">
+                <ion-item class="item-icon-left" style="padding-top:64px;">
+                    <i class="icon ion-ios-close-empty" style="color:#aaa;font-size:48px;" ng-click="closeLoginModal()"></i>
+                </ion-item>
+                <ion-item class="login-avatar">
+                    <img src="./img/avatar.png" />
+                </ion-item>
+            </ion-list>
+            <ion-list class="tab-list no-lines padding list-inset">
+                <ion-item class="item-input">
+                    <i class="icon icon-personage placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                    <input type="text" ng-model="$root.username" placeholder="请输入用户名">
+                </ion-item>
+                <div class="login-line"></div>
+                <ion-item class="item-input">
+                    <i class="icon ion-ios-unlocked-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                    <input type="password" ng-model="$root.password" placeholder="请输入密码">
+                    <button class="button button-clear button-positive" ng-click="$root.openFindpwdModal()" style="margin-right:32px;text-decoration: none;font-size:12px">忘记密码</button> 
+                </ion-item>
+                <div class="login-line"></div>
+                <ion-item>
+                    <button class="button button-full button-positive" ng-click="$root.login($root.username, $root.password)">登录</button>
+                </ion-item>
+                <ion-item class="text-center">
+                    <button class="button button-clear button-positive" ng-click="$root.openRegModal()">注册帐号</button> 
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>

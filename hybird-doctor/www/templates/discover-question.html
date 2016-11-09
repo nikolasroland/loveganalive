@@ -1,0 +1,92 @@
+<ion-view view-title="答题">
+    <ion-content id="container" style="background:url(./img/question-bg.png);">
+        <div class="question-start hide-animation" ng-if="isFirst" ng-hide="!isStart">
+            <div class="question-top" ng-style="bgColor">
+                <div class="question-padding">
+                    <b class="question-left question-white">问题{{subNo[curr]}}：</b>
+                    <b class="question-right question-white">({{curr+1}}/{{len}})</b>
+                </div>
+                <div class="question-padding">
+                    <p class="question-subject">{{list[curr].question}}</p>
+                </div>
+            </div>
+            <!--             <div class="question-middle">
+    <div class="question-middle-clock">
+        {{timer}}
+    </div>
+</div> -->
+            <label class="question-option repeat-animation" ng-if="list[curr].type!=2" ng-repeat="opt in list[curr].opts">
+                <input type="radio" name="choice" ng-model="list[curr].choice" value="{{opt[0]}}" />
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="question-option-padding" num-to-char="$index">
+                    {{opt[1]}}
+                </div>
+            </label>
+            <label class="question-option repeat-animation" ng-if="list[curr].type==2" ng-repeat="opt in list[curr].opts">
+                <input type="checkbox" name="choice" ng-model="list[curr].selected[$index]" ng-change="isSelected(opt[0]);" ng-click="updateSelection($event,opt[0])" />
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="question-option-padding" num-to-char="$index">
+                    {{opt[1]}}
+                </div>
+            </label>
+            <div class="question-btn-group question-padding">
+                <input class="question-btn" type="button" ng-click="prev()" ng-if="curr!=0" value="上一题" />
+                <input class="question-btn" type="button" ng-click="next(list[curr].id, list[curr].choice)" ng-if="curr!=(len-1)" ng-disabled="list[curr].choice=='empty'" value="下一题" />
+                <input class="question-btn" type="button" ng-click="submit(list[curr].id, list[curr].choice)" ng-if="curr==(len-1)" ng-disabled="list[curr].choice=='empty'" value="提交答案" />
+            </div>
+        </div>
+        <div class="question-result hide-animation" ng-style="bgColor" ng-if="isEnter" ng-hide="!isResult">
+            <div class="question-result-circle-1">
+                <div class="question-result-circle-2" ng-if="exam.have=='no'">
+                    <div class="question-result-circle-3" ng-style="foreColor" ng-if="result.score==0">
+                        <h2>很遗憾</h2>
+                        <p>您尚未答对题目，还需努力哦</p>        
+                    </div>
+                    <div class="question-result-circle-3" ng-if="result.score!=0">
+                        <h2>恭喜您</h2>
+                        <p>此次考试，答对了 {{result.ok}} 道题，获得{{result.score}}分（总分{{result.allscore}}分）</p>
+                    </div>
+                </div>
+                <div class="question-result-circle-2" ng-if="exam.have=='yes'">
+                    <div class="question-result-circle-3">
+                        <h2>&nbsp;</h2>
+                        <p>此次考试，您答对了 {{result.ok}} 道题，获得{{result.score}}分</p>
+                        <p>（总分{{result.allscore}}分）</p>
+                    </div>
+                </div>
+            </div>
+            <div class="question-result-footer" ng-if="exam.have=='yes'">
+                <input class="question-result-btn" type="button" value="查看答案及解析" ng-click="showAnalyze();" />
+            </div>
+        </div>
+        <div class="question-analyze hide-animation" ng-hide="!isAnalyze" ng-if="isFirst">
+            <div class="question-top" ng-style="bgColor">
+                <div class="question-padding">
+                    <b class="question-left question-white">问题{{subNo[curr]}}：</b>
+                    <b class="question-right question-white">({{curr+1}}/{{len}})</b>
+                </div>
+                <div class="question-padding">
+                    <p class="question-subject">{{list[curr].question}}</p>
+                </div>
+            </div>
+            <div class="question-analyze-middle">
+            </div>
+            <label class="question-option repeat-animation" ng-repeat="opt in list[curr].analyzeOpts">
+                <input type="checkbox" name="analyze" disabled checked="true" />
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="question-option-padding" num-to-char="opt[0]">
+                    {{opt[1][1]}}
+                </div>
+            </label>
+<!--             <div class="question-analyze-text question-padding">
+    <h2>解析</h2>
+    <div wrap-line="list[curr].analyze"></div>
+</div> -->
+            <div class="question-btn-group question-padding">
+                <input class="question-btn" type="button" ng-click="prev()" ng-if="curr!=0" value="上一题" />
+                <input class="question-btn" type="button" ng-click="next(list[curr].id, list[curr].choice)" ng-if="curr!=(len-1)" value="下一题" />
+                <input class="question-btn" type="button" ng-click="viewResult()" ng-if="curr==(len-1)" value="查看结果" />
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

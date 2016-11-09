@@ -1,0 +1,40 @@
+<ion-view hide-tabs="true">
+    <ion-nav-title>
+        {{chatbox.targetName}}
+    </ion-nav-title>
+    <!--     <ion-nav-buttons side="right">
+    <button class="button button-clear button-small icon icon-personage2" ng-click="viewDetail(box)"></button>
+</ion-nav-buttons> -->
+    <ion-content id="chatBoxContent" style="background-color:#ddd;">
+        <ion-list class="tab-list chat-box-list">
+            <div ng-repeat="item in chatbox.list">
+                <div class="chat-center-date">
+                    <span class="chat-center-text">{{item.date | date : 'yyyy年MM月dd日 HH:mm'}}</span>
+                </div>
+                <ion-item class="item-text-wrap" ng-class="{'item-avatar': item.avatar=='left', 'item-avatar-right text-right': item.avatar=='right'}">
+                    <img ng-src="{{item.icon}}" />
+                    <p><span ng-if="item.header!='' && item.header!=undefined" class="chat-box-header">{{item.header}}</span> {{item.nickname}}</p>
+                    <h2 ng-if="item.messageType=='string' || item.messageType=='TextMessage'">{{item.message}}</h2>
+                    <img ng-if="item.messageType=='ImageMessage'" style="width:60%;" ng-src="{{'data:image/png;base64,' + item.message}}">
+                </ion-item>
+            </div>
+
+        </ion-list>
+        <div style="height:36px"></div>
+    </ion-content>
+    <div class="chat-bottom" chat-show-menu="isShowMenu">
+        <ion-item class="item-input chat-input">
+            <textarea style="width: 74%;" placeholder="" ng-model="chatbox.textContent"></textarea>
+            <button style="margin-left:8px;" class="button button-small button-positive" ng-click="sendTextMessage(chatbox.textContent)">发送</button>
+            <button class="button button-clear button-small icon ion-plus" ng-click="showMenu()"></button>
+        </ion-item>
+        <div class="item chat-menu">
+            <div class="row text-center">
+                <div class="col col-25"><a><i class="icon icon-pic"></i>图片</a><input id="chatImgFile" class="chat-img-file" type="file" accept="image/*" capture="camera" custom-on-change="sendImgMessage($event)" ng-model="chatbox.file" /></div>
+                <div ng-if="chatbox.target.modelid==12 && canReserve=='1'" class="col col-25"><a href="#/tab/chat/visit"><i class="icon icon-appointment"></i>预约</a></div>
+                <div ng-if="chatbox.target.modelid==12" class="col col-25"><a href="#/tab/chat/reward"><i class="icon icon-reward"></i>打赏</a></div>
+                <div ng-if="chatbox.target.remark=='个管师'" class="col col-25"><a href="#/tab/chat/reward/1"><i class="icon icon-reward"></i>打赏</a></div>
+            </div>
+        </div>
+    </div>
+</ion-view>

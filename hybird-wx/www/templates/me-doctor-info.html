@@ -1,0 +1,39 @@
+<ion-view hide-tabs="true" view-title="医生信息">
+    <ion-content class="">
+        <div class="item item-thumbnail-left doctor-info item-text-wrap">
+            <img ng-src="{{doctor.icon}}" style='border-radius: 50%;'>
+            <h2>{{doctor.nickname}}</h2>
+            <p>{{doctor.hospital}}</p>
+            <p>{{doctor.offices + doctor.profession}}</p>
+        </div>
+        <div class="item text-center consulting" ng-if="patient.doctorId==doctor.userid">
+            <p>还剩{{doctor.consultation}}条咨询机会</p>
+        </div>
+        <div class="item info-title">
+            <h3>擅 长</h3>
+        </div>
+        <div class="item info-content item-text-wrap">
+            <p>{{doctor.adept}}</p>
+        </div>
+        <div class="item info-title">
+            <h3>职业经历</h3>
+        </div>
+        <div class="item info-content item-text-wrap">
+            <p>{{doctor.intro}}</p>
+        </div>
+        <div class="item info-title item-icon-right">
+            <h3>在线咨询（{{doctor.answer.total}}）</h3>
+        </div>
+        <div class="list" style="background-color:#fff;">
+            <a href="#/consult/my-consult-order-detail/{{list.id}}" class="item comment-item item-text-wrap" ng-repeat="list in doctor.answer.list">
+                <h2>{{list.label}}<span class="item-note">{{list.create_time|date:'yyyy/MM/dd'}}</span></h2>
+                <p class="comment-name">{{list.content}}</p>
+            </a>
+            <p style="margin:0px;padding:10px;color:#939393;text-align:center;" ng-if="doctor.answer.list.length==0">—— 暂无咨询回复 ——</p>
+        </div>
+    </ion-content>
+    <ion-footer-bar>      
+        <a href="#/consult/me-doctor-consult/{{doctor.userid}}" class="button button-large button-positive" style="display:block;width:40%;">咨询</a>
+        <a href="#/reservation/{{doctor.userid}}" class="button button-large button-positive" style="display:block;width:40%;">预约</a>      
+    </ion-footer-bar>
+</ion-view>

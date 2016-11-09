@@ -1,0 +1,70 @@
+<ion-view>
+	<ion-nav-title>
+        {{tit}}
+    </ion-nav-title>
+	<ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+	<ion-content>
+		<div class="doctorFluChange">
+			<div ng-if="state=='0'" class="doctorFluChange">
+				<form ng-model="getDrug">
+					<label>内容：</label>
+					<textarea  class="doctorTextChange" ng-model="doctorFlup.drug"></textarea>
+				</form>
+			</div>
+			<div ng-if="state=='1'">
+				<form style="border:none;">
+					<label>内容：</label>
+					<textarea  readonly class="doctorTextChange" ng-model="doctorFlup.non_drug"></textarea>
+					<label>医生建议：</label>
+					<textarea class="doctorTextChange" ng-model="doctorFlup.non_drug_remark"></textarea>
+				</form>
+			</div>
+			<div ng-if="state=='2'">
+				<form>
+					<label>内容：</label>
+					<textarea  readonly class="doctorTextChange" ng-model="doctorFlup.sport"></textarea>
+
+					<label>医生建议：</label>
+					<textarea class="doctorTextChange" ng-model="doctorFlup.sport_remark"></textarea>
+				</form>
+			</div>
+			<div ng-if="state=='3'">
+				<form>
+					<label>内容：</label>
+					<textarea  readonly class="doctorTextChange" ng-model="doctorFlup.mind"></textarea>
+
+					<label>医生建议：</label>
+					<textarea class="doctorTextChange" ng-model="doctorFlup.mind_remark"></textarea>
+				</form>
+			</div>
+			<div ng-if="state=='4'">
+				<form>
+					<div ng-if="doctorRemind">
+						<div class="">
+							<label>时间：</label>
+							<p style="position: absolute;left: 34px; top:14px;min-width:120px;min-height:44px;" class="text-right" ng-click="openDatePicker()">{{doctorVisit[arrIndex].time}}</p>
+							<input type="hidden" name="birthday" class="text-right" ng-model="doctorVisit[arrIndex].time" format-date min="{{minDate | date : 'yyyy-MM-dd'}}" required>
+						</div>
+						<!--<input type="text" ng-model="doctorVisit[arrIndex].time" ng-click="openDatePicker()" required/>-->
+						<label>内容：</label>
+						<textarea class="doctorTextChange" ng-model="doctorVisit[arrIndex].content"></textarea>
+
+					</div>
+					<div ng-if="doctorAdd">
+						<div class="">
+							<label>时间：</label>
+							<p style="position: absolute;left: 34px; top:14px;min-width:120px;min-height:44px;" class="text-right" ng-click="openDatePicker()">{{doctorVisit[newIndex].time}}</p>
+							<input type="hidden" name="birthday" class="text-right" ng-model="doctorVisit[newIndex].time" format-date min="{{minDate | date : 'yyyy-MM-dd'}}" required>
+						</div>
+						<!--<input type="text" ng-model="doctorVisit[arrIndex].time" ng-click="openDatePicker()" required/>-->
+						<label>内容：</label>
+						<textarea class="doctorTextChange" ng-model="doctorVisit[newIndex].content"></textarea>
+					</div>
+				</form>
+			</div>
+		</div>
+		<button class="button docChangeButton  button-block button-positive" ng-click="save(doctorFlup, doctorVisit)">保存</button>
+	</ion-content>
+</ion-view>

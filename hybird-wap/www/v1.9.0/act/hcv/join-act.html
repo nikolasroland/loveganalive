@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telphone=no,email=no,address=no"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <title>报名参加</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<script src="js/setFont.js"></script>
+<div class="index-page">
+    <div class="section-main" id="scroll-web">
+        <div class="index-first">
+            <div class="index-up pr">
+                <span class="loginUp"></span>
+                <span class="signrule f34 pa">报名规则</span>
+            </div>
+            <div class="index-down">
+                <ul class="ruledetails f22">
+                    <li>1.医生报名后，可在朋友圈分享活动集爱心，一个医生被普通用户投最多集200个，医生用户最多可给10个医生投票。</li>
+                    <li>2.在活动截止时，爱心数最多的医生可获得海外就医免费资格名额一个，用于帮助ta的患者。</li>
+                    <li>3.所有爱心数将在活动结束后时转为爱肝一生APP等额现金券。</li>
+                    <li>4.我们还将邀请医生加入微信群与丙肝顶级专家交流互动，了解丙肝治疗新进展及病例讨论，参与答题更有奖励红包发放。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery.touchSwipe.min.js"></script>
+<script src="js/iscroll.min.js"></script>
+<script src="js/base.js"></script>
+<script>
+    var scroll = new IScroll('#scroll-web', {probeType: 3, mouseWheel: true, bounce: false});
+    checkWxLogin();
+    $(".loginUp").swipe({
+        tap:function(){
+            getUserType();
+        }
+    });
+
+    //微信授权获取userName openId
+    function checkWxLogin() {
+        console.log(userName);
+        if (!userName || undefined == userName || null == userName || "" == userName) {
+            window.location.href = "http://testmanage.aiganyisheng.net/trade/app/redirectWechatLogin.htm?sign=5540b83596ed1584f7a0cf2faa4bfab6&userType=2";
+        }
+    }
+
+    //点击报名判断当前用户类型（医生|普通用户)，并将内容存入web中，
+    function getUserType() {
+        $.ajax({
+            url: ajaxUrl + "getHcvPromotionInfo.htm",
+            type: "POST",
+            data: {
+                sign: "6c7a899608021ed85387ce9fa5596aa7",
+                userName: userName
+            },
+            success: function (res) {
+                console.log(userName);
+                console.log(res);
+                window.location.href="join-fillmess.html";
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+</script>
+</html>

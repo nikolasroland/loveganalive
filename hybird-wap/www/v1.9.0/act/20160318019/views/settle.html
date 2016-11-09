@@ -1,0 +1,56 @@
+<ion-view hide-nav-bar="true" view-title="订单详情">
+    <ion-content style="background-color:#f1f1f1;">
+        <div class="list">
+            <div id="picfilePrescription" class="item item-input act-canvas">
+                <input class="picfile" name="insurancePrescription" accept="image/*" capture="camera" type="file" />
+                <button class="button act-button-file icon-top ion-plus-round btnfile">上传处方</button>
+                <div class="imgzip" onclick="scaleImg(this)">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="list settle-list">
+            <ion-item class="settle-list-top">
+                <h2>服务列表</h2>
+            </ion-item>
+            <div ng-repeat="item in products">
+                <ion-item class="settle-list-content">
+                    <span class="item-note" style="color:#2f2d2d;">￥{{item.price | number:2}} <span ng-if="item.isDrug" style="color:red;font-size:12px;">(线下支付)</span></span>
+                    <span style="clear:both;" class="item-note">x {{item.quantity}}</span>
+                    <h2>{{item.productName}}</h2>
+                </ion-item>
+                <div class="line"></div>
+            </div>
+            <ion-item class="settle-list-bottom">
+                <h2>共{{quantity}}件商品 总计：￥{{amount | number:2}} + <span style="color:red">{{offlineAmount | number:2}}</span></h2>
+            </ion-item>
+        </div>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">收件人</span>
+                <input maxlength="10" id='txt' name="insurancePeople" ng-model="info.insurancePeople" type="text" placeholder="请使用真实姓名" />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">联系电话</span>
+                <input maxlength="15" name="insuranceMobile" ng-model="info.insuranceMobile" type="tel" placeholder="您的手机号" />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">详细地址</span>
+                <textarea maxlength="140" name="insuranceAddress" style="width:70%" ng-model="info.insuranceAddress" cols="30" rows="2" placeholder="您的收货地址"></textarea>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">备注</span>
+                <input maxlength="140" name="detail" ng-model="info.detail" type="text" />
+            </label>
+            <p style="text-align:center;color:#68aee9;line-height:32px;">请填写选定的药品是片剂还是胶囊剂。</p>
+        </div>
+        <div style="height:72px;"></div>
+    </ion-content>
+    <div class="fixed">
+        <ion-item class="item-button-right">
+            <h2>线上支付：￥{{amount | number:2}} 元</h2>
+            <button ng-if="amount>0" class="button button-assertive" ng-click="pay(info.insurancePeople, info.insuranceMobile, info.insuranceAddress, info.detail)">立即支付</button>
+            <button ng-if="amount==0" class="button button-assertive" ng-click="reserve(info.insurancePeople, info.insuranceMobile, info.insuranceAddress, info.detail)">立即预定</button>
+        </ion-item>
+    </div>
+</ion-view>

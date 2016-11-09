@@ -1,0 +1,72 @@
+<ion-view hide-tabs="false" view-title="首页">
+    <ion-content style="background-color: #e8e8e8">
+        <div class="home-list list" style="background-color: #fff; padding: 12px 0 24px 0;">
+            <div class="row">
+                <a check-login-state class="col col-50 text-center" style="border-right:1px solid #a1a1a1;text-decoration: none;" href="#/tab/home/doctor/{{doctor.userid}}">
+                    <div class="home-header-border item-image" >
+                        <img ng-src="{{doctor.icon}}" />
+                    </div>
+                    <div class="home-header-text">
+                        <p>{{doctor.realname}}</p>
+                        <p ng-if="loginState">医生工作室</p>
+                    </div>
+                </a>
+                <div class="col col-50 text-center">
+                <a check-login-state style="text-decoration: none;" href="{{planUrl}}">
+                    <div class="home-header-right-border">
+                        <div class="home-header-date-title">
+                            {{today.month}}·{{today.day}}
+                        </div>
+                        <div class="home-header-date-content">
+                            {{today.date}}
+                        </div>
+                    </div>
+                    <div class="home-header-right-text">
+                        我的方案
+                    </div>
+                </a>
+                <a check-login-state href="#/tab/home/history" style="text-decoration: none;">
+                    <div class="home-header-right-border">
+                        <i class="icon-case" style="font-size: 42px;line-height: 48px;"></i>
+                    </div>
+                    <div class="home-header-right-text">
+                        我的病历
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+        <div class="home-list list">
+            <ion-slide-box>
+                <ion-slide ng-repeat="item in slideList" repeat-done="repeatDone()">
+                    <a href="#/tab/home/act/{{item.id}}" class="item item-image" style="padding:0;height:112px;">
+                        <img ng-src="{{item.cropImageUrl}}" />
+                    </a>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+        <div class="home-list list home-bottom" ng-repeat="item in homePageBottom">
+            <div class="row row-no-padding">
+                <div class="col col-50">
+                    <a class="item item-text-wrap item-image" href="#/tab/home/act/{{item[0].id}}">
+                        <img class="home-bottom-img-left" ng-src="{{item[0].cropImageUrl}}" />
+                        <h2>{{item[0].introduction}}</h2>
+                        <p class="text-left">{{item[0].title}}</p>
+                    </a>
+                </div>
+                <div class="col col-50">
+                    <a class="item item-text-wrap item-image" href="#/tab/home/act/{{item[1].id}}">
+                        <img class="home-bottom-img-right" ng-src="{{item[1].cropImageUrl}}" />
+                        <h2>{{item[1].introduction}}</h2>
+                        <p class="text-left">{{item[1].title}}</p>
+                    </a>
+                    <a style="margin-top:-2px" class="item item-text-wrap item-image" href="#/tab/home/act/{{item[2].id}}">
+                        <img class="home-bottom-img-right" ng-src="{{item[2].cropImageUrl}}" />
+                        <h2>{{item[2].introduction}}</h2>
+                        <p class="text-left">{{item[2].title}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

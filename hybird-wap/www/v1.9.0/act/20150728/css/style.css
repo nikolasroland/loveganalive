@@ -1,0 +1,119 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: url(../img/bg.png) repeat #4dfff5;
+    background-size: 5px;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.progress {
+    position: absolute;
+    width: 100%;
+    line-height: 0;
+}
+
+.progress-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff6666;
+    border-radius: 20px;
+    z-index: -1;
+    transition: -webkit-transform .5s ease-in;
+    -webkit-transform: scaleX(0);
+}
+
+.header {
+    background: #7aff8a;
+    margin: 0;
+    padding: 24px 0;
+}
+
+#dr {
+    transition: -webkit-transform .5s ease-out 0s;
+    -webkit-transform: translateX(-100%);
+}
+
+#qno1 {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    transition: -webkit-transform .5s ease-out 1s;
+    -webkit-transform: translate(-1000%, 0);
+}
+
+#no1 {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    transition: -webkit-transform .5s ease-out 0.5s;
+    -webkit-transform: translate(-1000%, 200%);
+}
+
+#qno2 {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    transition: -webkit-transform .5s ease-out 1s;
+    -webkit-transform: translate(-100%, 0);
+}
+
+#no2 {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    transition: -webkit-transform .5s ease-out 0.5s;
+    -webkit-transform: translate(-100%, 200%);
+}
+
+#q1{
+    position:absolute;
+    top:0;
+}
+
+#perload {
+    position:absolute;
+    top:0;
+    background: url(../img/bg.png) repeat #4dfff5;
+    background-size: 5px;
+}
+
+.content_1,
+.content_2 {
+    line-height: 0;
+}
+
+#th1,
+#th2 {
+    transition: -webkit-transform .5s ease-in 1.5s;
+    -webkit-transform: translateY(-3000%);
+}
+
+#no1a,
+#no2a {
+    transition: -webkit-transform .5s ease-in 1.5s;
+    -webkit-transform: translateY(-1500%);
+}
+
+#no1b,
+#no2b {
+    transition: -webkit-transform .5s ease-in 1.8s;
+    -webkit-transform: translateY(-1500%);
+}
+
+#no1c,
+#no2c {
+    transition: -webkit-transform .5s ease-in 2.1s;
+    -webkit-transform: translateY(-1500%);
+}
+
+#no1d,
+#no2d {
+    transition: -webkit-transform .5s ease-in 2.4s;
+    -webkit-transform: translateY(-1500%);
+}

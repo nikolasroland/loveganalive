@@ -1,0 +1,52 @@
+<ion-view view-title="我">
+    <ion-content class="main">
+        <div class="card">
+            <div class="item item-thumbnail-left item-text-wrap patient-photo" href="#">
+                <img ng-src="{{patient.avatar}}">
+                <h2>昵称：{{patient.nickname}}</h2>
+                <h2>帐户余额：{{patient.balances}}{{ticket}}</h2>
+            </div>
+        </div>
+        <div class="list card">
+            <a ui-sref="tab.service" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i>我购买的服务 
+            </a>
+            <a ui-sref="tab.reservation" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i>我的预约 
+            </a>
+        </div>
+        <div class="list card">
+            <a ui-sref="tab.wallet" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 帐户余额
+            </a>
+            <a ui-sref="tab.plan" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 我的方案
+            </a>
+            <a ui-sref="tab.doctor" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 我的医生
+            </a>
+            <a ui-sref="tab.casemanager" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 我的个管师
+            </a>
+            <a ui-sref="tab.info" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 个人基本信息
+            </a>
+            <a class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 充值
+            </a>
+            <a ui-sref="tab.qa" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 常见问题
+            </a>
+        </div>
+        <div class="list card">
+            <a ui-sref="tab.settings" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 设置
+            </a>
+        </div>
+        <div class="list card">
+            <a ui-sref="tab.aboutus" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 关于
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

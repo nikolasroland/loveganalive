@@ -1,0 +1,36 @@
+<ion-view hide-nav-bar="true" view-title="众保">
+    <ion-content style="background-color:#e9e9e9;width:100%;">
+        <div class="padding" style="padding:10px 20px;">
+            <div class="item item-button-right plan-border" ng-class="{'plan-join-border' :item.isJoinIn}" style="height:74px;padding-right:8px;" ng-repeat="item in productList">
+                <input ng-if="!item.isJoinIn" type="checkbox" ng-init="item.ckb=!item.isJoinIn" name="ckb" ng-model="item.ckb" style="float:left;margin-right: 4px;" />
+                <h2 style="color:#282d2d;font-weight: bolder;font-size:14px;">{{item.productName}}<span class="plan-join-text" ng-if="item.isJoinIn"> （已加入）</span><span class="plan-join-text" style="float:right;"> 当前参与{{item.planNum}}人</span></h2>
+                <!-- <a class="button button-clear" style="color:#3498db;font-size:14px;right:116px;" ng-click="viewDetail()" ng-if="item.isJoinIn" href="#task/{{item.productCode}}">查看任务 | </a>
+                <a class="button button-clear" style="color:#3498db;font-size:14px;right:48px;" ng-click="viewDetail()" ng-if="item.isJoinIn" href="#sub/{{item.id}}">申请资助 | </a>
+                <a class="button button-clear" style="color:#3498db;font-size:14px;" ng-click="viewDetail()" href="#detail/{{item.id}}"> 公约</a> -->
+                <a class="button button-clear" style="color:#3498db;font-size:14px;top:32px;right:100px;" ng-click="viewDetail()" ng-if="item.isJoinIn" href="#task/{{item.productCode}}">查看任务 | </a>
+                <a class="button button-clear" style="color:#3498db;font-size:14px;top:32px;right:32px;" ng-click="loginInsurance()" ng-if="item.isJoinIn">申请资助 | </a>
+                <a class="button button-clear" style="color:#3498db;font-size:14px;top:32px;right:0px;" ng-click="viewDetail()" href="#detail/{{item.id}}"> 公约</a>
+            </div>
+        </div>
+        <div ng-show="isShowInfo">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">真实姓名</span>
+                    <input name="realName" ng-model="realName" type="text" placeholder="请填写真实姓名" />
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">联系电话</span>
+                    <input name="mobileNo" ng-model="mobileNo" type="tel" placeholder="请填写联系电话" />
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">身份证号</span>
+                    <input name="insuranceIdCard " ng-model="insuranceIdCard " type="text" placeholder="请填写身份证号" />
+                </label>
+            </div>
+            <div class="padding text-center">
+                <input type="checkbox" name="agree" ng-model="agree" style="margin-right: 4px;" />同意所选保障计划的会员公约
+                <button type="submit" ng-click="saveProduct(agree, productList, realName, mobileNo, insuranceIdCard)" class="button button-block button-positive">加 入</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

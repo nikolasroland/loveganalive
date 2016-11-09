@@ -1,0 +1,60 @@
+<ion-view hide-tabs="false" view-title="个人中心">
+    <ion-content style="background-color:#efeff4;">
+        <ion-list class="tab-list">
+            <ion-item ng-if="loginState" class="item-avatar item-icon-right" href="#/tab/me/info">
+                <img ng-src="{{patient.icon}}">
+                <h2 style="margin-bottom:6px;">{{patient.nickname}}</h2>
+                <p><span class="info-header">{{patient.header || '同学'}}</span> <span style="color:#ddd;">|</span><span style="color:#50a6dd;"> 帐户余额：{{patient.balances}} 元</span></p>
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;top:24px;"></i>
+            </ion-item>
+            <ion-item ng-if="!loginState" class="item-avatar" ng-click="openLoginModal()" href="#/tab/me">
+                <img src="../img/avatar.png">
+                <h2 class="button button-clear button-positive">点击登录</h2>
+            </ion-item>
+        </ion-list>
+        <ion-list class="tab-list padding">
+            <ion-item check-login-state class="item-icon-left item-icon-right" href="#/tab/me/order">
+                <i class="icon icon-account" style="background-color:#ffa522; color:#fff;"></i>我的订单
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item check-login-state class="item-icon-left item-icon-right" href="#/tab/me/doctor">
+                <i class="icon icon-mydoctor" style="background-color:#00d1d1; color:#fff;"></i>医生工作室
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item check-login-state class="item-icon-left item-icon-right" href="{{planUrl}}">
+                <i class="icon icon-mypackage" style="background-color:#70d100; color:#fff;"></i>我的方案
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item check-login-state class="item-icon-left item-icon-right" href="#/tab/me/history">
+                <i class="icon icon-mycase" style="background-color:#8161c1; color:#fff;"></i>我的病历
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item ng-if="canReserve=='1'" check-login-state class="item-icon-left item-icon-right" href="#/tab/me/reservation">
+                <i class="icon icon-makeanappointment" style="background-color:#00dd73; color:#fff;"></i>我的预约
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item check-login-state class="item-icon-left item-icon-right"  href="#/tab/me/assistant">
+                <i class="icon icon-myassistant" style="background-color:#00d8ae; color:#fff;"></i>我的个管师
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item check-login-state class="item-icon-left item-icon-right" href="#/tab/me/account">
+                <i class="icon icon-account" style="background-color:#ffa522; color:#fff;"></i>帐户管理
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item check-login-state class="item-icon-left item-icon-right" href="#/tab/me/medical-a-shop">
+                <i class="icon icon-account" style="background-color:#ffa522; color:#fff;"></i>医事服务+A
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item check-login-state class="item-icon-left item-icon-right" href="#/tab/me/medical-b-shop">
+                <i class="icon icon-account" style="background-color:#ffa522; color:#fff;"></i>医事服务+B
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+        </ion-list>
+        <ion-list class="tab-list padding">
+            <ion-item class="item-icon-left item-icon-right" href="#/tab/me/settings">
+                <i class="icon icon-set2" style="color:#aaa;"></i>设置与帮助
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

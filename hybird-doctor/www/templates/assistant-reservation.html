@@ -1,0 +1,12 @@
+<ion-view view-title="预约提醒">
+    <ion-content class="main">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+            <a class="item item-avatar item-icon-right" href="#tab/assistant/reservation/{{doctor.userid}}" ng-repeat="doctor in doctorList.list">
+                <img ng-src="{{doctor.icon}}" />
+                <h2>{{doctor.nickname}}的患者（{{doctor.patient_num}}人）</h2>
+                <i class="icon ion-ios-arrow-right positive"></i>
+            </a>
+        </ion-list>
+    </ion-content>
+</ion-view>

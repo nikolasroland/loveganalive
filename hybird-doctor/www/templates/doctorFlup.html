@@ -1,0 +1,94 @@
+<ion-view title="{{doctorFlup.patient_realname}}">
+	  <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+
+	<ion-content class="flupContent">
+		<div class="doctorFlupImg">
+			<div class="docFlupImg">
+				<img ng-src="{{doctorFlup.patient_icon}}"/>
+			</div>	
+			<div class="docPatientInfo">
+				<span>{{doctorFlup.patient_realname}}&nbsp;|&nbsp;</span><span>{{doctorFlup.patient_sex}}&nbsp;|&nbsp;</span><span>{{doctorFlup.patient_age}}&nbsp;|&nbsp;</span><span>{{doctorFlup.patient_disease}}</span>
+			</div>
+			<div class="doctorDail">
+				<a  ng-click="tel(doctorFlup.patient_phone)" href="tel:{{doctorFlup.patient_phone}}">拨打电话</a>
+				<a href="#/doctorFlupDetail/{{doctorFlup.id}}/{{doctorFlup.patientid}}">复诊记录</a>
+			</div>
+		</div>
+		<div class="row doctorRow">
+			<div class="col doctorCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==0]" ng-click="state=0" ng-init="state=0">药物治疗</div>
+			<div class="col doctorCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==1]" ng-click="state=1">营养</div>
+			<div class="col doctorCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==2]" ng-click="state=2">运动</div>
+			<div class="col doctorCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==3]" ng-click="state=3">心理</div>
+			<div class="col doctorCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==4]" ng-click="state=4">复诊提醒</div>
+		</div>
+		<div class="item doctorItem" ng-if="state=='0'">
+			<div class="flexff">
+				<div>
+					{{doctorFlup.drug}}
+				</div>
+			</div>
+			<footer class="foot_box">
+				<button ng-click="goChangeDrug(state)">编辑修改</button>
+			</footer>
+		</div>
+		<div class="item doctorItem" ng-if="state=='1'">
+			<div class="flexff">
+				<div>
+					{{doctorFlup.non_drug}}
+				</div>
+				<p><span>医生建议:</span><br/>{{doctorFlup.non_drug_remark}}</p>
+			</div>
+			<footer class="foot_box">
+				<button ng-click="goChangeDrug(state)">编辑修改</button>
+			</footer>
+		</div>
+		<div class="item doctorItem" ng-if="state=='2'">
+			<div class="flexff">
+				<div>
+					{{doctorFlup.sport}}
+				</div>
+				<p><span>医生建议:</span><br/>{{doctorFlup.sport_remark}}</p>
+			</div>
+			<footer class="foot_box">
+				<button ng-click="goChangeDrug(state)">编辑修改</button>
+			</footer>
+		</div>
+		<div class="item doctorItem" ng-if="state=='3'">
+			<div class="flexff">
+				<div>
+					{{doctorFlup.mind}}
+				</div>
+				<p><span>医生建议:</span><br/>{{doctorFlup.mind_remark}}</p>
+			</div>
+			<footer class="foot_box">
+				<button ng-click="goChangeDrug(state)">编辑修改</button>
+			</footer>
+		</div>
+		<div class="item  docItemVisit" ng-if="state=='4'" >
+			
+			<div class="flexff" ng-repeat="item in doctorVisit">
+				<div class="doctorVisit-title">
+					<div>
+						<h4>{{item.time}}&nbsp;&nbsp;第 {{$index+1}} 次复查</h4>
+						<div class="bianji">
+							<a href="" ng-click="goChangeDrug(state+','+$index)">编辑</a>
+						</div>
+					</div>
+				</div>
+				<div class="doctorVisit-container">
+					<h4>检查内容：</h4>
+					<div>
+						{{item.content}}
+					</div>
+				</div>
+				
+			</div>
+			<div class="doctorVisit-add" ng-click="goChangeDrug(state)">
+				<span class="ion-ios-plus-outline"></span>
+				<span>添加复诊时间和内容</span>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

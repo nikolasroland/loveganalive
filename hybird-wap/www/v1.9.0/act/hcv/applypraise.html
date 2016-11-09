@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telphone=no,email=no,address=no"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<script src="js/setFont.js"></script>
+<div class="index-page">
+    <header class="index-head pr">
+        <span class="btn_back pa goback"></span>
+        <h3>点赞申请</h3>
+    </header>
+    <div class="section-main" id="scroll-web">
+        <div>
+            <div class="love-inst">
+                <div class="loveup">
+                    <span class="leftcir"></span>
+                    <span class="rightcir"></span>
+                    <img src="img/circle.png" alt="">
+                    <h4 class="f28">献爱心成功!</h4>
+                </div>
+                <div class="lovedown">
+                    <span class="f24">如果您也是一名肝病医生，加入活动即可</span>
+                    <p class="f24">
+                        <i>1.在朋友圈分享活动集爱心</i><br>
+                        <i>2.截止时爱心数前三，即可送一位患者免费海外就医</i><br>
+                        <i>3.可在爱肝一生APP获得与爱心等额的现金券</i><br>
+                        <i>4.还可加入微信群听专家讲课、互动、获学分、抢红包</i>
+                    </p>
+                </div>
+            </div>
+            <div class="registerfor">
+                <div class="regisup">
+                    <img src="img/doctor-logo.png" alt="">
+                    <span class="leftcir"></span>
+                    <span class="rightcir"></span>
+                </div>
+                <div class="regisdown">
+                    <form action="" class="getphone">
+                        <div>
+                            <span class="f26">手机号:</span>
+                            <input type="text" class="phone" placeholder="请输入手机号">
+                        </div>
+                        <div>
+                            <span class="f26">验证码:</span>
+                            <input type="text" class="testcode" placeholder="请输入验证码">
+                            <span class="getcode f22">获取验证码</span>
+                        </div>
+                        <i class="submit f28">提交</i>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/iscroll.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/apply-praise.js"></script>
+    <script>
+        var scroll = new IScroll('#scroll-web', {probeType: 3,  bounce: false});
+    </script>
+</body>
+</html>

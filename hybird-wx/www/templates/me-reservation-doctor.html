@@ -1,0 +1,67 @@
+<ion-view view-title='预约' style='background:#e9e9e9'>
+	<ion-content>
+		<div class="item item-thumbnail-left doctor-info item-text-wrap">
+			<img ng-src="{{doctorInfo.icon}}" style='border-radius: 50%;'>
+            <h2>{{doctorInfo.nickname}}</h2>
+            <p>{{doctorInfo.hospital}}</p>
+            <p>{{doctorInfo.offices + doctorInfo.profession}}</p>
+		</div>
+		<i style='width:80%;margin:10px auto;font-size: 10px;display:block;text-align: center;'>为保证您预约成功，请填写以下信息</i>
+		<div class="item item-text-wrap" style='margin-top:10px;'>
+			<h3 class="item-title">擅长</h3>
+			<p>{{doctorInfo.adept}}</p>
+			<h3 class="item-title" style='margin-top:15px;'>预约时间:</h3>
+			<span style="color:#ff4400;font-size:14px;">{{reserveInfo.subscribeTime}}</span>
+		</div>
+		<div class="list">
+			<label class="item item-input">
+                <span class="input-label">姓名</span>
+                <input type="text" maxlength="8" placeholder="请填写您的真实姓名" ng-model='reserveInfo.realName' />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">身份证号</span>
+                <input type="text" maxlength="18" placeholder="请填写您的身份证号" ng-model='reserveInfo.idCard' />
+            </label>
+            <label class="item item-input item-select">
+			    <span class="input-label">所患疾病</span>
+                <select name="main_disease" ng-model="reserveInfo.main_disease" required>
+                    <option value="乙肝">乙肝</option>
+                    <option value="丙肝">丙肝</option>
+                    <option value="脂肪肝">脂肪肝</option>
+                    <option value="肝硬化">肝硬化</option>
+                    <option value="肝癌">肝癌</option>
+                    <option value="其他" selected='true'>其他</option>
+                </select>
+		  	</label>
+			<div class="item item-radio row" style='border-top:1px solid #e5e5e5;display:flex;justify-content: space-between;'>
+				<i style='padding-left: 13px;white-space: 1.2em'>预约目的</i>
+				<label class="item item-radio doctor-search-radio" style='margin-left: 25px;font-size: 12px;'>
+	                <input type="radio" name="reservType" value="复诊" ng-model="reserveInfo.objective" required">
+	                <i class="radio-icon ion-checkmark"></i>
+	                <div class="item-content" style="border:0;padding:0" style='font-size: 12px;'>
+	                    复诊
+	                </div>
+            	</label>
+	            <label class="item item-radio doctor-search-radio" style='font-size: 12px;'>
+	                <input type="radio" name="reservType" value="开药" ng-model="reserveInfo.objective" required>
+	                <i class="radio-icon ion-checkmark"></i>
+	                <div class="item-content" style="border:0;padding:0">
+	                    开药
+	                </div>
+	            </label>
+	            <label class="item item-radio doctor-search-radio" style='font-size: 12px;'>
+	                <input type="radio" name="reservType" value="初诊" ng-model="reserveInfo.objective" required>
+	                <i class="radio-icon ion-checkmark"></i>
+	                <div class="item-content" style="border:0;padding:0">
+	                    初诊
+	                </div>
+	            </label>
+			</div>
+			 <label class="item item-input">
+                <span class="input-label" style="width:15%;">症状描述</span>
+                <textarea name="" id=""  rows="8" maxlength="120" style="width:80%; background:#fafaf9; border:1px solid #f5f4f3;position: relative;" ng-model='reserveInfo.symptom' placeholder="请至少输入10个字"></textarea>
+            </label>
+		</div>
+		<button class="button button-block button-positive" ng-click='goToPay(reserveInfo)'>提交并支付</button>
+	</ion-content>
+</ion-view>

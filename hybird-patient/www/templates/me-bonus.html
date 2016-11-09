@@ -1,0 +1,24 @@
+<ion-view hide-tabs="true" view-title="红包">
+    <ion-nav-bar style="display:none;">
+    </ion-nav-bar>
+    <ion-content style="background:none;top:0;">
+        <div class="row" style="padding:0;margin-top:0;">
+            <div class="col item-image" style="padding:0;"><img src="img/bonus-header.png" /></div>
+        </div>
+        <div class="row" style="padding:0;margin-top:0;">
+            <div class="col item-image" style="padding:0;min-width:37.3%;"><img src="img/bonus-left.png" /></div>
+            <div class="col item-image" style="padding:0;min-width:26.3%;" ng-click="checkBonus()">
+                <img src="img/bonus-center.png" ng-if="check" />
+                <img src="img/bonus-center-none.png" ng-if="!check" />
+            </div>
+            <div class="col item-image" style="padding:0;min-width:36.3%;"><img src="img/bonus-right.png" /></div>
+        </div>
+        <div class="row" style="padding:0;margin-top:0;">
+            <div class="col item-image" style="padding:0;"><img src="img/bonus-bottom.png" /></div>
+        </div>
+        <div style="margin-top:-150px;text-align:center;" ng-if="!check">
+            <p style="color:#fff;">{{content}}</p>
+            <a href="#/tab/me/bonus-result" style="color:#faa43b;text-decoration:none;">查看其他人手气如何>></a>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,55 @@
+<ion-view view-title="咨询">
+  <ion-content>
+    <div ng-if="doctorId=='0' || doctorId==''">
+      <div class="top">
+        <h2 style=''>咨询医生</h2>
+        <div class="advantagebox">
+                <span>
+          <h4>5000+</h4>
+          <i>权威医生</i>
+        </span>
+          <span>
+          <h4>120家</h4>
+          <i>合作医院</i>
+        </span>
+          <span>
+          <h4>24小时</h4>
+          <i>快速响应</i>
+        </span>
+        </div>
+      </div>
+      <ion-list style>
+        <div class="newres">
+          <div class="circular">
+            <em>医生最新回复</em>
+          </div>
+        </div>
+        <ion-scroll zooming="true" direction="y" style=" height: 228px">
+          <ion-item class="item item-avatar item-icon-right item-nobor"
+                    style="padding-right:16px;color:#666;min-height:82px;margin-top:18px;" ng-repeat="data in list">
+            <img ng-src="{{data.doctoricon}}">
+            <span class="item-note" style="font-size:12px;color:#666;"></span>
+            <h2 style="font-size:12px;color:#666;">{{data.doctorname}} {{data.doctorhospital}} <span
+              style="float:right;">{{data.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</span></h2>
+            <div class="bgcontent">
+              <div class="tanglesec"></div>
+              <p style="color:#666;padding:0 4px;font-size:11px;margin-bottom:6px;white-space: normal; clear:both;">
+                {{data.content}}</p>
+            </div>
+          </ion-item>
+        </ion-scroll>
+      </ion-list>
+      <div class="btnoption">
+        <a class="button  button-positive"
+           style="background:#19BEFE; width:40%;height:1%;border-radius: 8px;min-height:35px;line-height:35px;"
+           href="#/consult/me-doctor-search">找医生问</a>
+        <a class="button  button-positive"
+           style="background:#19BEFE; width:40%;height:1%;border-radius: 8px;min-height:35px;line-height:35px;"
+           href="#/consult/me-doctor-quick-consult">快速咨询</a>
+      </div>
+      <p class="consultpri">快速咨询：只需1元，我们为您匹配合适的专家解答疑惑，24小时快速响应。</p>
+      <p class="consultpri">找医生问：只需1元，找到想咨询的专家，向他提问，等待医生回复。</p>
+    </div>
+  </ion-content>
+  <!-- <ion-nav-view>fwaawfawfwfawfffw</ion-nav-view> -->
+</ion-view>

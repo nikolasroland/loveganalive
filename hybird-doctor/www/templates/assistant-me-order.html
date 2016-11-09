@@ -1,0 +1,42 @@
+<ion-view cache-view="false">
+    <ion-nav-title>
+        {{tit}}
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+                <div class="item-input-inset fr-tab">
+            <label class="item item-radio item-input-wrapper fr-tab-radio">
+                <input type="radio" name="status" ng-click="resizeScroll(status)" value="0" ng-model="status">
+                <div class="item-content">
+                    医生
+                </div>
+            </label>
+            <label class="item item-radio item-input-wrapper fr-tab-radio">
+                <input type="radio" name="status" ng-click="resizeScroll(status)" value="1" ng-model="status">
+                <div class="item-content">
+                    分级
+                </div>
+            </label>
+        </div>
+        <ion-list ng-if="status=='0'">
+            <a class="item item-avatar item-icon-right" href="#tab/assistant/me/order-list" ng-repeat="doctor in insuranceList.list" ng-click="viewOrder();">
+                <img ng-src="{{doctor.icon}}" />
+                <h2>{{doctor.realname}}医生的患友（{{doctor.count}}）</h2>
+                <i class="icon ion-ios-arrow-right positive"></i>
+            </a>
+        </ion-list>
+        <ion-list ng-if="status=='1'">
+            <a class="item item-avatar item-icon-right" href="#tab/assistant/me/order/{{assistant.userid}}/{{assistant.realname}}" ng-repeat="assistant in divList">
+                <img ng-src="{{assistant.icon}}" />
+                <h2>{{assistant.realname}} （订单数：{{assistant.orders}}）</h2>
+                <i class="icon ion-ios-arrow-right positive"></i>
+            </a>
+        </ion-list>
+        <div class="item item-image" ng-if="(status=='0' && insuranceList.list.length==0) || (status=='1' && divList.length==0)">
+            <img src="img/default.png">
+        </div>
+    </ion-content>
+</ion-view>

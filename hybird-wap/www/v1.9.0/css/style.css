@@ -1,0 +1,612 @@
+/* Empty. Add your own CSS if you like */
+
+body {
+    font-family: '微软雅黑';
+    cursor: url(../img/finger.png), auto;
+    background-color: #fff;
+}
+
+a {
+    cursor: url(../img/finger.png), auto;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: '微软雅黑';
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: '微软雅黑';
+}
+
+.bar .title.title-left {
+    left: 54px;
+}
+
+.bar .title {
+    font-size: 18px;
+}
+
+.bar.bar-positive {
+    border: 0;
+    background-color: #00a0e9;
+}
+/*微信端登陆注册*/
+/*首页*/
+
+.item-thumbnail-left.doctor-info {
+    min-height: 114px;
+    padding-left: 128px;
+}
+
+.wechat-home .item.item-thumbnail-left,
+.wechat-home .item.item-text-wrap {
+    background: transparent;
+    border: none;
+}
+
+.item-thumbnail-left.doctor-info>img {
+    border-radius: 50%;
+    border: #abcfdf 2px solid;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.doctor-info.item h2 {
+    color: #444;
+    font-size: 24px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+}
+
+.doctor-info.item p {
+    font-size: 16px;
+}
+
+.item-title {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.skill {
+    color: #0089c3;
+    border-left: #0089c3 4px solid;
+    background: #accfde;
+}
+
+.experience {
+    color: #00b616;
+    border-left: #00b616 4px solid;
+    background: #b1d6af;
+}
+
+
+.schedule {
+    color: #d98042;
+    border-left: #d98042 4px solid;
+    background: #e6ddac;
+}
+
+.comment {
+    background: #e7e7e7;
+    border:none;
+    padding:14px 16px;
+}
+
+.comment-item {
+    margin:0 20px;
+    border-width:0 0 1px 0;
+}
+
+.comment-name {
+    font-size:14px;
+    color:#aaa;
+}
+
+.item-con {
+    padding: 10px;
+}
+
+.item.col.schedule-title {
+    background: #00a0e9;
+    color: #fff;
+}
+
+.item.col {
+    border-color: #00a0e9;
+}
+
+.out-class {
+    background: #c5c5c5!important;
+}
+
+.in-class {
+    display: inline-block;
+    background: #01cf0b;
+    color: #fff;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.in-class.in-class-disabled {
+    background: #acacac;
+}
+
+.in-class.in-class-selected {
+    background: #ea7e24;
+}
+/*登陆页*/
+
+.login-form {
+    background: #fff;
+    padding: 20px 0;
+}
+
+.login-form .item-input {
+    padding: 6px 16px 5px;
+}
+
+.login-form .ver-code {
+    width: 100%;
+}
+
+.login-form .input-box {
+    background: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.button.button-positive.get-code {
+    width: 80px;
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    z-index: 3;
+}
+
+.login-form .button.button-block {
+    margin-top: 80px;
+}
+
+.button-wraper {
+    padding: 0 20px;
+}
+
+.login-form .item.item-input {
+    border-top: none;
+    border-bottom: 1px #eee solid;
+    margin-top: 1px;
+}
+
+.error,
+.reg-tips {
+    display: block;
+    color: #ff4342;
+    margin-top: 10px;
+}
+/*注册页*/
+
+.form-style.list-inset {
+    background: transparent;
+}
+
+.form-style .item-input {}
+
+.form-style .item-radio .radio-icon {
+    padding: 0;
+    left: 0;
+    top: -7px;
+    visibility: visible;
+}
+
+.form-style .item-radio .item-content {
+    padding: 0 27px 0 30px;
+}
+
+.form-style .ion-checkmark:before {
+    font-size: 21px;
+    color: #0c63ee;
+    content: "\f401";
+}
+
+.form-style .item.item-radio {
+    border: none;
+}
+
+.form-style .item-radio input:checked~.item-content {
+    background: transparent;
+}
+
+.form-style .item-radio input:checked~.radio-icon:before {
+    content: "\f400";
+}
+/*注册成功页*/
+
+.succ-page .doctor-photo {
+    border: #fff solid 5px;
+    width: 158px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+.succ-page .item {
+    border: none;
+}
+
+.succ-page .item p,
+.succ-page .item h2 {
+    font-size: 16px;
+    color: #008ec8;
+    margin: 10px 0 20px;
+}
+
+.succ-page .item h2 {
+    font-size: 24px;
+}
+/*微信端登陆注册*/
+
+.fr-tab {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.fr-tab-radio {
+    border: 0;
+    border-radius: 0;
+    background-color: inherit;
+    text-align:center;
+}
+
+.fr-tab-radio input~.item-content {
+    width:100%;
+    font-size: 15px;
+    padding: 0;
+    color: #000;
+    background-color: #fff;
+    height: 34px;
+    line-height: 32px;
+    padding: 0 16px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #fff;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.fr-tab-radio input:checked~.item-content {
+    color: #00a0e9;
+    border-color: #00a0e9;
+    background-color: #fff;
+}
+
+.fr-attention {
+    width: 178px;
+    margin: 0 auto;
+}
+
+.fr-item-radio {
+    border: 0;
+    border-radius: 0;
+    background-color: inherit;
+}
+
+.fr-item-radio input~.item-content {
+    font-size: 15px;
+    padding: 0;
+    color: #00a0e9;
+    background-color: #efefef;
+    height: 34px;
+    line-height: 32px;
+    padding: 0 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #00a0e9;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.fr-item-radio.first input~.item-content {
+    border-radius: 10px 0 0 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #00a0e9;
+}
+
+.fr-item-radio.last input~.item-content {
+    border-radius: 0 10px 10px 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #00a0e9;
+}
+
+.fr-item-radio input:checked~.item-content {
+    color: #fff;
+    background-color: #00a0e9;
+}
+
+.fr-border-top-blue {
+    border-top: 3px solid #97dfff;
+    /* margin-bottom: 10px; */
+}
+
+.fr-text-right {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: #484848!important;
+}
+
+.fr-button-bar-right {
+    position: absolute;
+    top: 32px;
+    right: 16px;
+    width: 146px;
+}
+
+.fr-button-bar-right>.button {
+    min-height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    padding: 0;
+}
+
+.patient-photo {
+    background-color: #75caf1!important;
+}
+
+.patient-photo>img {
+    border-radius: 50%;
+    border: #abcfdf 2px solid;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2)
+}
+
+.energized {
+    color: #ea7e24;
+}
+
+.stable {
+    color: #c8c3bd;
+}
+
+.item p.positive {
+    color: #75ace2;
+}
+
+.font-24 {
+    font-size: 24px!important;
+}
+
+.yellow {
+    color: #ffd823
+}
+
+.blue {
+    color: #00a0e9;
+}
+
+.fr-radio {
+    border: none;
+}
+
+.fr-radio input~.radio-icon:before {
+    content: "\f401";
+}
+
+.fr-radio input:checked~.radio-icon:before {
+    content: "\f400";
+}
+
+.fr-radio-icon {
+    padding: 0!important;
+    left: 0!important;
+    top: -7px!important;
+    visibility: visible!important;
+}
+
+.fr-radio-content {
+    padding: 0 27px 0 30px!important;
+    background: transparent!important;
+}
+
+.fr-button-circle {
+    border-radius: 50%;
+}
+
+.advisory .item.item-thumbnail-left,
+.advisory .item.item-text-wrap {
+    border: none;
+}
+
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index:100;
+}
+
+.fixed-bottom {
+    height: 174px;
+}
+/*我的收入*/
+
+.earning {}
+
+.earning .month-text {
+    color: #00a0e9;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 30px;
+}
+
+.earning .total {
+    background-color: #9bdaf7;
+    padding: 0 16px!important;
+    margin-bottom: 12px;
+    color: #7f7f7f;
+}
+
+.earning .total .total-money {
+    font-size: 18px;
+    color: #00950e;
+}
+
+.earning .amount {
+    background-color: #ffffff;
+    padding: 0 16px!important;
+}
+
+.earning .amount .amount-img {
+    width: 42px;
+    height: 42px;
+    margin: 0 6px;
+    font-size: 42px;
+    float: left;
+}
+
+.earning .line {
+    width: 100%;
+    height: 1px;
+    background-color: #c5c5c5;
+}
+
+.earning .vertical-line {
+    display: inline;
+    height: 48px;
+    width: 1px;
+    background-color: #86b2c6;
+}
+
+.point-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.point-view span {
+    position: relative;
+    display: inline-block;
+    margin-left: -50%;
+    background: #80f493;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.point-view span:after {
+    content: '';
+    border-style: solid;
+    border-color: #80f493 transparent transparent;
+    border-width: 6px;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -6px;
+}
+
+.paper-svg {
+    position: absolute;
+    height: 230px;
+    top: 0;
+    left: 0;
+}
+
+.gray {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+.empty-title {
+    font-size:16px;
+    color:#333;
+    margin:30px auto;
+    text-align:center;
+}
+/* datepicker */
+
+.color_blue {
+    color: rgb(56, 126, 245) !important;
+}
+
+.bg_color_blue {
+    background-color: rgb(56, 126, 245);
+}
+
+.date_col:hover {
+    background-color: rgba(56, 126, 245, 0.5);
+    cursor: pointer;
+}
+
+.date_col:active {
+    background-color: rgba(56, 126, 245, 1);
+    cursor: pointer;
+}
+
+.no_padding {
+    padding: 0;
+}
+
+.date_cell {
+    padding: 5px;
+}
+
+.error_msg {
+    color: #cc0000 !important;
+    font-size: 12px;
+}
+
+.date_selected {
+    background-color: rgba(56, 126, 245, 1);
+}
+
+.today {
+    background-color: rgba(186, 186, 186, 1);
+}
+/* datepicker end*/
+/*我的收入*/
+/* for android | ios */
+
+.tabs {
+    display:none;    
+}
+
+.bar-footer.has-tabs, .has-tabs {
+    bottom:0px;
+}
+
+.bar-footer.has-tabs, .has-tabs {
+    bottom:0px;
+}
+
+.has-header.has-tabs-top {
+    top:44px;
+}

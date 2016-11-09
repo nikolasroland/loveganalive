@@ -1,0 +1,28 @@
+<ion-view hide-nav-bar="true" view-title="详情" cache-view="false">
+    <ion-content id="container" style="background-color:#f1f1f1;">
+    	<div class="item item-image">
+    		<img ng-src="{{JAVA_URL + productDetail.productImg}}" />
+    	</div>
+    	<p style="margin:0px;padding:10px;color:#939393;">截至目前，已有<span style="color:#ff840c;">{{productDetail.sellQuantity}}</span>人订购了此服务</p>
+        <div id="remark" class="item item-text-wrap" ng-bind-html="productDetail.remark | to_trusted">
+        </div>
+    	<p style="margin:0px;padding:10px;color:#939393;background-color:#fff;">患者评价</p>
+		<ion-list>
+            <div class="item comment-item item-text-wrap" ng-repeat="list in commentList">
+                <span class="comment-name">{{list.patientNickName}}</span>
+                <span ng-star="list.eveluateStar"></span>
+                <p>{{list.eveluateContent}}</p>
+            </div>
+            <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+            </ion-infinite-scroll>
+        </ion-list>
+        <p style="margin:0px;padding:10px;color:#939393;text-align:center;" ng-if="commentList.length==0">—— 暂无评价 ——</p>
+        <div class="fixed-bottom" style="height:101px;"></div>
+    </ion-content>
+
+    <div class="fixed-footer">
+        <div class="item">
+            <button ng-click="reserve(productDetail.id, productDetail.productName, productDetail.mark, productDetail.productTypeCode)" class="button button-block button-positive">立即预定</button>
+        </div>
+    </div>
+</ion-view>

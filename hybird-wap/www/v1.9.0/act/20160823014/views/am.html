@@ -1,0 +1,95 @@
+<ion-view hide-nav-bar="true" view-title="印度之旅">
+    <ion-content id="amContent" class="main-page" style="background-color:#fff;">
+        <section>
+            <div class="thr1">
+                <strong>福瑞承诺：澳门1.98万，全程无加价</strong>
+                <p>包含预约澳门专家远程会诊、澳门医院挂号预约、12周的Natco生产的吉二代或12周的Natco生产的索非布韦、1年专业肝病医生随访、10万/年肝癌保险金等服务。</p>
+            </div>
+            <div class="stand center"><span>澳门丙肝治疗特色</span></div>
+            <div class="thr2">
+                <dl>
+                    <dt>
+                        <img src="./img/ico1.gif">
+                        <span>境内诊疗 无须出国&nbsp;<b>快速便捷</b></span>
+                        <div class="clear10"></div>
+                        <p>澳门专家远程会诊，澳门1天来回就诊拿药，中文交流，无障碍沟通。</p>
+                    </dt>
+                    <dd>
+                        <img src="./img/ico2.gif">
+                        <span>澳门医院药房拿药&nbsp;<b>正品保障</b></span>
+                        <div class="clear10"></div>
+                        <p>3个月的DAAs丙肝新药，澳门医院药房拿药，正品保障。</p>
+                    </dd>
+                    <dt>
+                        <img src="./img/ico3.gif">
+                        <span>1年肝病医生随访&nbsp;<b>康复保障</b></span>
+                        <div class="clear10"></div>
+                        <p>为期1年肝病医生后续指导，全程病情跟踪，专业健康管理。</p>
+                    </dt>
+                    <dd>
+                        <img src="./img/ico4.gif">
+                        <span>10万肝癌保险&nbsp;<b>安心保障</b></span>
+                        <div class="clear10"></div>
+                        <p>1年内患肝癌即获10万保障金，全方位的保障，更安心。</p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="stand center"><span>澳门丙肝治疗药物推荐</span></div>
+            <div class="item-pic outer-side-margin">
+                <img src="./img/res/sfbwaomen.png" alt="索非布韦">
+                <p><strong>药名：</strong>Hepcinat(sofasbuvir /索非布韦)</p>
+                <p><strong>适应症：</strong>丙型肝炎 1、2、3、4型</p>
+                <p><strong>药物用法：</strong>口服，一天一片</p>
+                <p><strong>治疗效果：</strong>最高可达95%</p>
+            </div>
+            <div class="item-pic-right outer-side-margin">
+                <img src="./img/res/jedaomen.png" alt="吉二代">
+                <p><strong>药名：</strong>Hepcinat-LP
+                    <br>(Ledipasvir&amp;Sofosbuvir/吉二代)</p>
+                <p><strong>适应症：</strong>成人慢性丙型肝炎(CHC) 1型患者(单药治疗)</p>
+                <p><strong>药物用法：</strong>口服，一天一片</p>
+                <p><strong>治疗效果：</strong>最高可达98%</p>
+            </div>
+            <div class="stand center"><span>澳门丙肝治疗方案</span></div>
+            <div class="center">
+                <img src="./img/res/amzl.png">
+                <p class="bg-gray"><small>来源丙肝防治指南（2015更新版）中华医学会肝病分会和感染病学分会权威发布官方文献</small></p>
+            </div>
+            <div class="stand center"><span>澳门治疗医院</span></div>
+            <div class="center">
+                <img src="./img/res/0f000aRbqVVY8-3Gq8MTrs.png">
+            </div>
+            <div class="stand center"><span>澳门丙肝专家</span></div>
+            <div class="center">
+                <img src="./img/res/0f0002sMjOK4BRfUNXP8N0.png">
+            </div>
+            <div class="stand center"><span>澳门服务明细</span></div>
+            <h5>整体费用：<span class="red">1.98万</span>人民币。</h5>
+            <p class="text-indent">服务费用包含协助赴澳门的远程会诊、预约门诊、专家VIP面诊、丙肝DAAs新药、随访服务等费用（明细见下表）。不包含患者自行去澳门的机票费以及在澳门产生的生活费及回国后的检查费用。</p>
+            <div class="center"><img src="./img/res/amfw.png"></div>
+            <div class="stand center"></div>
+            <div class="stand center"><span>澳门服务流程</span></div>
+            <div class="center"><img src="./img/res/pic-16.png"></div>
+            <div class="stand center"><span>澳门报名准备</span></div>
+            <h5>检查报告准备：</h5>
+            <div class="center"><img src="./img/res/amjc.png"></div>
+            
+        </section>
+        <div class="fixed-bottom" style="height:101px;"></div>
+    </ion-content>
+    <div class="fixed-footer">
+        <div class="item row" ng-if="!hasSigned">
+            <div class="col-50 padding">
+                <a href="tel:400-7791-122" ng-click="tel('400-7791-122')" class="button button-block button-assertive">电话咨询</a>
+            </div>
+            <div class="col-50 padding">
+                <button ng-click="signUp('am');" class="button button-block button-assertive">立即订购</button>
+            </div>
+        </div>
+        <div class="item row" ng-if="hasSigned">
+            <div class="col padding">
+                <a href="tel:400-7791-122" ng-click="tel('400-7791-122')" class="button button-block button-assertive">电话咨询</a>
+            </div>
+        </div>
+    </div>
+</ion-view>

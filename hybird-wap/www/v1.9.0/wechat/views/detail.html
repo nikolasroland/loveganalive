@@ -1,0 +1,25 @@
+<ion-view view-title="爱肝一生">
+    <ion-content class="main">
+        <h4 class="text-center">{{doctor.nickname}} 医生</h4>
+        <h4 class="text-center">邀请您加入爱肝一生治疗组</h4>
+        <form class="list login-form" name="loginForm" novalidate>
+            <label class="item item-input">
+                <input class="text-center" type="tel" ng-model="telphone" name="telphone" placeholder="手机号" ng-pattern="/^1[3-9]\d{9}$/" required>
+            </label>
+            <span class="error" ng-show="loginForm.telphone.$dirty && loginForm.telphone.$invalid">
+            <i class="ion-alert-circled"></i> 
+            <span ng-show="loginForm.telphone.$error.required">请输入手机号</span>
+            <span ng-show="loginForm.telphone.$error.pattern">请输入正确的手机号</span>
+            </span>
+            <div class="input-box">
+                <label class="item item-input">
+                    <input class="text-center ver-code" ng-model="code" name="code" type="text" placeholder="验证码" required>
+                </label>
+                <button class="button button-small button-positive get-code" ng-click="sendMsgCode(telphone)" ng-disabled="getCode || loginForm.telphone.$invalid">{{getCodeTxt}}</button>
+            </div>
+            <div class="button-wraper">
+                <button type="submit" ng-click="login(telphone, code)" ng-disabled="loginForm.$invalid" class="button button-block button-positive">加 入</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

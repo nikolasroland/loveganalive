@@ -1,0 +1,17 @@
+<ion-view view-title="病历详情">
+  <ion-content class="casereportDetailCon">
+        <ion-list>
+            <ion-item ng-repeat="item in caseReportItem" class="casereportDetailItem">
+            	<div style="background:#DEF1FF;width:100%;height:26px;padding:0;margin-bottom:10px;">
+            		<h2 style="color:#2D95D9;font-size: 16px;line-height:26px;padding-left:10px;">{{item.name}}</h2>
+            	</div>
+            	<div ng-if="item.name=='手动拍照'" ng-repeat="i in item.data">
+	            	<img  class="patientPhoto" ng-src="{{i[1].var}}" style="width:80px;height:80px;" onclick="scaleImg(this)"/>
+	            	<p class="casereportDetailch">{{i[0].var}}</p>
+            	</div>
+              <p class="casereportDetailp" ng-if="item.name=='所患疾病'"  ng-repeat="i in item.data" style="color:#A1A1A1;font-size: 14px;">{{i.name}}：{{i.var}}</p>
+              <p class="casereportDetailp" ng-if="item.name=='就诊日期'"  ng-repeat="i in item.data" style="color:#A1A1A1;font-size: 14px;">{{i.name}}：{{i.var}}</p>
+            </ion-item>
+        </ion-list>
+  </ion-content>
+</ion-view>

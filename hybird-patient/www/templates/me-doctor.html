@@ -1,0 +1,85 @@
+<ion-view hide-tabs="true" view-title="医生主页" style="">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-light" style="color:#387ef5" ng-click="unbindDoctor()" ng-if="patient.doctorId==doctor.userid">解绑医生</button>
+        <button class="button button-light" style="color:#387ef5" ng-click="goNative('bindDoctor', doctor)" ng-if="patient.auth && (patient.doctorId=='0' || patient.doctorId=='')">购买套餐</button>
+    </ion-nav-buttons>
+    <ion-content class="main advisory" style="background-color:#f4f4f4;">
+        <div class="item item-thumbnail-left doctor-info item-text-wrap no-lines">
+            <img ng-src="{{doctor.icon}}">
+            <h2>{{doctor.nickname}} <!-- <a style="float:right;padding:2px 8px;max-height: 24px;min-height: 24px;line-height: 18px;" class="button button-small button-positive" ng-click="rate(12, doctor.userid, doctor.nickname)">评价</a> --></h2>
+            <p>{{doctor.offices + doctor.profession}}</p>
+            <p>{{doctor.hospital}}</p>
+        </div>
+        <div class="item row no-padding" style="border-right:0;">
+            <div class="col ico-qrcode" ng-click="goQrcode()">二维码</div>
+            <div class="col ico-reward" ng-click="goReward()">打赏</div>
+        </div>
+        <div class="item text-center consulting" ng-if="patient.doctorId==doctor.userid">
+            <p>还剩{{doctor.consultation}}条咨询机会</p>
+        </div>
+        <div class="item info-title">
+            <h3>擅 长</h3>
+        </div>
+        <div class="item info-content item-text-wrap">
+            <p>{{doctor.adept}}</p>
+        </div>
+        <div class="item info-title">
+            <h3>职业经历</h3>
+        </div>
+        <div class="item info-content item-text-wrap">
+            <p>{{doctor.intro}}</p>
+        </div>
+        <div class="item info-title item-icon-right" ng-click="goNative('consultList', doctor.userid)">
+            <h3>在线咨询（{{doctor.answer.total}}）</h3>
+            <i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+        </div>
+        <div class="list" style="background-color:#fff;">
+            <div class="item comment-item item-text-wrap" ng-repeat="list in doctor.answer.list" ng-click="goNative('consultById', list.id)">
+                <h2>{{list.label}}<span class="item-note">{{list.create_time|date:'yyyy/MM/dd'}}</span></h2>
+                <p class="comment-name">{{list.content}}</p>
+            </div>
+            <p style="margin:0px;padding:10px;color:#939393;text-align:center;" ng-if="doctor.answer.list.length==0">—— 暂无咨询回复 ——</p>
+        </div>
+        <div class="item info-title item-icon-right" ng-click="goNative('articleList', doctor)">
+            <h3>文章发表（{{doctor.news.total}}）</h3>
+            <i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+        </div>
+        <div class="list" style="background-color:#fff;">
+            <a class="item comment-item" ng-repeat="list in doctor.news.list" href="{{stateName=='tab.doctor' ? '#/tab/me/article/'+list.id : '#/tab/home/article/'+list.id}}">
+                <h2>{{list.title}}</h2>
+                <p class="comment-name"><span class="comment-catname">{{list.catname}}</span><span class="comment-shownum">{{list.shownum}}次浏览量</span> <span class="item-note">{{list.time|date:'yyyy/MM/dd'}}</span></p>
+            </a>
+            <p style="margin:0px;padding:10px;color:#939393;text-align:center;" ng-if="doctor.news.list.length==0">—— 暂无文章 ——</p>
+        </div>
+        <div class="item info-title">
+            <h3>评价（{{comment.total}}条）</h3>
+        </div>
+        <div class="list" style="background-color:#fff;">
+            <div class="item comment-item item-text-wrap" ng-repeat="list in commentList">
+                <span class="comment-name">{{list.name}}</span>
+                <span ng-star="list.star"></span>
+                <p>{{list.content}}</p>
+            </div>
+            <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+            </ion-infinite-scroll>
+        </div>
+        <p style="margin:0px;padding:10px;color:#939393;text-align:center;" ng-if="comment.list.length==0">—— 暂无评价 ——</p>
+        <div class="fixed-bottom" style="height:44px;"></div>
+    </ion-content>
+    <div class="fixed-footer adv">
+        <div class="item row" ng-if="doctor.open_yuyue=='yes'">
+            <div class="col-50">
+                <button ng-click="consult()" class="button button-clear button-block">{{doctor.consultation>0? '咨 询': '付费咨询（' + price +'元）'}}</button>
+            </div>
+            <div class="col-50">
+                <a href="{{stateName=='tab.doctor' ? '#/tab/me/visit/'+doctor.userid : '#/tab/home/visit/'+doctor.userid}}" class="button button-clear button-block" style="border-left:1px solid #dedede;">预 约</a>
+            </div>
+        </div>
+        <div class="item" ng-if="doctor.open_yuyue=='no'">
+            <button ng-click="consult()" class="button button-clear button-block">{{doctor.consultation>0? '咨 询': '付费咨询（' + price +'元）'}}</button>
+        </div>
+    </div>
+</ion-view>

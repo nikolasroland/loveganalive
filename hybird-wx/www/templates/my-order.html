@@ -1,0 +1,15 @@
+<ion-modal-view view-title='订单'>
+	<ion-content>
+		<div class="bar bar-positive">
+			<ion-title>订单</ion-title>
+			<a  href='javascript:void(0)' class="icon ion-close" style='font-size:18px;color:#fff' ng-click='closeOrderModal()'></a>
+		</div>
+		<div class="item item-image">
+			<img src="../img/default.png" alt="">
+		</div>
+		<div class="item row" style='display:flex;justify-content: space-around;'>
+			<a href="#/my-consult-order" ng-click="closeOrderModal()" class="button  button-positive">返回咨询订单</a>
+			<a href="#/my-reserv-order" ng-click="closeOrderModal()" class="button  button-positive">返回预约订单</a>
+		</div>
+	</ion-content>
+</ion-modal-view>

@@ -1,0 +1,21 @@
+<ion-view cache-view="false" view-title="签约服务">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back"  ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a href="#/order" class="button button-clear">订单</a>
+    </ion-nav-buttons>
+    <ion-content id="mainContent" style="background-color:#f0eeea;">
+        <ion-list class="shop-list">
+            <div ng-repeat="item in list">
+                <ion-item class="item-avatar item-text-wrap item-button-right" ng-click="viewDetail()" style="padding-right:0;">
+                    <img ng-src="{{JAVA_URL + item.productImg}}" />
+                    <h2>{{item.productName}}</h2>
+                    <p>患者{{item.patientCount}}人</p>
+                    <button ng-click="manage()" class="button button-small button-positive" style="min-width:28px;min-height:30px;top:20px;line-height:26px;font-size:12px;padding:0 12px;">管理</button>
+                </ion-item>
+                <div class="line"></div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

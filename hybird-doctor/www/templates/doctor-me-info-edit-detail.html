@@ -1,0 +1,33 @@
+<ion-view view-title="个人信息">
+    <ion-content class="wechat-home" style="background-color:#f8f8f8;">
+        <ion-list>
+            <label class="item item-avatar-right item-icon-right" style="line-height:36px;" ng-click="changeAvatar()">
+                <img style="right:52px;" ng-src="{{doctor.icon}}" />
+                <span class="input-label">头像</span>
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+            </label>
+            <div class="line"></div>
+            <label class="item item-input jld-item-input">
+                <span class="input-label">姓名</span>
+                <input type="text" ng-model="doctor.realname" readonly="readonly" style="background-color:#fff;">
+            </label>
+            <div class="line"></div>
+            <label class="item item-input jld-item-input">
+                <span class="input-label">医院</span>
+                <input type="text" ng-model="doctor.hospital" readonly="readonly" style="background-color:#fff;">
+            </label>
+            <div class="line"></div>
+            <label class="item item-input jld-item-input">
+                <span class="input-label">科室</span>
+                <input type="text" ng-model="doctor.offices" readonly="readonly" style="background-color:#fff;">
+            </label>
+            <div class="line"></div>
+            <a class="item item-input jld-item-input item-icon-right" href="#/tab/doctor/me/edit/0" style="padding-right:44px;">
+                <span class="input-label">职称</span>
+                <input type="text" ng-model="doctor.profession" readonly="readonly" style="background-color:#fff;">
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+            </a>
+            <div class="line"></div>
+        </ion-list>
+    </ion-content>
+</ion-view>

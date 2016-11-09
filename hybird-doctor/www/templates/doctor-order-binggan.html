@@ -1,0 +1,39 @@
+<ion-view view-title="丙肝海外医疗">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="item-input-inset fr-attention" style="width:208px">
+            <label class="item item-radio item-input-wrapper fr-item-radio first">
+                <input type="radio" name="status" ng-click="resizeScroll()" value="00" ng-init="status='00'" ng-model="status">
+                <div class="item-content">
+                    订单列表
+                </div>
+            </label>
+            <label class="item item-radio item-input-wrapper fr-item-radio last">
+                <input type="radio" name="status" ng-click="resizeScroll()" value="01" ng-model="status">
+                <div class="item-content">
+                    产品介绍
+                </div>
+            </label>
+        </div>
+        <div class="list" ng-if="status=='00'">
+            <a class="item item-avatar item-text-wrap" style="margin-bottom:6px" ng-repeat="item in orderList">
+                <img src="./img/order-5-icon.png" style="left:6px;">
+                <p>订单：{{item.orderCode}}</p>
+                <p>订单日期：{{item.createDate | date: 'yyyy-MM-dd HH:mm:ss'}}</p>
+                <p>订单名称：{{item.proName}}</p>
+                <p>加入服务用户：{{item.insurancePeople}} </p>
+            </a>
+            <div class="item item-image" ng-if="hasLoaded && (orderList.length==0)">
+                <img src="img/default.png">
+            </div>
+        </div>
+        <div class="list" ng-if="status=='01'">
+            <div class="item item-image item-text-wrap text-center">
+                <img src="./img/binggan.png"/>
+                <p style="background-color:#f1f1f1;padding:12px;margin:4px;border-radius:5px;">提示：您每成功推荐一位丙肝患者参与福瑞丙肝海外医疗，您将获得2000元的咨询费及2000元的随访费！</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

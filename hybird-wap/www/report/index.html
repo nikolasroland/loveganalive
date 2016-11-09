@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="../lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <script src="js/utils.js"></script>
+    <!-- ionic/angularjs js -->
+    <script src="../lib/ionic/js/ionic.bundle.min.js"></script>
+    <script>
+    var JAVA_URL = 'http://manager.aiganyisheng.cn/';
+    </script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+</head>
+
+<body ng-app="starter">
+    <ion-pane ng-controller="MainCtrl">
+        <ion-header-bar  class="bar-stable item month text-center">
+            <button class="button button-small fr-button-circle icon ion-ios-arrow-left" ng-click="prevDay(curDate)"></button>
+            <span class="month-text" ng-bind="curDate"></span>
+            <button class="button button-small fr-button-circle icon ion-ios-arrow-right" ng-click="nextDay(curDate)" ng-disabled="end"></button>
+        </ion-header-bar >
+        <!-- <ion-header-bar class="bar-stable item-input-inset fr-tab">
+            <label class="item item-radio item-input-wrapper fr-tab-radio">
+                <input type="radio" name="type" ng-click="resizeScroll(1, doctor_page, doctor_hasMore)" value="1" ng-init="type='1'" ng-model="type">
+                <div class="item-content">
+                    医生
+                </div>
+            </label>
+            <label class="item item-radio item-input-wrapper fr-tab-radio">
+                <input type="radio" name="type" ng-click="resizeScroll(2, assistant_page, assistant_hasMore)" value="2" ng-model="type">
+                <div class="item-content">
+                    个管师
+                </div>
+            </label>
+        </ion-header-bar> -->
+        <ion-content zooming="true" direction="xy">
+            <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+            <!-- <div ng-show="type=='1'">
+                <div class="row" style="width: 1366px;border-bottom:1px solid #fff;margin-bottom:24px;">
+                    <div class="col">医生姓名</div>
+                    <div class="col">对应个管师</div>
+                    <div class="col">App总注册患者数</div>
+                    <div class="col">App总使用患者数</div>
+                    <div class="col">App当日注册患者数</div>
+                    <div class="col">App当日使用患者数</div>
+                    <div class="col">App总使用比注册率</div>
+                    <div class="col">App当日使用比注册率</div>
+                </div>
+                <div class="row" ng-repeat="item in doctor_rows" style="width: 1366px;">
+                    <div class="col" ng-bind="item.name"></div>
+                    <div class="col" ng-bind="item.assistant"></div>
+                    <div class="col" ng-bind="item.total_reg | number:0"></div>
+                    <div class="col" ng-bind="item.total_use | number:0"></div>
+                    <div class="col" ng-bind="item.today_reg | number:0"></div>
+                    <div class="col" ng-bind="item.today_use | number:0"></div>
+                    <div class="col"><span ng-bind="item.total_use / item.total_reg * 100 | number:1"></span><span>%</span></div>
+                    <div class="col"><span ng-bind="item.today_use / item.today_reg * 100 | number:1"></span><span>%</span></div>
+                </div>
+            </div> -->
+            <!-- <div ng-show="type=='2'"> -->
+            <div class="row" style="width: 768px;border-bottom:1px solid #fff;margin-bottom:24px;">
+                <div class="col">个管师姓名</div>
+                <div class="col">当日推荐数</div>
+                <div class="col">账号</div>
+                <div class="col">总推荐数</div>
+                <div class="col">总使用数</div>
+                <div class="col">当日注册数</div>
+                <div class="col">当日使用人数</div>
+                <div class="col">总使用比推荐率</div>
+                <div class="col">当日注册比推荐率</div>
+                <div class="col">当日使用比注册率</div>
+                <div class="col">当日使用比推荐率</div>
+            </div>
+            <div class="row" ng-repeat="item in assistant_rows" style="width: 768px;">
+                <div class="col" ng-bind="item.name"></div>
+                <div class="col">
+                    <span ng-model="item.today_rec" ng-bind="item.today_rec"></span>
+                        <button class="button button-small" ng-click="edit(item.name, curDate, item)">修改</button>
+                </div>
+                <div class="col" ng-bind="item.account"></div>
+                <div class="col" ng-model="item.recommendReg" ng-bind="item.total_use + item.today_rec"></div>
+                <div class="col" ng-bind="item.total_rec | number:0"></div>
+                <div class="col" ng-bind="item.today_reg | number:0"></div>
+                <div class="col" ng-bind="item.today_use | number:0"></div>
+                <div class="col"><span ng-model="item.totayRecommendReg" ng-bind="item.total_use / item.total_rec * 100 | number:1"></span><span>%</span></div>
+                <div class="col"><span ng-model="item.todayRegRecommend" ng-bind="item.today_reg / item.today_rec * 100 | number:1"></span><span>%</span></div>
+                <div class="col"><span ng-model="item.totayRate" ng-bind="item.today_use / item.today_reg * 100 | number:1"></span><span>%</span></div>
+                <div class="col"><span ng-model="item.todayUseRecommend" ng-bind="item.today_use / item.today_rec * 100 | number:1"></span><span>%</span></div>
+            </div>
+            <!-- </div> -->
+            <!-- <ion-infinite-scroll icon="ion-load-d" ng-if="hasMore()" on-infinite="loadMore()" distance="10%">
+            </ion-infinite-scroll> -->
+        </ion-content>
+    </ion-pane>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title>ABD活性因子</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/product-detail.css" />
+	</head>
+	<body style="background-color:#ddd;">
+			<!--header开始-->
+			<header style="background-color: #fff;">
+				<div class="headImg">
+					<img src="images/smallDAN.png" alt="" />
+				</div>
+				<nav>
+					<ul class="detail-inform-Bar">
+						<li>美源康富ABD活性因子</li>
+						<li>10g*30袋/盒</li>
+						<li>
+							<ul class="detail-inform">
+								<li>¥<span class="mony" style="color:#ef473a;">2388 元</span>/盒</li>
+								<li>
+									<span class="reduce">-</span>
+									<input type="number" id="number" value="1"/>
+									<!--<span id="number">1</span>-->
+									<span class="add">+</span>
+									<input type="hidden" id="zongjia" value="2388"/>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<!--header结束-->
+			<div class="tishi">
+				为保证此商品准确到货，请认真填写以下信息
+			</div>
+			<div class="detail-form" style="background-color: #fff;">
+				<div class="detail-input">
+					<label><i>*</i>手机号</label>
+					<input type="tel" placeholder="请填写收货人手机号" class="detail-tel"/><!--maxlength="5" -->
+				</div>
+				<div class="detail-input">
+					<label><i>*</i>姓名</label>
+					<input type="text" placeholder="请填写收货人姓名" class="detail-name" maxlength="5"/>
+				</div>
+				<div class="detail-input">
+					<label><i>*</i>收货地址</label>
+					<input type="text" placeholder="省、市、区、街道、楼牌号详细填写" class="detail-address" maxlength="50"/>
+				</div>
+				<div class="detail-input">
+					<label class="labelRem">推荐人</label>
+					<input type="text" readonly placeholder="hx12" class="detail-recommend"/>
+				</div>
+				<div class="detail-words">
+					<label class="labelRem">留言</label>
+					<textarea name="" rows="" cols="" placeholder="对本次交易的说明" class="detail-word" maxlength="120"></textarea>
+				</div>
+			</div>
+		</div>
+		<div style="height:44px"></div>
+		<div class="bottom" style="position: fixed;bottom: 0;background-color: #fff;width:100%;">
+			<ul style="margin:0;padding:0;">
+				<li style="width:50%;flex:1;">总金额:¥<span class="totalMony" style="color:#ef473a;">2388</span><span style="color:#ef473a;">.00</span></li>
+				<li class="pay" style="width:50%;">微信支付</li>
+			</ul>
+		</div>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script type="text/javascript" src="js/jquery-3.0.0.min.js" ></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/product-detail.js"></script>		
+		
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<ion-view view-title="复诊结果">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-positive" ng-click="viewHistory()">查看病历</button>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#e9e9e9;">
+        <div class="list card">
+            <div class="item item-divider" style="background-color:#fff;border-top:3px solid #47d9bf;line-height:36px;">结果指南</div>
+            <div class="item item-body">
+                <div wrap-line="result.resultJson"></div>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider" style="background-color:#fff;border-top:3px solid #ff8f35;line-height:36px;">
+                <h3>医生备注</h3>
+            </div>
+            <div class="item item-body">
+                <div wrap-line="result.doctorMessage"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

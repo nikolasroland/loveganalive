@@ -1,0 +1,19 @@
+<ion-view view-title="整体治疗阶段">
+    <ion-content style="background-color:#fff;">
+        <div class="item item-text-wrap" style="border:none;">
+            <p style="color:#dd8c56;">{{content}}</p>
+            <div style="height:20px;line-height:20px;border-radius:10px;box-shadow: 2px 2px 5px 1px rgba(64, 64, 64, .6) inset;margin-top:24px;">
+                <div style="background:url(img/progress.png) repeat;height:20px;line-height:20px;border-radius:10px;" ng-style="progress"></div>
+            </div>
+            <div class="row" style="padding:0;">
+                <div class="col" style="text-align:center;padding:0;" ng-repeat="row in table">
+                    <div class="btn-line" ng-class="{0:'btn-balanced', 1:'btn-calm', 2:'btn-positive'}[$index]"></div>
+                    <a class="button" href="#/tab/detail/{{row[0].phaseActionNo}}" ng-class="{0:'btn-balanced', 1:'btn-calm', 2:'btn-positive'}[$index]" style="min-width:39px;width:39px;padding:6px;line-height:18px;border-radius:8px;border:none;height:164px;">{{row[0].processPhase}}<i class="icon ion-ios-arrow-down"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="item item-image" style="border:none;">
+            <img src="img/india-bg.jpg" />
+        </div>
+    </ion-content>
+</ion-view>

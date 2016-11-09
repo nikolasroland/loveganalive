@@ -1,0 +1,35 @@
+<ion-view view-title="我的信息">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button" href="#/tab/me/doctor-info-edit/{{casemanager.userid}}">修改</a>
+    </ion-nav-buttons>
+    <ion-content class="wechat-home">
+        <div class="item item-thumbnail-left doctor-info item-text-wrap">
+            <img ng-src="{{casemanager.avatar}}">
+            <h2>{{casemanager.nickname}}</h2>
+            <p>{{casemanager.hospital}}</p>
+        </div>
+        <div class="item item-text-wrap">
+            <h3 class="item-title skill">简 介</h3>
+            <p class="item-con">
+                {{casemanager.brief}}
+            </p>
+        </div>
+        <div class="item comment">
+            <span>评价（{{comment.count}}条）</span>
+            <span ng-star="comment.avg"></span>
+            <span>{{comment.avg}}分</span>
+        </div>
+        <ion-list>
+            <div class="item comment-item item-text-wrap" ng-repeat="list in comment.list">
+                <span class="comment-name">{{list.name}}</span>
+                <span ng-star="list.star"></span>
+                <p>{{list.content}}</p>
+            </div>
+            <ion-infinite-scroll icon="ion-loading-c" ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%">
+            </ion-infinite-scroll>
+        </ion-list>
+    </ion-content>
+</ion-view>

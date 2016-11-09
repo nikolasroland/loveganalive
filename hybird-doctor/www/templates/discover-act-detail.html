@@ -1,0 +1,17 @@
+<ion-view hide-tabs="true" hide-back-button="true">
+    <ion-nav-title>
+        {{tit}}
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="frameHistoryBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button" ng-hide="isWeb" ng-if="detail.isShare==0 && detail.discoveryType!='01' && detail.discoveryType!='03'" ng-click="share(detail.discoveryType, tit, detail.subject, detail.introduction)">分享</button>
+    </ion-nav-buttons>
+    <ion-content scroll="true" overflow-scroll="true">
+        <div ng-if="detail.slideType!='01'" id="remark" class="item item-text-wrap" ng-bind-html="detail.remark | to_trusted">
+        </div>
+        <iframe id="discoverIframe" name="discoverIframe" ng-if="detail.slideType=='01'" ng-src="{{link}}" frameborder="0" style="width:100%;min-height:100%;"></iframe>
+        <div style="height:44px;" ng-if="isIOS"></div>
+    </ion-content>
+</ion-view>

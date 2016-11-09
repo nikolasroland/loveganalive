@@ -1,0 +1,19 @@
+<ion-view view-title="随访计划" cache-view="false">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon ion-ios-plus-empty" ng-click="addVisit()"></button>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#f4f4f4;">
+        <div class="list">
+            <div ng-repeat="visitlist in followupVisitTemplate">
+                <a class="item padding item-icon-right" ng-click="editVisit($index)">
+                {{visitlist.time}} 第{{cnnum[$index]}}次复诊 
+            		<i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+            	</a>
+                <div class="item item-text-wrap">
+                    <p><strong>检查内容：</strong>{{visitlist.content}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <button class="button button-block button-positive" ng-click="save()" style="position:fixed;bottom:0;left:0;margin:0;">保 存</button>
+</ion-view>

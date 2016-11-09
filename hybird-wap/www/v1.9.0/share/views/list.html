@@ -1,0 +1,18 @@
+<ion-view view-title="中秋征文排行榜">
+    <ion-content style="background-color:#e9e9e9;">
+        <div class="list">
+            <div ng-repeat="row in table.rows">
+                <a class="item card item-icon-right item-text-wrap" style="padding:8px;margin:3px;" href="#/tab/discover/act/{{row.id}}">
+                    <span style="color:#000" class="item-note"><i style="font-size:10px;" class="ion-ios-heart assertive"></i>{{row.praiseCount}} </span>
+                    <h2 style="font-weight:bolder;"><span style="color:#ff6666;">[{{$index+1}}]</span> {{row.title}}</h2>
+                    <p style="color:#000">{{row.introduction}}... </p>
+                    <span style="color:#aaa;font-size:14px;color:#000">作者：匿名</span>
+                    <span style="color:#000" class="item-note">查看全文»</span>
+                </a>
+            </div>
+        </div>
+        <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+        </ion-infinite-scroll>
+        <p class="empty-title" ng-if="table.rows.length==0">暂无任何内容</p>
+    </ion-content>
+</ion-view>

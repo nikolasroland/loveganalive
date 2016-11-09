@@ -1,0 +1,99 @@
+.act-p {
+    text-indent: 2em;
+}
+
+.act-yellow {
+    color: #ffe719;
+}
+
+.act-white {
+    color: #fff;
+}
+
+.act-align-center {
+    text-align: center;
+}
+
+.act-btn {
+    width: 90%;
+    min-height: 34px;
+    line-height: 34px;
+    padding: 0;
+    margin: 0 auto;
+    background-color: #f4b613;
+    color: #db3d1e!important;
+}
+
+.act-button-file {
+    border: 1px dashed #a0a0a0;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #ccc;
+    line-height: 22px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button.icon-top:before {
+    display: block;
+    font-size: 32px;
+    line-height: 44px;
+    color: #bbb;
+}
+
+.act-canvas {
+    height:100px;
+} 
+
+#picfile {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 82px;
+    height: 78px;
+    z-index: 2;
+    opacity: 0;
+}
+
+#imgzip {
+    border: 1px dashed #a0a0a0;
+    border-radius: 3px;
+    width: 82px;
+    height: 78px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.act-list {
+    height:100px;
+    background-color: #fff;
+}
+
+.act-radio {
+    float: left;
+    margin: 12px 4px 0 12px;
+    text-align: center;
+}
+
+.act-radio input[type=radio] {
+    display: none;
+}
+
+.act-radio input[type=radio] + .act-radio-content {
+    width:64px;
+    height:64px;
+    border:1px solid #bababa;
+    border-radius: 3px;
+    display: block;
+}
+.act-radio input[type=radio]:checked + .act-radio-content {
+    border:1px solid #1dc025;
+}

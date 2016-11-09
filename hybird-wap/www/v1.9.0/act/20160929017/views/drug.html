@@ -1,0 +1,66 @@
+<ion-view cache-view="false" view-title="开处方">
+    <ion-content style="background-color:#f1f1f1;">
+        <div class="list settle-list">
+            <div class="item row">
+                <div class="col">
+                    <p>药品名称</p>
+                </div>
+                <div class="col">
+                    <p>&nbsp;</p>
+                </div>
+                <div class="col">
+                    <p>{{drug.itemName}}</p>
+                </div>
+            </div>
+            <label class="item row" ng-repeat="item in drugList">
+                <div class="col">
+                    <p><input type="checkbox" name="prescriptionNumber" ng-model="info.prescriptionNumber[$index+1]" ng-value="item.prescriptionNumber" ng-if="item.prescriptionStatus=='00'"/> 第{{BigNo[$index]}}次</p>
+                </div>
+                <div class="col">
+                    <p>{{item.drugsCount}}盒</p>
+                </div>
+                <div class="col">
+                    <p>{{item.prescriptionStatus=='00' ? '未开' : '已开'}}</p>
+                </div>
+            </label>
+        </div>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">收件人</span>
+                <input maxlength="10" id='txt' name="insurancePeople" ng-model="info.insurancePeople" type="text" placeholder="请输入收件人姓名" />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">联系电话</span>
+                <input maxlength="15" name="insuranceMobile" ng-model="info.insuranceMobile" type="tel" placeholder="请输入收件人手机号" />
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">身份证号</span>
+                <input maxlength="18" name="insuranceIdCard" ng-model="info.insuranceIdCard" type="text" placeholder="您的身份证号" />
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">医保卡号</span>
+                <input maxlength="22" name="medicare" ng-model="info.medicare" type="text" placeholder="您的医保卡号" />
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">详细地址</span>
+                <textarea maxlength="140" name="insuranceAddress" style="width:70%" ng-model="info.insuranceAddress" cols="30" rows="2" placeholder="您的收货地址"></textarea>
+            </label>
+            <div id="picfilePrescription" class="item item-input act-canvas">
+                <input class="picfile" name="insurancePrescription" accept="image/*" capture="camera" type="file" />
+                <button class="button act-button-file icon-top ion-plus-round btnfile">上传处方</button>
+                <div class="imgzip" onclick="scaleImg(this)">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div style="height:72px;"></div>
+    </ion-content>
+    <div class="fixed">
+        <ion-item>
+            <button class="button button-block button-positive" ng-click="buy(info)">下单</button>
+        </ion-item>
+    </div>
+</ion-view>

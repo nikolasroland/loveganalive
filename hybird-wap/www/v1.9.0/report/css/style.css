@@ -1,0 +1,50 @@
+/* Empty. Add your own CSS if you like */
+body, .pane {
+    background-color:#161616;color:#fff;
+}
+
+.bar.bar-stable {
+    background-color: #161616;
+    color:#fff;
+}
+
+
+.fr-button-circle {
+    border-radius: 50%;
+    margin-top:-12px;
+}
+
+.fr-tab {
+    width: 100%;
+    margin: 0 auto;
+    background-color:#161616;color:#fff;
+}
+
+.fr-tab-radio {
+    border: 0;
+    border-radius: 0;
+    background-color: inherit;
+    text-align:center;
+}
+
+.fr-tab-radio input~.item-content {
+    width:100%;
+    font-size: 15px;
+    padding: 0;
+    color: #fff;
+    background-color: #161616;
+    height: 34px;
+    line-height: 32px;
+    padding: 0 16px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #161616;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.fr-tab-radio input:checked~.item-content {
+    color: #00a0e9;
+    border-color: #00a0e9;
+    background-color: #161616;
+}

@@ -1,0 +1,15 @@
+<ion-view cache-view="false" view-title="绑定患者签约">
+    <ion-content style="background-color:#f0eeea;">
+        <ion-list class="shop-list">
+            <div ng-repeat="item in list">
+                <ion-item class="item-avatar item-text-wrap item-button-right" ng-click="viewDetail()" style="padding-right:0;">
+                    <img ng-src="{{item.icon}}" />
+                    <h2>{{item.realname}}</h2>
+                    <p style="color:#387ef5">{{item.main_disease}}</p>
+                    <a href="#/qrcode/{{item.userid}}" class="button button-small button-positive" style="min-width:28px;min-height:30px;top:20px;line-height:26px;font-size:12px;padding:0 12px;">选择</a>
+                </ion-item>
+                <div class="line"></div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

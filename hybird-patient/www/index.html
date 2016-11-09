@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telphone=no,email=no,address=no"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <base href="/">
+    <title></title>
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/style.css?016" rel="stylesheet">
+    <link href="css/patient-style.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+    <script src="lib/ionic/js/angular/angular-local-storage.min.js"></script>
+    <script src="http://cdn.ronghub.com/RongIMLib-2.0.12.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- <script src="cordova.js"></script> -->
+    <!-- your app's js -->
+    <script src="js/app.js?016"></script>
+    <script src="js/controllers.js?016"></script>
+    <script src="js/directives.js?016"></script>
+    <script src="js/services.js?016"></script>
+    <script>
+   var JAVA_URL = 'http://testmanage.aiganyisheng.net/',
+        PHP_URL = 'http://testapi.aiganyisheng.net/',
+        WAP_URL = 'http://testwap.aiganyisheng.net/',
+        WX_URL = 'http://testwx.aiganyisheng.net/',
+        RY_KEY = '8luwapkvufjzl';
+   // var JAVA_URL = 'http://newmanage.aiganyisheng.cn/',
+   //     PHP_URL = 'http://api.aiganyisheng.cn/',
+   //      WAP_URL = 'http://wap.aiganyisheng.cn/',
+   //      WX_URL = 'http://wx.aiganyisheng.cn/',
+   //      RY_KEY = 'pkfcgjstfqim8';
+    </script>
+    <script src="js/utils.js?016"></script>
+</head>
+
+<body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar>
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</body>
+
+</html>

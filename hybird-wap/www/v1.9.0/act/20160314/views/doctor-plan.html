@@ -1,0 +1,54 @@
+<ion-view hide-nav-bar="true" view-title="制定方案">
+    <ion-content id="container" style="background-color:#f1f1f1;top:0;" has-header="false">
+        <div class="container">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <img class="control-icon" src="./img/icon-1.png" />
+                    <label for="inputPlanName" class="control-label">方案名称：</label>
+                    <div class="control-input">
+                       <input type="text" class="form-control" ng-model="plan.planName" id="inputPlanName" placeholder="请输入方案名称">
+                        <!-- <select id="inputPlanName" ng-model="plan.planName" ng-change="changePlan()">
+                            <option value="运动方案" selected='true'>运动方案</option>
+                            <option value="饮食方案">饮食方案</option>
+                            <option value="心理方案">心理方案</option>
+                            <option value="药物方案">药物方案</option>
+                            <option value="自定义">自定义</option>
+                        </select> -->
+                    </div>
+                </div>
+<!--                 <div class="form-group" ng-if="plan.planName=='自定义'">
+    <img class="control-icon" src="./img/icon-1.png" />
+    <label for="inputPlanName" class="control-label">自定义名称：</label>
+    <div class="control-input">
+       <input type="text" class="form-control" ng-model="plan.customPlanName" id="inputPlanName" placeholder="请输入方案名称">
+    </div>
+</div> -->
+                <div class="form-group">
+                    <img class="control-icon" src="./img/icon-2.png" />
+                    <label for="inputTime" class="control-label">有效时长：</label>
+                    <div class="control-input">
+                        <input type="text" class="form-control" ng-model="plan.movementTime" id="inputTime" placeholder="请输入有效时长">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <img class="control-icon" src="./img/icon-3.png" />
+                    <label for="inputStop" class="control-label">禁&#12288;&#12288;忌：</label>
+                    <div class="control-input">
+                        <textarea class="form-control" rows="3" ng-model="plan.taboo" id="inputStop" placeholder="请输入禁忌"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <img class="control-icon" src="./img/icon-4.png" />
+                    <label for="inputContent" class="control-label">内&#12288;&#12288;容：</label>
+                    <div>
+                        <textarea style="width:100%;" class="form-control" rows="12" ng-model="plan.planContent" id="inputContent" placeholder="请输入内容"></textarea>
+                    </div>
+                </div>
+                <div class="padding">
+                    <button type="button" ng-click="back()" class="button button-outline button-block button-positive">返回上一页</button>
+                    <button type="button" ng-click="savePlan(plan)" class="button button-block button-positive">保存方案</button>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

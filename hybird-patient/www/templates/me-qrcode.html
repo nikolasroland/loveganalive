@@ -1,0 +1,11 @@
+<ion-view hide-tabs="true" view-title="二维码">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#f4f4f4;">
+        <div style="text-align:center;position:relative;top:120px">
+            <img ng-src="{{qrcodeImg}}" style="width:64%" />
+            <p style="font-size:13px;color:#939393;margin-top:34px;">{{qrcodeDoctorName}}医生的二维码</p>
+        </div>
+    </ion-content>
+</ion-view>

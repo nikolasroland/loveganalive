@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+
+.code {
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    width: 40%;
+    height: 34px;
+    border: none;
+    margin-left: -20%;
+    font-family: arial;
+    font-size: 28px;
+    text-align: center;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -20%;
+}
+
+#tb {
+    position: absolute;
+    top: 65%;
+    color: #fff;
+    margin: 0 auto;
+    font-family: "微软雅黑";
+    width: 80%;
+    padding: 10%;
+}
+
+#money {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -20%;
+    font-family: "微软雅黑";
+    color: #fff220;
+}

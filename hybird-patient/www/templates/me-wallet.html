@@ -1,0 +1,24 @@
+<ion-view hide-tabs="true" view-title="明细">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <ion-list class="tab-list chat-list">
+            <div class="item item-icon-left item-complex" ng-repeat="recharge in rechargeList">
+                <div class="item-content" style="padding-right:16px;">
+                    <i class="amount-img icon ion-social-yen wallet-icon"></i>
+                    <span class="item-note">{{recharge.trade_type==0 ? '支出：' : '收入：'}}{{recharge.tradeAmount}} {{ticket}}</span>
+                    <a href="#/tab/me/order-detail/{{recharge.trade_code}}" ng-if="recharge.subject=='30'" class="item-note" style="clear:both;">查看详情</a>
+<!--                     <a href="{{WAP_URL}}v1.9.0/act/20160314/index003.html#/order/{{recharge.trade_code}}" ng-if="recharge.subject=='34'" class="item-note">查看详情</a> -->
+                    <h2>{{recharge.reason}} </h2>
+                    <p>{{recharge.createTime}}</p>
+                </div>
+            </div>
+        </ion-list>
+        <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+        </ion-infinite-scroll>
+        <div class="item item-image" ng-if="hasLoaded && rechargeList.length==0">
+            <img src="img/default.png">
+        </div>
+    </ion-content>
+</ion-view>

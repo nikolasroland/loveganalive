@@ -1,0 +1,14 @@
+<ion-view hide-tabs="true" view-title="肝病小知识">
+    <ion-nav-bar class="bar-positive" ng-if="noHeader">
+    </ion-nav-bar>
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button ng-hide="isWeb" class="button" ng-click="share()">分享</button>
+    </ion-nav-buttons>
+    <ion-content class="main" ng-style="noHeaderStyle">
+        <div id="remark" class="item item-text-wrap">
+        </div>
+    </ion-content>
+</ion-view>

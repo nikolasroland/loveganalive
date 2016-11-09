@@ -1,0 +1,34 @@
+<ion-view view-title="我的医生">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="item-input-inset fr-tab">
+            <label class="item item-radio item-input-wrapper fr-tab-radio">
+                <input type="radio" name="status" ng-click="resizeScroll()" value="00" ng-init="status='00'" ng-model="status">
+                <div class="item-content">
+                    医生
+                </div>
+            </label>
+            <label class="item item-radio item-input-wrapper fr-tab-radio">
+                <input type="radio" name="status" ng-click="resizeScroll()" value="01" ng-model="status">
+                <div class="item-content">
+                    患友群
+                </div>
+            </label>
+        </div>
+        <ion-list ng-show="status=='00'">
+            <div class="item item-avatar" ng-click="startChat(doctor.userid, doctor.nickname)" ng-repeat="doctor in doctorList">
+                <img ng-src="{{doctor.avatar}}" ng-click="viewInfo($event, doctor.userid)" />
+                <h2>{{doctor.nickname}}</h2>
+            </div>
+        </ion-list>
+        <ion-list ng-show="status=='01'">
+            <div class="item item-avatar" ng-click="startGroupChat(doctor.gid, doctor.nickname + '医生的患友群')" ng-repeat="doctor in userInDoctorList">
+                <img ng-src="{{doctor.avatar}}" ng-click="viewInfo($event, doctor.userid)" />
+                <h2>{{doctor.nickname}}医生的患友群</h2>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+<ion-view hide-tabs="true" view-title="选择成功">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <div class="list succ-page">
+            <div class="item item-text-wrap text-center">
+                <img class="doctor-photo" src="{{doctor.icon}}">
+            </div>
+            <div class="item item-text-wrap text-center">
+                <h2>{{doctor.nickname}}  已成为您的医生</h2>
+                <button class="button button-positive button-block" ng-click="changeDoctorSucc()">返回</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

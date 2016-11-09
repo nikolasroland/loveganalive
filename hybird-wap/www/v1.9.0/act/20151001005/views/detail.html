@@ -1,0 +1,14 @@
+<ion-view>
+    <ion-nav-title>
+        {{tit}}
+    </ion-nav-title>
+    <ion-content>
+        <div class="list">
+            <div class="item item-text-wrap" ng-class="{'done': item.done}" style="border:none;" ng-repeat="item in detail">
+                <div class="seq">{{$index+1}}</div>
+                <h2 class="tit">{{item.processStep}}<i class="icon ion-checkmark-round ico-right"></i></h2>
+                <div class="content" wrap-line="item.processStepDescribe"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

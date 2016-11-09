@@ -1,0 +1,30 @@
+<ion-view hide-nav-bar="true" view-title="印度之旅">
+    <ion-content id="payContent" style="background-color:#fff;" class="form-style">
+        <div class="item row no-border">
+            <div class="col step active" style="border:none;">
+                <p><span class="circle-num">1</span> 填写信息</p>
+            </div>
+            <div class="col step active" style="border:none;">
+                <p><span class="circle-num">2</span> 支付定金</p>
+            </div>
+            <div class="col step" style="border:none;">
+                <p><span class="circle-num">3</span> 提交成功</p>
+            </div>
+        </div>
+        <div class="item text-center no-border">
+            <h2>服务定金</h2>
+        </div>
+        <div class="item text-center no-border">
+            <h1>￥{{price | number:2}}</h1>
+        </div>
+        <div class="item item-text-wrap no-border">
+            <p>说明：支付定金后，客服人员将与您联系，收集病历，安排医生确定就诊日期！在就诊前还需要您线下支付尾款！</p>
+        </div>
+        <ion-item>
+            <button class="button button-positive button-block" ng-click="pay()" ng-disabled="!isAgree">在线支付</button>
+        </ion-item>
+        <div class="item text-center no-border">
+            <p><input type="checkbox" style="position:relative;top:2px;" ng-init="isAgree=true" ng-model="isAgree" /> <a href="#/terms/{{pos}}" style="color:#50a6dd;">支付定金表示已同意该服务条款</a></p>
+        </div>
+    </ion-content>
+</ion-view>

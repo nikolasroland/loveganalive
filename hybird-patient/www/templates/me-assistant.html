@@ -1,0 +1,50 @@
+<ion-view hide-tabs="true" view-title="我的个管师">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <div class="assistant" style="background:#f4f4f4;" ng-if="assistant.length!=0">
+         <ion-content class="main advisory" >
+        <div class="item item-thumbnail-left doctor-info item-text-wrap no-lines">
+            <img ng-src="{{assistant.icon}}">
+            <h2>{{assistant.nickname}}</h2>
+            <a style="float:right;padding:2px 8px;max-height: 24px;min-height: 24px;line-height: 18px;" class="button button-small button-positive" ng-click="rate(11, assistant.userid, assistant.nickname)">评价</a>
+            <p>{{assistant.hospital}}</p>
+        </div>
+        <div class="item item-text-wrap no-lines">
+            <h3 style="height:34px;line-height:34px;padding-left:12px;" class="item-title skill">简 介</h3>
+            <p class="item-con">
+                {{assistant.brief}}
+            </p>
+        </div>
+        <div class="item comment">
+            <span>评价（{{comment.total}}条）</span>
+            <!--             <span ng-star="comment.avg"></span>
+        <span>{{comment.avg}}分</span> -->
+        </div>
+        <ion-list>
+            <div class="item comment-item item-text-wrap" ng-repeat="list in commentList">
+                <span class="comment-name">{{list.name}}</span>
+                <span ng-star="list.star"></span>
+                <p>{{list.content}}</p>
+                <!--                 <div class="button-bar fr-button-bar-right" style="width:46px;" ng-if="patient.patientId==list.userid"> 
+    <button class="button button-clear button-assertive" ng-click='delComment(list.commentid, $index)'>删除</button>
+</div> -->
+            </div>
+            <p style="margin:0px;padding:10px;color:#939393;text-align:center;" ng-if="comment.list.length==0">—— 暂无评价 ——</p>
+            <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+            </ion-infinite-scroll>
+        </ion-list>
+        <div class="fixed-bottom" style="height:101px;"></div>
+    </ion-content>
+    <div class="fixed-footer">
+        <div class="item">
+            <button ng-click="startChat(assistant.userid, assistant.nickname)" class="button button-block button-positive">聊天</button>
+        </div>
+    </div>
+    </div>
+   
+    <div class="item item-image" style="width:100%; height:100%; background:#f4f4f4;margin-top:44px;" ng-if="assistant.length==0">
+        <img src="img/noassistant.jpg" alt="" style="width:auto; height:260px;">
+        <p>您暂时还没有个管师呢，请联系医生</p>
+    </div>
+</ion-view>

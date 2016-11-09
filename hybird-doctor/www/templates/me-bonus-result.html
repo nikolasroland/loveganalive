@@ -1,0 +1,25 @@
+<ion-view view-title="红包">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#f9f9f9;">
+        <div class="item item-image">
+            <img src="img/bonus.png" style="width:33%;border:none;border-radius:50%;background-color:#fff4e5;margin:20px 0 0 0;" />
+            <h2 style="margin:10px 0;" ng-if="showContent"><span style="color:#878787;font-size:12px;">{{content}}</span></h2>
+            <h2 style="margin:10px 0;" ng-if="!showContent"><span style="color:#878787;font-size:14px;">你抢到了 </span><span style="color:#f74c4c;font-size:36px;">{{money}}</span><span style="color:#878787;font-size:14px;"> 元</span></h2>
+        </div>
+        <div class="item" style="background-color:#f9f9f9;color:#a4a4a4;">
+            <p>红包领取记录</p>
+        </div>
+        <div class="list" style="background:#fff;border:1px solid #dadada;">
+            <div ng-repeat="record in recordList">
+                <div class="item item-avatar" style="border:none;">
+                    <img ng-src="{{record.userPortrait}}" style="border-radius:50%;">
+                    <span class="item-note" style="padding-top:10px;color:#a5a5a5;">{{record.amount}} 元</span>
+                    <h2 style="padding-top:10px;color:#a5a5a5;">{{record.userNickName}}</h2>
+                </div>
+                <div style="background-color:#dadada;height:2px;width:95%;float:right;"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

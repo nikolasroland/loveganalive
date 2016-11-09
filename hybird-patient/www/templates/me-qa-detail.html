@@ -1,0 +1,8 @@
+<ion-view hide-tabs="true" view-title="详情">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main" style="background-color:#EEEEEE">
+        <iframe width="100%" height="9999px" seamless frameborder="0" ng-src="{{location}}" ></iframe>
+    </ion-content>
+</ion-view>

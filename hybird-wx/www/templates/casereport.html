@@ -1,0 +1,9 @@
+<ion-view view-title="我的病历">
+    <ion-list class="casereportList">
+        <ion-item href="#/casereport-detail" ng-click="viewDetail()" ng-repeat="item in list" class="item-icon-right">
+            <span >{{item.title}}</span>
+            <i class="icon ion-chevron-right icon-accessory " style="float:right;"></i>
+            <span style="float: right;">{{item.time}}</span>
+        </ion-item>
+    </ion-list>
+</ion-view>

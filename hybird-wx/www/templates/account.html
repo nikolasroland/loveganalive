@@ -1,0 +1,15 @@
+<ion-view view-title="爱肝一生">
+    <ion-content style="background-color:#efeff4;">
+        <ion-list class="tab-list no-lines form-style">
+            <ion-item ng-if="loginState">
+                <button class="button button-block button-positive" ng-click="openLoginModal()">切换帐号</button>
+            </ion-item>
+            <ion-item ng-if="loginState">
+                <button class="button button-block button-positive" ng-click="logout()">登出帐号</button>
+            </ion-item>
+            <ion-item ng-if="!loginState">
+                <button class="button button-block button-positive" ng-click="openLoginModal()">登录</button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,24 @@
+<ion-modal-view>
+        <ion-content>
+            <ion-list class="tab-list no-lines">
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-ios-close-empty" style="color:#aaa;font-size:48px;" ng-click="closeRechargeModal()"></i>
+                </ion-item>
+                <ion-item class="login-avatar">
+                    <img src="./img/account.png" />
+                </ion-item>
+            </ion-list>
+            <ion-list class="tab-list no-lines padding list-inset">
+                <ion-item class="text-center">
+                    <h2>充值金额</h2>
+                </ion-item>
+                <ion-item class="item-input">
+                    <input class=" text-center" max="10000" min="0" style="padding-right:0;max-width:30%;margin:0 auto" type="number" ng-model="$root.rechargeMoney" placeholder="0.00 "><span style="position:absolute;right:25%; top:14px">元</span>
+                </ion-item>
+                <div class="login-line"></div>
+                <ion-item>
+                    <button class="button button-full button-positive" ng-click="$root.wxRecharge($root.rechargeMoney)">微信支付</button>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>

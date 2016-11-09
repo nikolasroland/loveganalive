@@ -1,0 +1,39 @@
+<ion-view hide-tabs="true" view-title="{{tit}}">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#e9e9e9;">
+        <div class="list card">
+            <div class="item item-divider" style="background-color:#24cde8;line-height:44px;color:#fff;">{{logic.subject}}</div>
+            <div class="item item-body item-text-wrap">
+                <ion-list ng-if="logic.isRet==0">
+                    <label class="item item-radio" ng-repeat="opt in logic.opts">
+                        <input type="radio" name="choice" ng-model="logic.choice" value="{{$index + 1}}">
+                        <div class="item-content" num-to-char="$index">
+                            {{opt}}
+                        </div>
+                        <i class="radio-icon ion-checkmark" style="color:#39d059;"></i>
+                    </label>
+                </ion-list>
+                <div wrap-line="logic.detail" ng-if="logic.isRet==1"></div>
+            </div>
+        </div>
+        <div class="fixed-bottom" style="height:101px;"></div>
+    </ion-content>
+    <div class=" fixed-footer">
+        <div class="item button-bar">
+            <button class="button button-stable" ng-click="prev()" ng-if="logic.titNum!=1">
+                上一题
+            </button>
+            <button class="button button-calm" ng-click="next()" ng-if="logic.isRet==0" ng-disabled="logic.choice==0">
+                下一题
+            </button>
+            <button class="button button-calm" ng-click="addReferralDate(logic.detail)" ng-if="logic.isRet==1">
+                添加复诊时间
+            </button>
+            <!-- <button class="button button-stable" ng-click="submit(setDate, logic.detail)" ng-hide="logic.isRet==0" ng-disabled="setDate<currDate">
+                提交
+            </button> -->
+        </div>
+    </div>
+</ion-view>

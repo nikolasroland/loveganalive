@@ -1,0 +1,231 @@
+html {
+  font-size: 100px;
+}
+html,
+body {
+  width: 100%;
+  margin: 0 auto;
+}
+header {
+  width: 100%;
+  height: .44rem;
+  line-height: .44rem;
+  background: black;
+}
+header h3 {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: .14rem;
+}
+.proSection {
+  width: 100%;
+  background: #f4f4f4;
+}
+.proSection .proTop {
+  width: 100%;
+  background: #fff;
+  margin-bottom: .1.8rem;
+}
+.proSection .proTop .proSectionImg {
+  width: 100%;
+  display: flex;
+}
+.proSection .proTop .proSectionImg img {
+  width: 100%;
+  margin: 0 auto;
+}
+.proSection .proTop .proSection-container {
+  margin-top: .12rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.proSection .proTop .proSection-container .proSenctionName .proName {
+  font-size: .15rem;
+  height: .20rem;
+  line-height: .20rem;
+}
+.proSection .proTop .proSection-container .proSenctionName .proNume {
+  font-size: .14rem;
+  height: .20rem;
+  line-height: .20rem;
+  color: #aaa;
+}
+.proSection .proTop .proSection-container .price {
+  text-align: right;
+  font-size: .17rem;
+  color: #ff4444;
+}
+.proSection .proTop .proDescription {
+  padding: .1rem;
+  font-size: .13rem;
+  color: #aaa;
+}
+.proSection .proDetail {
+  width: 100%;
+  background: #fff;
+  margin-top: .2rem;
+  margin-bottom: .2rem;
+}
+.proSection .proDetail h3 {
+  width: 55%;
+  text-align: center;
+  height: .44rem;
+  line-height: .44rem;
+  font-size: .16rem;
+}
+.proSection .proDetail .DetailImg {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  height: 1.2rem;
+}
+.proSection .proDetail .DetailImg img {
+  width: 30%;
+  height: .9rem;
+}
+.proSection .proDetail .DetailImg .DetailIp {
+  font-size: .13rem;
+  padding-right: .1rem;
+  color: #666;
+  line-height: .16rem;
+}
+.proSection .proAdvantage {
+  width: 100%;
+  background: #fff;
+  margin-top: .2rem;
+  padding-bottom: .1rem;
+}
+.proSection .proAdvantage h3 {
+  width: 50%;
+  text-align: center;
+  height: .44rem;
+  line-height: .44rem;
+  font-size: .16rem;
+}
+.proSection .proAdvantage .proAdvantageUl {
+  list-style-type: square;
+  margin: 0 .3rem;
+}
+.proSection .proAdvantage .proAdvantageUl li {
+  margin-right: .2rem;
+  font-size: .14rem;
+  line-height: .24rem;
+  list-style-type: square;
+  color: #666;
+  width: 100%;
+}
+.proSection .proEffect {
+  width: 100%;
+  background: #fff;
+  margin-top: .2rem;
+  padding-bottom: .1rem;
+}
+.proSection .proEffect h3 {
+  width: 50%;
+  text-align: center;
+  height: .44rem;
+  line-height: .44rem;
+  font-size: .16rem;
+}
+.proSection .proEffect .proOperation h4 {
+  font-size: .14rem;
+  margin-left: .2rem;
+  color: #2c8bd4;
+  line-height: .24rem;
+}
+.proSection .proEffect .proOperation .proOperationP {
+  color: #666;
+  font-size: .14rem;
+  padding: 0 .2rem;
+  line-height: .2rem;
+}
+.proSection .proEffect .proOperation .proOperationP span {
+  color: #FF0000;
+}
+.proSection .proEffect .proOperation .proOperationP .proOperationAfter {
+  margin-top: .1rem;
+}
+.proSection .proEffect .proRemit {
+  margin-top: .3rem;
+}
+.proSection .proEffect .proRemit .proOperationP .proRemitCon {
+  width: 100%;
+  margin-top: .07rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+.proSection .proEffect .proRemit .proOperationP .proRemitCon div {
+  color: #fff;
+  width: 1.5rem;
+  line-height: .2rem;
+  text-align: center;
+  height: .5rem;
+  border-radius: 5px;
+  background: #4ba8f0;
+  margin-right: .05rem;
+}
+.proSection .proEffect .proRemit .proOperationP .proRemitCon div p {
+  padding-top: .15rem;
+  height: .16rem;
+  line-height: .16rem;
+  text-align: center;
+}
+.proSection .proEffect .proRemit .proOperationP .proRemitConP {
+  margin-top: .07rem;
+  height: .4rem;
+  color: #fff;
+  border: 1px solid ;
+  border-radius: 5px;
+  background: #4ba8f0;
+  text-align: center;
+}
+.proSection .proEffect .proExtend {
+  margin-top: .3rem;
+}
+.proSection .proMethod {
+  width: 100%;
+  background: #fff;
+  margin-top: .2rem;
+  padding-bottom: .2rem;
+}
+.proSection .proMethod h3 {
+  width: 60%;
+  text-align: center;
+  height: .44rem;
+  line-height: .44rem;
+  font-size: .16rem;
+}
+.proSection .proMethod .proMethodI {
+  width: 100%;
+}
+.proSection .proMethod .proMethodI img {
+  width: 100%;
+}
+.proTel {
+  font-size: .15rem;
+  height: .45rem;
+  width: 100%;
+  background: #f4f4f4;
+  text-align: center;
+  line-height: .45rem;
+  color: #666;
+}
+.proTel a {
+  text-decoration: none ;
+  color: #666;
+}
+.proBuy {
+  height: .45rem;
+  width: 100%;
+  background: #4ba8f0;
+  font-size: .17rem;
+  text-align: center;
+  line-height: .45rem;
+}
+.proBuy a {
+  color: #fff;
+}

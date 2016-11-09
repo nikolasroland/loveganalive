@@ -1,0 +1,18 @@
+
+body {background-color: #fff; margin:0;}
+
+.header-img{ width:100%; }
+
+.content {background: url(../img/bg.png) no-repeat 100%; padding: 10px 20px;}
+
+p {font-size: 14px; color:#3f4746;}
+
+.control-btn-group {text-align: center;}
+.btn.btn-submit { padding:10px 48px; margin-bottom:32px; font-weight: bolder; font-size:14px; color:#fff; border-radius: 5px; background-color: #49e3d6; border:0; box-shadow:1px 1px 6px #49e3d6;} 
+
+.buy-content {
+	 margin: 10px 10px;
+	 padding: 10px 20px;
+	 background-color: #fff;
+	 border-radius: 5px;
+}

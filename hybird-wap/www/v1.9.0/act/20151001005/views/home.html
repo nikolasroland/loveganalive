@@ -1,0 +1,56 @@
+<ion-view hide-nav-bar="true" view-title="印度之旅">
+    <ion-content style="background-color:#fff;">
+        <div class="item item-image" style="border:none;">
+            <img src="img/pic-1.png" />
+        </div>
+        <div class="item item-image" style="border:none;">
+            <img src="img/pic-2.png" />
+        </div>
+        <div class="item item-image" style="border:none;">
+            <img src="img/pic-3.png" />
+        </div>
+        <div class="item item-image" style="border:none;">
+            <img src="img/pic-4.png" />
+        </div>
+        <!-- <div class="item item-image" style="border:none;" ng-click="scrollToMain()">
+            <img src="img/india-header.jpg" />
+        </div>
+        <div id="container" class="item item-text-wrap" style="border:1px solid #b5b5b5;border-radius:5px;margin:10px;">
+            <h2 style="color:#008a3e;">福瑞丙肝“快团”海外治疗项目介绍</h2>
+            <p style="text-indent:2em;color:#6c6c75;"> 丙肝现已成为仅次于乙肝的第二大病毒性肝炎，由于国内目前没有有效的治疗方案，治疗周期长，副作用大且治愈率并不理想。2013年欧美国家陆续上市了最新DAA抗病毒药物，针对丙肝1-6基因型治愈率可到90%以上甚至接近100%。但欧美国家治疗费用惊人昂贵。限于中国药品审查预计新药物2018年才可能在国内上市，且上市后药物价格可能居高不下等因素。为了让国内丙肝患者尽快享受到国际前沿治疗方案，重回健康人生。福瑞股份特推出丙肝海外治疗“快团”。 </p>
+            <p style="text-indent:2em;color:#6c6c75;">丙肝患者再次报名后，经过评估、签订协议、办理签证等手续，前往海外接受丙肝诊断，检查，治疗方案及处方，回国后由国内主治医生随访1年，指导用药跟踪病情变化。
+            </p>
+            <p style="color:#89ce56;">敬请点击申请/详细咨询：</p>
+            <p style="color:#89ce56;">福瑞丙肝“快团”：印度治疗项目3.8万/患者</p>
+            <p style="color:#89ce56;">福瑞高端丙肝治疗美国和日本治疗线路</p>
+            <div style="text-align:center;margin-top:36px;" ng-if="!hasSigned">
+                <button class="button button-energized button-small" style="width:128px;min-height:28px;line-height:28px;padding:0;margin:0 auto;background-color:#f89615;" ng-click="signUp();">我要报名</button>
+            </div>
+            <div style="text-align:center;margin-top:36px;" ng-if="hasSigned">
+                <a href="#/tab/status" class="button button-energized button-small" style="width:128px;min-height:28px;line-height:28px;padding:0;margin:0 auto;background-color:#f89615;">查看进度</a>
+            </div>
+        </div>
+        <div class="item item-image" style="border:none;">
+            <img src="img/india-bg.jpg" />
+        </div> -->
+        <div class="fixed-bottom" style="height:101px;"></div>
+    </ion-content>
+    <div class="fixed-footer">
+        <div class="item row" ng-if="!hasSigned">
+            <div class="col-50 padding">
+                <button ng-click="signUp();" class="button button-block button-assertive">我要报名</button>
+            </div>
+            <div class="col-50 padding">
+                <a href="tel:{{01084682800}}" ng-click="tel(01084682800)" class="button button-block button-assertive">电话咨询</a>
+            </div>
+        </div>
+        <div class="item row" ng-if="hasSigned">
+            <div class="col-50 padding">
+                <a href="#/tab/status" class="button button-block button-assertive">查看进度</a>
+            </div>
+            <div class="col-50 padding">
+                <a href="tel:{{01084682800}}" ng-click="tel(01084682800)" class="button button-block button-assertive">电话咨询</a>
+            </div>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view hide-nav-bar="true" view-title="服务列表">
+    <ion-content id="sanshengList" style="background-color:#f1f1f1;">
+        <div class="list">
+                <div class="item item-avatar item-text-wrap" style="margin-bottom:6px" ng-repeat="item in list">
+                    <img src="./img/icon.png">
+                    <p>订单：<a href="#/order/{{item.id}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{item.orderCode}}</a></p>
+                    <p>订单日期：{{item.createTime | date:"yyyy-MM-dd HH:mm:ss"}}</p>
+                    <button ng-disabled="item.btnDisabled" ng-if="item.paymentStatus=='00'" class="button button-small button-positive" style="position:absolute;top:60px;right:70px; padding:2px 12px;max-height:26px;min-height:26px;line-height:18px;" ng-click="pay(item.amount, item.orderCode, item.subjectName)">支付</button>
+                    <span ng-if="item.paymentStatus=='01'" class="item-note">已支付</span>
+                    <span ng-if="item.paymentStatus=='03'" class="item-note">已取消</span>
+                    <p>金额：{{item.amount | number:2}} 元</p>
+                    <button ng-disabled="item.btnDisabled" ng-if="item.paymentStatus=='00' && item.onlyDrug!='onlyDrug'" class="button button-small button-positive" style="position:absolute;top:60px;right:14px;padding:2px 12px;max-height:26px;min-height:26px;line-height:18px;" ng-click="cancel(item.orderCode)">取消</button>
+                </div>
+            </div>
+            <div class="padding">
+                <a type="button" href="{{'#/shop' + search}}" ng-click="enterShop()" class="button button-block button-positive">继续购买</a>
+            </div>
+    </ion-content>
+</ion-view>

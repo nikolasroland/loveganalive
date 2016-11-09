@@ -1,0 +1,51 @@
+<ion-view view-title="收货地址">
+    <ion-content id="container" style="background-color:#f1f1f1;top:0;" has-header="false">
+        <div ng-if="!isBuy">
+            <div class="list">
+                <label class="item item-input act-canvas">
+                    <input id="picfile" name="productImgFile" accept="image/*" type="file" />
+                    <button id="btnfile" class="button act-button-file icon-top ion-plus-round">上传处方</button>
+                    <div id="imgzip">
+                        <div></div>
+                    </div>
+                </label>
+            </div>
+            <div class="list act-list">
+                <label class="act-radio" ng-repeat="item in list">
+                    <input type="radio" name="productCode" ng-value="item.id" ng-model="$parent.productCode" ng-click="changePrice(item.price)" />
+                    <img class="act-radio-content" ng-src="{{JAVA_URL + item.productImg}}" />
+                    <span>{{item.productName}}</span>
+                </label>
+            </div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">收件人</span>
+                    <input id='txt' name="deliveryPeople" ng-model="deliveryPeople" type="text" placeholder="请与处方上姓名一致" />
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">联系电话</span>
+                    <input name="deliveryMobile" ng-model="deliveryMobile" type="tel" placeholder="您的手机号" />
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">详细地址</span>
+                    <textarea name="deliveryAddress" ng-model="deliveryAddress" cols="30" rows="2" placeholder="您的收货地址"></textarea>
+                </label>
+            </div>
+            <div class="padding">
+                <button type="submit" ng-click="saveProduct(deliveryPeople, deliveryMobile, deliveryAddress, productCode)" class="button button-block button-positive">确 认</button>
+            </div>
+            <div style="height:240px;"></div>
+        </div>
+        <div ng-if="isBuy">
+            <div class="list">
+                <label onclick="scaleImg(this)" class="item item-thumbnail-left item-text-wrap" style="margin-bottom:6px" ng-repeat="item in list">
+                    <img ng-src="{{JAVA_URL + item.deliveryRecipe}}">
+                    <h2>已预订：{{item.productName}}</h2>
+                    <p>收件人：{{item.deliveryPeople}}</p>
+                    <p>联系电话：{{item.deliveryMobile}}</p>
+                    <p>详细地址：{{item.deliveryAddress}}</p>
+                </label>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

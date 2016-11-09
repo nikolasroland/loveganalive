@@ -1,0 +1,53 @@
+<ion-view view-title="随访计划" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="confirmLeave()"></button>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#f4f4f4;">
+            <a class="item item-thumbnail-left card" href="#/tab/doctor/me/followup-child-plan/2/{{patientId}}" style="font-size:14px;min-height: 50px;line-height:50px;margin:8px 10px">
+                <img src="./img/follow1.png" alt="" style="width:40px;height:40px;margin-top:-3px;">
+                药物治疗方案
+                <span style="float:right;color:red" ng-if="!drugcure || drugcure=='null'">未添加</span>
+                <span style="float:right;color:#333" ng-if="drugcure && drugcure!='null'">已添加</span>
+            </a>
+             <a class="item item-thumbnail-left card" href="#/tab/doctor/me/followup-child-plan/1/{{patientId}}" style="font-size:14px;min-height: 50px;line-height:50px;margin:8px 10px">
+                <img src="./img/follow2.png" alt="" style="width:40px;height:40px;margin-top:-3px;">
+                营养方案
+                <span style="float:right;color:red" ng-if="!nutrition || nutrition=='null'">未添加</span>
+                <span style="float:right;color:#333" ng-if="nutrition && nutrition!='null'">已添加</span>
+            </a>
+             <a class="item item-thumbnail-left card" href="#/tab/doctor/me/followup-child-plan/4/{{patientId}}" style="font-size:14px;min-height: 50px;line-height:50px;margin:8px 10px">
+                <img src="./img/follow3.png" alt="" style="width:40px;height:40px;margin-top:-3px;">
+                运动方案
+                <span style="float:right;color:red" ng-if="!sports || sports=='null'">未添加</span>
+                <span style="float:right;color:#333" ng-if="sports && sports!='null'">已添加</span>
+            </a>
+            <a class="item item-thumbnail-left card" href="#/tab/doctor/me/followup-child-plan/5/{{patientId}}" style="font-size:14px;min-height: 50px;line-height:50px;margin:8px 10px">
+                <img src="./img/follow4.png" alt="" style="width:40px;height:40px;margin-top:-3px;">
+                心理方案
+                <span style="float:right;color:red" ng-if="!mental || mental=='null'">未添加</span>
+                <span style="float:right;color:#333" ng-if="mental && mental!='null'">已添加</span>
+            </a>
+            <a class="item item-thumbnail-left card" href="#/tab/doctor/me/followup-child-plan/3/{{patientId}}" style="font-size:14px;min-height: 50px;line-height:50px;margin:8px 10px">
+                <img src="./img/follow5.png" alt="" style="width:40px;height:40px;margin-top:-3px;">
+                复诊提醒及内容
+                <span style="float:right;color:red" ng-if="!visit || visit=='null'">未添加</span>
+                <span style="float:right;color:#333" ng-if="visit && visit!='null'">已添加</span>
+            </a>
+        <div class="item" style="border:none;background-color:#f4f4f4;">
+            <button ng-disabled="(!nutrition||nutrition=='null') || (!drugcure||drugcure=='null') || (!mental||mental=='null') || (!sports||sports=='null') || (!visit||visit=='null')" class="button button-block button-positive"  ng-click="save()" >创建随访计划</button>
+        </div>
+        <div class="item" style="border:none;background-color:#f4f4f4;">
+            <div style="height:1px;width:35%;background:#ccc;float:left;margin-top:14px;"></div>
+            <h3 style="width:30%;height:30px;border:1px solid #ccc;text-align: center;line-height:30px;float:left;border-radius: 5px;">随访说明</h3>
+            <div style="height:1px;width:35%;background:#ccc;float:left;margin-top:14px;"></div>
+        </div>  
+        <div class="item" style="border:none;background-color:#f4f4f4;">
+            <p style="line-height:26px;white-space: normal;font-size:12px;">
+                1、首先请选择适合患者的药物治疗方案；<br/>
+                2 、其次选择适合患者的营养、运动、心理方案；<br/>
+                3、最后根据患者的身体情况制定复诊的时间及相关的检查内容；<br/> 
+                4、药物、营养、运动、心理和复诊内容及时间缺一不可。
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

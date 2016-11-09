@@ -1,0 +1,12 @@
+<ion-view view-title="{{title}}">
+    <ion-content class="main">
+        <div class="list">
+            <a class="item item-icon-left" ng-repeat="detail in subjectDetail.list">
+            	<i class="{{icon}}"></i>
+                <h2>{{detail.reason}} {{detail.tradeAmount | number:2}} 元</h2>
+                <p>{{detail.createTime}}</p>
+            </a>
+        </div>
+        <p class="empty-title" ng-hide="subjectDetail.list.length>0">暂无任何记录</p>
+    </ion-content>
+</ion-view>

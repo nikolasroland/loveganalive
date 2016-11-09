@@ -1,0 +1,42 @@
+.casereportContent{
+	padding-left: 16!important;
+	padding-right: 0!important;
+}
+.casereportItem{
+	padding-right:0px!important;
+	font-family: "微软雅黑";
+}
+
+/*------------article样式--------------------*/
+
+.articleBrowse{
+	margin-right: 10px;
+	font-size: 14px;
+	color:#aaa
+}
+/*-----------casereport-detail------*/
+.casereportDetailItem{
+	padding-left: 0!important;
+	padding-right: 0!important;
+	padding-top: 0!important;
+}
+.casereportDetailIcon{
+	margin-left: 10px;
+	float: right;
+}
+.casereportDetailCon{
+	padding-left: 0!important;
+	padding-right: 0!important;
+}
+
+.casereportDetailp{ 
+	padding-left:10px; 
+	font-size: 14px;
+	}
+ .casereportDetailch{
+	font-size: 12px!important; 
+	color:#aaa!important;
+	padding-bottom:10px!important;
+	padding-left:10px!important; 
+	}
+	

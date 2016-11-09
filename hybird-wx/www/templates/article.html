@@ -1,0 +1,22 @@
+ <ion-view view-title="医生文章" cache-view="false">
+	<ion-content >	
+	  	<div class="list card" ng-repeat="row in table" style="margin:10px;">
+	        <div class="item item-body" style="padding:0 0 4px 0;">
+	            <a class="item item-avatar item-icon-right item-text-wrap" href="#/article-detail/{{row.id}}"  ng-click="historyBack()">
+	                <img style="width:48px; height:48px; border-radius:0;" ng-src="{{row.thumb}}" onerror="this.src='./img/logo.png'" src="./img/logo.png">
+	                <h3 style="padding:0 0 0 0px;margin-top:0px;margin-bottom:2px;">{{row.title}}</h3>
+	                <i class="articleBrowse">{{row.shownum}}次浏览量</i>
+	                <span class="item-note">{{row.inputtime*1000 | date:"yyyy-MM-dd"}}</span>
+	                <i class="icon stable ion-ios-arrow-right" style="font-size:16px;"></i>
+	            </a>
+	        </div>
+	    </div>
+	    <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active">
+	    	<i class="icon ion-loading-d icon-refreshing"></i>
+	    </ion-infinite-scroll>
+	    <div class="item item-image" ng-if="hasLoaded && table.length==0">
+	        <img src="img/default.png">
+	    </div>
+	</ion-content>
+</ion-view> 
+

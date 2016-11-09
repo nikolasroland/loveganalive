@@ -1,0 +1,23 @@
+<ion-view view-title="{{title}}">
+    <ion-content class="main">
+        <div ng-if="subject=='insurance'" class="list">
+            <div class="item item-icon-left" ng-repeat="detail in subjectDetail.list">
+            	<i class="{{icon}}"></i>
+                <p>订单号：<a href="#/tab/assistant/me/order-detail/{{detail.trade_code}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{detail.trade_code}}</a></p>
+                <p>{{detail.reason}} {{detail.tradeAmount | number:2}} 元</p>
+            </div>
+        </div>
+        <div class="list" ng-if="subject!='insurance'">
+            <a class="item item-icon-left" ng-repeat="detail in subjectDetail.list">
+                <i class="{{icon}}"></i>
+                <h2>{{detail.reason}} {{detail.tradeAmount | number:2}} 元</h2>
+                <p>{{detail.createTime}}</p>
+            </a>
+        </div>
+        <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+        </ion-infinite-scroll>
+        <div class="item item-image" ng-if="subjectDetail.list.length==0">
+            <img src="img/default.png">
+        </div>
+    </ion-content>
+</ion-view>

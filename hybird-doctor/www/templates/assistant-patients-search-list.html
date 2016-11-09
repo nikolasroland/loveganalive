@@ -1,0 +1,12 @@
+<ion-view view-title="患者列表">
+    <ion-content class="main">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+            <div class="item item-avatar" ng-click="startChat(patient.userid, patient.realname)" ng-repeat="patient in patientList.list">
+                <img ng-src="{{patient.icon}}" ng-click="viewReferral($event, patient.userid)" />
+                <h2>{{patient.realname}}（{{patient.nickname}}）</h2>
+                <p>{{patient.disease}}</p>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

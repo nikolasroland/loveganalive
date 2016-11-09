@@ -1,0 +1,78 @@
+<ion-view title="随访方案">
+	
+	<ion-nav-buttons side="left">	
+		
+		 
+		 <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+		
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right">
+        
+        <button class="flupJump">
+        	<a href="#/flupDetail/{{patientFlup.id}}">复诊记录</a>
+        </button>
+    </ion-nav-buttons>
+	<div >
+			
+		</div>
+	<ion-content class="flupContent">	
+		
+		<div class="patientPhoto">			
+			<div class="ion-ios-plus-outline patientPhotoButton">			
+			</div>
+            <input  type="file" class="info-upload-file" accept="image/*" style="top:14px;" capture="camera" custom-on-change="upload()">
+            <p >上传复诊检查结果</p>       	
+		</div>		
+		<div class="row patientRow">
+			<div class="col patientCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==0]" ng-click="state=0" ng-init="state=0">药物治疗</div>
+			<div class="col patientCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==1]" ng-click="state=1">营养</div>
+			<div class="col patientCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==2]" ng-click="state=2">运动</div>
+			<div class="col patientCol" ng-class="{true:'flup-active', false:'flup-unactive'}[state==3]" ng-click="state=3">心理</div>
+			<div class="col patientCol patientColNo" ng-class="{true:'flup-active', false:'flup-unactive'}[state==4]" ng-click="state=4">复诊提醒</div>
+		</div>
+		<div style="height:12px"></div>
+		<div class="item patientItem" ng-if="state=='0'">			
+			<div class="flexff">
+				{{patientFlup.drug}}
+			</div>				
+		</div>
+		<div class="item patientItem" ng-if="state=='1'">
+			<div class="flexff">
+				<div>
+					{{patientFlup.non_drug}}
+				</div>
+				<p><span>医生建议:</span><br/>{{patientFlup.non_drug_remark}}</p>
+			</div>
+		</div>
+		<div class="item patientItem" ng-if="state=='2'">
+			<div class="flexff">
+				<div>
+					{{patientFlup.sport}}
+				</div>
+				<p><span>医生建议:</span><br/>{{patientFlup.sport_remark}}</p>
+			</div>			
+		</div>
+		<div class="item patientItem" ng-if="state=='3'">
+			<div class="flexff">
+				<div>
+					{{patientFlup.mind}}
+				</div>
+				<p><span>医生建议:</span><br/>{{patientFlup.mind_remark}}</p>
+			</div>
+			
+		</div>
+		<div class="item  docItemVisit" ng-if="state=='4'">
+			<div class="flexff" ng-repeat="item in patientVisit">
+				<div class="patientVisit-title" >	
+					<h4>{{item.time}}&nbsp;&nbsp;第 {{$index+1}} 次复查</h4>
+				</div>
+				<div class="patientVisit-container">
+					<h4>检查内容：</h4>
+					<div>
+						{{item.content}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

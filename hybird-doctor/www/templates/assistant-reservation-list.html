@@ -1,0 +1,39 @@
+<ion-view view-title="预约提醒">
+    <ion-content class="main">
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="item-input-inset fr-attention">
+            <label class="item item-radio item-input-wrapper fr-item-radio first">
+                <input type="radio" name="status" ng-click="resizeScroll()" value="00" ng-init="status='00'" ng-model="status">
+                <div class="item-content">
+                    待确认
+                </div>
+            </label>
+            <label class="item item-radio item-input-wrapper fr-item-radio last">
+                <input type="radio" name="status" ng-click="resizeScroll()" value="01" ng-model="status">
+                <div class="item-content">
+                    已确认
+                </div>
+            </label>
+        </div>
+        <div class="list" ng-if="status=='00'">
+            <p class="empty-title">{{msg00}}</p>
+            <a class="item item-avatar" ng-repeat="reservation in reservationList.list | filter:{'status':'00'}">
+                <img ng-src="{{reservation.icon}}" ng-click="viewReferral($event, patient.userid)" >
+                <h2 class="energized">{{reservation.patientNickName}}</h2>
+                <p class="item-note">等待确认</p>
+                <p class="positive">疾病：{{reservation.disease}}</p>
+                <p class="positive fr-text-right">{{reservation.subscribeTime}}（{{reservation.week}}{{(reservation.amOrPm == '0' ? '上午' : '下午')}}）</p>
+            </a>
+        </div>
+        <div class="list" ng-if="status=='01'">
+            <p class="empty-title">{{msg01}}</p>
+            <a class="item item-avatar" ng-repeat="reservation in reservationList.list | filter:{'status':'01'}">
+                <img ng-src="{{reservation.icon}}" ng-click="viewReferral($event, patient.userid)" >
+                <h2 class="energized">{{reservation.patientNickName}}</h2>
+                <p class="item-note">已确认</p>
+                <p class="positive">疾病：{{reservation.disease}}</p>
+                <p class="positive fr-text-right">{{reservation.subscribeTime}}（{{reservation.week}}{{(reservation.amOrPm == '0' ? '上午' : '下午')}}）</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

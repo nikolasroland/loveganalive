@@ -1,0 +1,23 @@
+<ion-view hide-tabs="false" view-title="互动">
+    <ion-nav-buttons side="right">
+        <a ng-if="canReserve==1" class="button" href="#/tab/chat/visit">预约</a>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#ddd;">
+        <ion-list class="tab-list chat-list">
+            <ion-item ng-if="!loginState" class="text-center item-text-wrap" style="height:auto;" ng-click="openLoginModal()" >
+                <p>想与您的医生、个管师及患友群进行互动需要登录您的帐号哦</p>
+                <h2 class="button button-clear button-positive">点击登录</h2>
+            </ion-item>
+            <ion-item class="item-avatar" href="#/tab/chat/box/{{item.gid}}/{{item.name}}" ng-repeat="item in imGroupList">
+                <img ng-src="{{item.icon}}" />
+                <h2>{{item.name}}<span class="fr-note">（{{item.num}}人）</span></h2>
+                <p>&nbsp;</p>
+            </ion-item>
+            <ion-item class="item-avatar" href="#/tab/chat/box/{{item.userid}}/{{item.nickname}}" ng-repeat="item in imList">
+                <img ng-src="{{item.icon}}" />
+                <h2>{{item.nickname}}<span class="fr-note">（{{item.remark}}）</span></h2>
+                <p></p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view hide-tabs="true" cache-view="false">
+    <ion-nav-title>
+        海外医疗
+    </ion-nav-title>
+    <ion-content style="background-color: #e8e8e8">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="list">
+            <a class="item item-avatar item-text-wrap" href="#/tab/me/order-overseas-detail/{{item.orderCode}}" ng-click="viewDetail()" style="margin-bottom:6px" ng-repeat="item in list">
+                <img src="./img/order-5-icon.png" style="left:6px;">
+                <p>订单：{{item.orderCode}}</p>
+                <p>订单日期：{{item.createDate | date: 'yyyy-MM-dd HH:mm:ss'}}</p>
+                <p>订单名称：{{item.proName}}</p>
+            </a>
+            <div class="item item-image" ng-if="hasLoaded && list.length==0">
+                <img src="img/default.png">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

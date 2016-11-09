@@ -1,0 +1,34 @@
+<ion-view cache-view="false" view-title="开检查单">
+    <ion-content style="background-color:#f1f1f1;">
+        <div class="list settle-list">
+            <div class="item row">
+                <div class="col">
+                    <p>检查名称</p>
+                </div>
+                <div class="col">
+                    <p>&nbsp;</p>
+                </div>
+                <div class="col">
+                    <p>{{drug.itemName}}</p>
+                </div>
+            </div>
+            <label class="item row" ng-repeat="item in drugList">
+                <div class="col">
+                    <p><input type="checkbox" name="prescriptionNumber" ng-model="info.prescriptionNumber[$index+1]" ng-value="item.prescriptionNumber" ng-if="item.prescriptionStatus=='00'"/> 第{{BigNo[$index]}}次检查</p>
+                </div>
+                <div class="col">
+                    <p>&nbsp;</p>
+                </div>
+                <div class="col">
+                    <p>{{item.prescriptionStatus=='00' ? '未开' : '已开'}}</p>
+                </div>
+            </label>
+        </div>
+        <div style="height:72px;"></div>
+    </ion-content>
+    <div class="fixed">
+        <ion-item>
+            <button class="button button-block button-positive" ng-click="buy(info)">下单</button>
+        </ion-item>
+    </div>
+</ion-view>

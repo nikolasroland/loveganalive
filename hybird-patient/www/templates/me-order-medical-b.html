@@ -1,0 +1,49 @@
+<ion-view hide-tabs="true">
+    <ion-nav-title>
+        医事服务+
+    </ion-nav-title>
+    <div class="tabs-top discover-tabs">
+        <div class="tabs" ng-class="{true:ios-tabs, false:android-tabs}[isIOS]">
+            <ion-scroll direction="x" zooming="false" scrollbar-x="false">
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='all'}" ng-click="setActive('all')">
+                     全部
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='00'}" ng-click="setActive('00')">
+                     待支付
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='01'}" ng-click="setActive('01')">
+                     待发货
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='02'}" ng-click="setActive('02')">
+                     已发货
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='03'}" ng-click="setActive('03')">
+                     已取消
+                </a>
+            </ion-scroll>
+        </div>
+    </div>
+    <ion-content style="background-color: #e8e8e8">
+        <div style="height:36px;"></div>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="list tab-list">
+            <a class="item item-avatar item-text-wrap" href="#tab/me/order-medical-b-detail/{{item.order_code}}" style="margin-bottom:2px;" ng-repeat="item in list" ng-if="all||item.paymentStatus==status">
+                <img src="./img/insurance.png" style="top:16px;left:8px;">
+                <p>订单：{{item.order_code}}</p>
+                <p>订单日期：{{item.create_date | date:"yyyy-MM-dd HH:mm:ss"}}</p>
+                <span ng-if="item.paymentStatus=='00'" class="item-note">待支付</span>
+                <span ng-if="item.paymentStatus=='01'" class="item-note">待发货</span>
+                <span ng-if="item.paymentStatus=='02' && item.isEveluate=='1'" class="item-note">已评价</span>
+                <span ng-if="item.paymentStatus=='03'" class="item-note">已取消</span>
+                <p>已预订：{{item.pro_name}}</p>
+
+                <button ng-disabled="item.btnDisabled" ng-if="item.paymentStatus!='00' &&item.paymentStatus!='03' && item.operation_status=='00'" class="button button-small button-positive" style="position:absolute;top:60px;right:14px;padding:2px 12px;max-height:26px;min-height:26px;line-height:18px;" ng-click="joinIn(item.order_code, $event)">加入服务</button>
+
+                <button ng-disabled="item.btnDisabled" ng-if="item.operation_status!='00' && item.paymentStatus=='02' && item.isEveluate!='1'" class="button button-small button-positive" style="position:absolute;top:60px;right:14px;padding:2px 12px;max-height:26px;min-height:26px;line-height:18px;" ng-click="comment(item.order_code, $event)">评价</button>
+            </a>
+            <div class="item item-image" ng-if="hasLoaded && (list.length==0 || !all && !hasData[status])">
+                <img src="img/default.png">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

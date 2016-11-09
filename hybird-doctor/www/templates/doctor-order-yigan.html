@@ -1,0 +1,87 @@
+<ion-view view-title="乙肝医事服务+">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="item-input-inset fr-attention" style="width:208px">
+            <label class="item item-radio item-input-wrapper fr-item-radio first">
+                <input type="radio" name="status" ng-click="resizeScroll()" value="00" ng-init="status='00'" ng-model="status">
+                <div class="item-content">
+                    订单列表
+                </div>
+            </label>
+            <label class="item item-radio item-input-wrapper fr-item-radio last">
+                <input type="radio" name="status" ng-click="resizeScroll()" value="01" ng-model="status">
+                <div class="item-content">
+                    产品介绍
+                </div>
+            </label>
+        </div>
+        <div class="list" ng-if="status=='00'">
+            <a class="item item-avatar item-text-wrap" style="margin-bottom:2px;" ng-repeat="item in orderList">
+                <img src="./img/insurance.png" style="top:16px;left:8px;">
+                <p>订单：{{item.orderCode}}</p>
+                <p>订单日期：{{item.createTime | date:"yyyy-MM-dd HH:mm:ss"}}</p>
+                <span ng-if="item.paymentStatus=='01'" class="item-note">待发货</span>
+                <span ng-if="item.paymentStatus=='02' && item.isEveluate=='1'" class="item-note">已评价</span>
+                <span ng-if="item.paymentStatus=='03'" class="item-note">已取消</span>
+                <!-- <p>金额：{{item.amount | number:2}} 元</p> -->
+                <p>加入服务用户：{{item.insurancePeople}} </p>
+            </a>
+            <div class="item item-image" ng-if="hasLoaded && (orderList.length==0)">
+                <img src="img/default.png">
+            </div>
+        </div>
+        <div class="list" ng-if="status=='01' && isA">
+            <ion-item ng-if="!cloudshop" class="item-text-wrap" style="background-color:#ff6d6d;">
+                <p style=" color:#fff;">优惠信息：一次性购买6份（24周）及以上的乙肝基础服务立减100元；一次性购买12份（48周）及以上的乙肝基础服务立减200元。</p>
+            </ion-item>
+            <div class="list shop-list">
+                <div ng-repeat="item in shop.serviceProduct | filter:search">
+                    <ion-item class="item-avatar item-text-wrap">
+                        <img ng-src="{{JAVA_URL + item.productImg}}" />
+                        <span class="item-note" style="color:#0f91e4">￥{{item.price | number:2}}</span>
+                        <h2>{{item.productName}}</h2>
+                        <p>购买数：{{item.sellQuantity}}</p>
+                        <button ng-click="viewDetail()" class="button button-small button-assertive" style="min-width:28px;min-height:30px;line-height:26px;font-size:12px;padding:0 12px;float: right;top: -20px;">查看详情</button>
+                    </ion-item>
+                </div>
+            </div>
+            <div class="list shop-list" ng-class="{'gray': !canBuyDrug && amount==0}">
+                <div ng-repeat="item in shop.drugProduct">
+                    <ion-item class="item-avatar item-text-wrap">
+                        <img ng-src="{{JAVA_URL + item.productImg}}" ng-click="viewDetail()" />
+                        <span class="item-note" style="color:#0f91e4">￥{{item.price | number:2}} <span style="color:red;font-size:12px;">(线下支付)</span></span>
+                        <h2>{{item.productName}}</h2>
+                        <p>{{item.description}}</p>
+                        <button ng-click="viewDetail()" class="button button-small button-assertive" style="min-width:28px;min-height:30px;line-height:26px;font-size:12px;padding:0 12px;float: right;top: 0px;">查看详情</button>
+                    </ion-item>
+                </div>
+            </div>
+        </div>
+        <div class="list" ng-if="status=='01' && isB">
+            <div class="row text-center shop-tabs">
+                <div class="col" ng-class="{'active':pro.status=='all'}" ng-click="setActive('all')">
+                    <span>全部品类</span>
+                </div>
+                <div class="col" ng-class="{'active':pro.status=='00'}" ng-click="setActive('00')">
+                    <span>抗病毒</span>
+                </div>
+                <div class="col" ng-class="{'active':pro.status=='01'}" ng-click="setActive('01')">
+                    <span>抗纤维化</span>
+                </div>
+                <div class="col" ng-class="{'active':pro.status=='02'}" ng-click="setActive('02')">
+                    <span>双抗</span>
+                </div>
+            </div>
+            <div class="list shop-list">
+                <ion-item class="item-avatar item-text-wrap item-button-right" style="padding-right:0;" ng-repeat="item in list | filter:search">
+                    <img ng-src="{{JAVA_URL + item.productImg}}" />
+                    <h2>{{item.productName}}</h2>
+                    <p>服药周期：{{item.mark=='2'?'12周':item.mark=='1'?'4周':'1年'}}&#12288预定数：{{item.sellQuantity}}</p>
+                    <button ng-click="viewDetail()" class="button button-small button-assertive" style="min-width:28px;min-height:30px;line-height:26px;font-size:12px;padding:0 12px;">查看详情</button>
+                </ion-item>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

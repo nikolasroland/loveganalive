@@ -1,0 +1,31 @@
+<ion-view view-title="{{planList.catname}}" cache-view="false" style="background:#f4f4f4">
+	<ion-nav-button side='left'>
+		<button class="button button-clear icon ion-ios-arrow-back" ng-show='showHistoryBack' ng-click='historyBack()'></button>
+	</ion-nav-button>
+     <div class="tabs-top discover-tabs">
+        <div class="tabs" ng-class="{true:ios-tabs, false:android-tabs}[isIOS]" >
+            <ion-scroll zooming="false" direction="x">
+                 <span ng-repeat='item in planList.child' style="text-align: center;background:#fff;position: relative;overflow: visible;  box-shadow: 0 0 1px 1px #ccc;display:inline-block;min-width:70px;" ng-click="setActive($index)" >
+                <span style="padding:6px 15px;">{{item.catname}}</span>
+                 <!-- <span style="position: absolute;top:44px;left:43%;display:block;border-right:12px solid  transparent;border-left:12px solid  transparent;border-bottom:14px solid #fff;z-index:500" ng-show="selected==$index && list.length!=0"></span>  -->     </span> 
+            </ion-scroll>
+        </div>
+    </div>
+    <ion-content style="background-color:#f4f4f4;margin-top:40px;">
+        <ion-list>
+        	<div ng-repeat='list in list track by $index' style="margin:0 15px;" class="item-white">
+	        	<ion-item  class="item item-icon-right" style="padding:10px 0;text-indent: 1em;" ng-click="toggleSlide(group)" ng-class="{active: isMenuShown(group)}">
+	        		<span style="font-weight:bold;color:#2990d1">{{list.catname}}</span>
+	        		<i class="icon" ng-class="isMenuShown(group) ? 'ion-ios-arrow-up':'ion-ios-arrow-down'" style="font-size:16px;"></i>
+	        	</ion-item>
+				<ion-item ng-repeat="endlist in list.template_name" class="item item-accordion" style="border-top:none;height:40px;line-height:40px;background:#f4f4f4;padding:0;text-indent:2em;" ng-click="goEdit($index)" ng-show="isMenuShown(group)">
+					{{endlist.name}}
+	    		</ion-item>
+        	</div>
+        </ion-list>
+        <div class="item item-image" ng-if="planList.child.length==0" style="margin-top:-40px">
+        	<img src="./img/default.png" alt="">
+        </div>
+    </ion-content>
+</ion-view>
+

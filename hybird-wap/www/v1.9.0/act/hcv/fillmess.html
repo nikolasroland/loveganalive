@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telphone=no,email=no,address=no"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<script src="js/setFont.js"></script>
+    <div class="index-page">
+        <header class="index-head pr">
+            <span class="btn_back pa goback"></span>
+            <h3>医生填写信息</h3>
+        </header>
+        <div class="section-main" id="scroll-web">
+            <div class="messbox">
+                <form action="" >
+                    <div>
+                        <span class="nameicon"></span>
+                        <span class="fontcontent">姓名:</span>
+                        <input type="text" id="username" placeholder="请输入姓名">
+                    </div>
+                    <div>
+                        <span class="hosticon"></span>
+                        <span class="fontcontent">医院:</span>
+                        <input type="text" id="hostname" placeholder="请输入医院名称">
+                    </div>
+                    <div>
+                        <span class="officeicon"></span>
+                        <span class="fontcontent">科室:</span>
+                        <input type="text" id="department" placeholder="请输入科室名称">
+                    </div>
+                    <div>
+                        <span class="teleicon"></span>
+                        <span class="fontcontent">电话:</span>
+                        <input type="text" id="areacode" class="areacode" placeholder="区号">
+                        <b  style="font-size:.14rem; float:left; margin: 0 .12rem 0">--</b>
+                        <input type="text" id="telephone" class="telephone" placeholder="请输入号码">
+                    </div>
+                  <span class="mess-submit f30">提交</span>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery.touchSwipe.min.js"></script>
+<script src="js/iscroll.min.js"></script>
+<script src="js/base.js"></script>
+<script src="js/fill-mess.js"></script>
+</html>

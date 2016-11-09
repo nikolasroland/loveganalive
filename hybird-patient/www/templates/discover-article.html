@@ -1,0 +1,26 @@
+<ion-view hide-tabs="true" cache-view="false">
+    <ion-nav-title>
+        {{}}
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content scroll="true" overflow-scroll="true">
+        <div class="item text-center item-text-wrap">
+            <h2><strong>{{tit}}</strong></h2>
+        </div>
+        <div id="remark" class="item item-text-wrap" ng-bind-html="detail.info.content | to_trusted" style="border:none;line-height:24px;font-size:14px;">
+        </div>
+        <div class="item item-text-wrap">
+            <div style="position: relative;margin-top:24px;">
+                <div style="height:1px;position:absolute;top:22px;background-color:#ccc;width: 100%;"></div><span style="background-color:#fff;display: inline-block;z-index:10;position:relative;left:12px;top:14px;height:42px;font-size:14px;color:#ccc;">　阅读数：{{detail.info.shownum}} 次　</span><a ng-click="praise()" style="border-color:#ccc;width: 108px;color:#ccc;min-height: 32px;height: 32px;line-height: 32px;position:absolute;right: 0px;top: 6px;z-index:12;padding:0;" class="button button-light icon-left"><i id="iconHeart" class="icon ion-heart " ng-class="{'assertive': detail.praise=='yes'}" style="position: relative;top:-4px;"></i> 赞（<span id="num">{{detail.info.praisenum}}</span>）</a>
+                <div style="position:relative;height:1px;background-color:#ccc;margin:24px 0 8px 0;z-index:20"></div>
+                <!-- <div ng-if="detail.prev==''" style="position:relative"><span style="position:relative;top:14px;display:inline-block;padding:0 134px 24px 0">无</span><a style="border-color:#ccc;width: 108px;color:#ccc;min-height: 32px;height: 32px;line-height: 32px;position:absolute;right: 0px;top: 6px;z-index:12;border:none;background-color:#fff;" class="button button-light">上一篇</a></div>
+                <div ng-if="detail.prev!=''" style="position:relative"><a style="position:relative;top:14px;display:inline-block;padding:0 134px 24px 0" href="#/tab/discover/article/{{detail.prev.id}}">{{detail.prev.title}}</a><a style="border-color:#ccc;width: 108px;color:#ccc;min-height: 32px;height: 32px;line-height: 32px;position:absolute;right: 0px;top: 6px;" class="button button-light" href="#/tab/discover/article/{{detail.prev.id}}">上一篇</a></div>
+                <div style="height:1px;background-color:#ccc;margin:8px 0"></div>
+                <div ng-if="detail.next==''" style="position:relative"><span style="position:relative;top:14px;display:inline-block;padding:0 134px 24px 0">无</span><a style="border-color:#ccc;width: 108px;color:#ccc;min-height: 32px;height: 32px;line-height: 32px;position:absolute;right: 0px;top: 6px;z-index:12;border:none;background-color:#fff;" class="button button-light">下一篇</a></div>
+                <div ng-if="detail.next!=''" style="position:relative"><a style="position:relative;top:14px;display:inline-block;padding:0 134px 24px 0" href="#/tab/discover/article/{{detail.next.id}}">{{detail.next.title}}</a><a style="border-color:#ccc;width: 108px;color:#ccc;min-height: 32px;height: 32px;line-height: 32px;position:absolute;right: 0px;top: 6px;z-index:12;" class="button button-light" href="#/tab/discover/article/{{detail.next.id}}">下一篇</a></div> -->
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="咨询">
+    <ion-content class="main advisory">
+        <div class="item item-thumbnail-left doctor-info item-text-wrap">
+            <img ng-src="{{doctor.avatar}}">
+            <h2>{{doctor.nickname}}</h2>
+            <p>{{doctor.hospital}}</p>
+            <p>{{doctor.offices + doctor.profession}}</p>
+            <p>
+                <span ng-star="comment.avg"></span>
+                <span>{{comment.avg}}分</span>
+            </p>
+        </div>
+        <div class="list item-icon-left">
+            <a ng-click="startChat(doctor.userid, doctor.nickname)" class="item item-icon-left item-icon-right">
+                <i class="icon ion-chatbubble-working balanced"></i> 提问
+                <i class="icon ion-ios-arrow-right positive"></i>
+            </a>
+            <a ui-sref="tab.visit" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-time calm"></i> 预约加号
+                <i class="icon ion-ios-arrow-right positive"></i>
+            </a>
+            <a ui-sref="tab.reward" class="item item-icon-left item-icon-right">
+                <i class="icon ion-ios-heart assertive"></i>打赏医生
+                <i class="icon ion-ios-arrow-right positive"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

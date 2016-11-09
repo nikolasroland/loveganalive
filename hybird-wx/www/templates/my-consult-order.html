@@ -1,0 +1,13 @@
+<ion-view  view-title="我的咨询">
+    <ion-content id="payContent" style="background-color:#e9e9e9;">
+       <ion-list>
+           <ion-item href='{{item.status=="等待回复" ? "#/consult/my-consult-order-detail/" + item.id + "/waitting" : item.status=="已失效" ? "#/consult/my-consult-order-detail/" + item.id + "/failure" : "#/consult/my-consult-order-detail/" + item.id}}' ng-repeat="item in list" ng-click="viewDetail()">
+               <span class="item-note" style='color:#ff4400;margin-left:30px;'>{{item.status}}</span>
+               <h2>{{item.doctorname}} {{item.professsion}} {{item.hospital}}</h2>
+               <p>{{item.content}}</p>
+               <p style='font-size:10px;'>{{item.create_time | date:"yyyy-MM-dd HH:mm:ss"}}</p>
+               <i class="icon ion-ios-arrow-right" style='font-size:18px;position:absolute;right:5px;top:40%;color:#333' ></i>
+           </ion-item>
+       </ion-list>
+    </ion-content>
+</ion-view>

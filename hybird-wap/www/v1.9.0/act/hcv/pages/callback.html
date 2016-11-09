@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><a href="javascript: toHome()"></a></h1>
+<script>
+    window.onload = function () {
+        var e = location.search.substring(1);
+        var g = decodeURIComponent(e);
+        var h = g.split("&");
+        for (var c = 0, b = h.length; c < b; c++) {
+            var f = h[c];
+            var a = f.split("=");
+            localStorage.setItem(a[0], a[1])
+        }
+        toHome()
+    };
+    function toHome() {
+
+        location.replace("../join-act.html");
+    }
+    function toHome1() {
+        var c = localStorage.getItem("userType"), b;
+        if (c == 2) {
+            b = "doctor-page.html"
+        } else if (c == 3) {
+            b = "activity-content-patient.html"
+        } else {
+            b = "comeOn.html"
+        }
+        var a = b;
+        location.replace(a)
+    }
+</script>
+</body>
+</html>

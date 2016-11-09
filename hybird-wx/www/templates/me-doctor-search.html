@@ -1,0 +1,59 @@
+<ion-view hide-tabs="false" view-title="选择医生">
+   
+    <ion-content style="background-color: #ddd;">
+        <div class="list tab-list list-inset form-style" style="margin:0; padding-left:0;padding-right:0;">
+            <div class="item item-input-inset">
+                <label class="item item-radio doctor-search-radio">
+                    <input type="radio" name="searchType" value="name" ng-model="search.searchType" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0;padding:0">
+                        按姓名
+                    </div>
+                </label>
+                <label class="item item-radio doctor-search-radio">
+                    <input type="radio" name="searchType" value="hospital_name" ng-model="search.searchType" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0;padding:0">
+                        按医院
+                    </div>
+                </label>
+                <button class="button button-small button-positive" style="position:absolute; right:12px; top:6px;" ng-click="findCity(1)">按地区选择医生</button>
+            </div>
+            <div class="login-line"></div>
+            <div class="item item-input" style="padding-right:12px;">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" ng-model="search.filter" placeholder="请输入医生姓名或医院">
+                <button class="button button-small button-positive" ng-click="doRefresh()">
+                    搜索
+                </button>
+            </div>
+        </div>
+        <div class="list tab-list">
+            <ion-item class="item-avatar item-complex item-text-wrap" ng-repeat="item in doctorList">
+                <div class="item-content" style="padding-right:12px;">
+                    <img ng-src="{{item.icon}}" />
+                    <a href="#/consult/me-doctor-info/{{item.userid}}" style="clear: right;" class="button button-small button-positive item-note">选择医生</a>
+                    <h2>{{item.realname}} <span style="color:#aaa; font-size:14px;">({{item.profession}})</span></h2>
+                    <p>{{item.hospital}}</p>
+                </div>
+            </ion-item>
+            <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+            </ion-infinite-scroll>
+            <div class="item item-image" ng-if="hasLoaded && doctorList.length==0">
+                <img src="./img/default.png">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="modal-citys.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-content>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-ios-close-empty" style="color:#aaa;font-size:48px;" ng-click="closeCitysModal()"></i>
+            </ion-item>
+            <ion-item ng-click="findNext(item.id, item.level, item.hospital_id)" ng-repeat="item in cityList.list">
+                {{item.name}}
+            </ion-item>
+        </ion-content>
+    </ion-modal-view>
+</script>

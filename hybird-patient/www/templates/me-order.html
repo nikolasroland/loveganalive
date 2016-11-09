@@ -1,0 +1,50 @@
+
+<ion-view hide-tabs="true" view-title="我的订单">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content style="background-color: #f4f4f4">
+        <div class="row item text-center" style="border:0;padding:12px;margin:0;background-color: #f4f4f4">
+            <a class="order-img col item-image" href="#/tab/me/order-medical-a" ng-if="isA" style="text-decoration: none;">
+                <img src="./img/order-1.png" style="width:60%;" />
+                <p style="line-height:32px;text-decoration: none;">医事服务+</p>
+            </a>
+            <a class="order-img col item-image" href="#/tab/me/order-medical-b" ng-if="!isA" style="text-decoration: none;">
+                <img src="./img/order-1.png" style="width:60%;" />
+                <p style="line-height:32px;text-decoration: none;">医事服务+</p>
+            </a>
+            <a class="order-img col item-image" href="#/tab/me/order-reservation" style="text-decoration: none;">
+                <img src="./img/order-2.png" style="width:60%;" />
+                <p style="line-height:32px;text-decoration: none;">预约</p>
+            </a>
+        </div>
+        <div class="row item text-center" style="border:0;padding:12px;margin:0;background-color: #f4f4f4">
+            <a class="order-img col item-image" href="#/tab/me/order-challenge" style="text-decoration: none;">
+                <img src="./img/order-3.png" style="width:60%;" />
+                <p style="line-height:32px;text-decoration: none;">挑战脂肪肝</p>
+            </a>
+            <a class="order-img col item-image" ng-click="goNative('consultOrder')" style="text-decoration: none;">
+                <img src="./img/order-4.png" style="width:60%;" />
+                <p style="line-height:32px;text-decoration: none;">在线咨询</p>
+            </a>
+        </div>
+        <div class="row item text-center" style="border:0;padding:12px;margin:0;background-color: #f4f4f4">
+             <a class="order-img col item-image" href="#/tab/me/order-overseas" style="text-decoration: none;">
+                <img src="./img/order-5.png" style="width:60%;" />
+                <p style="line-height:32px;text-decoration: none;">海外医疗</p>
+            </a>
+            <a class="order-img col item-image" style="text-decoration: none;" ng-click="goNative('referralOrder')">
+              <img src="./img/order-6.png" style="width:60%">
+              <p style="line-height:32px;text-decoration: none;">转诊</p>
+            </a>
+        </div>
+        <div class="row item text-center" style="border:0;padding:12px;margin:0;background-color: #f4f4f4">
+             <a class="order-img col item-image" ng-click="goNative('consultation')" style="text-decoration: none;">
+                <img src="./img/order-7.png" style="width:60%;" />
+                <p style="line-height:32px;text-decoration: none;">会诊</p>
+            </a>
+            <a class="order-img col item-image" style="text-decoration: none;">
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

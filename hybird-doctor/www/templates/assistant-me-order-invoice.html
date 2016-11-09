@@ -1,0 +1,19 @@
+<ion-view cache-view="false" view-title="开具发票">
+    <ion-content class="main">
+        <div class="list" style="background-color:#fff;">
+            <label class="item item-input jld-item-input">
+                <span class="input-label small">发票抬头</span>
+                <input type="text" maxlength="30" ng-model="order.proInvoiceTitle" placeholder="请填写发票抬头" onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')">
+            </label>
+            <div class="jld-input-line"></div>
+            <label class="item item-input jld-item-input">
+                <span class="input-label small">发票金额</span>
+                <input type="number" ng-model="order.proInvoiceAmount" placeholder="请填写发票金额">
+            </label>
+            <div class="jld-input-line"></div>
+            <div class="item jld-item-input">
+                <a class="button button-block button-positive" ng-click="invoice(order.proInvoiceTitle, order.proInvoiceAmount)">提交申请</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

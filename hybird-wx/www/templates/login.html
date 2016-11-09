@@ -1,0 +1,23 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-modal-view view-title="登录">
+    <ion-content style="background: #f4f4f4;">
+        <div class="loginlogo">
+            <span style="color:#fff; font-size:20px;">登录</span>
+        </div>
+        <div class="phonebox">
+            <input class="phonenum" type="number" ng-maxlength="11" ng-minlength="11" placeholder="请输入手机号" ng-model='user.phone' required>
+            <button class="btn_getcode" ng-disabled="!paraevent" ng-click="checkPhone(user.phone,1)">{{tips}}</button>
+        </div>
+        <label for="" class="phonebox">
+            <input type="text" class="codenum" placeholder="请输入短信验证码" ng-model='user.code'>
+        </label>
+        <p class="login-tips">温馨提示：未注册爱肝一生的手机号，登录时将自动注册爱肝一生账号，且代表已同意<a ng-click="openAgreementModal()">《爱肝一生用户协议》</a>
+            <br/>如果您一直收不到验证码，请联系400-779-1122</p>
+        <button class="btn_login" ng-click="checkCode(user.phone,user.code)">验证并登录</button>
+    </ion-content>
+</ion-modal-view>

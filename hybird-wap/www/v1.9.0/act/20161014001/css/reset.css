@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  width: 100%;
+  font-size: 100px;
+}
+body {
+  width: 100%;
+  font-family: "微软雅黑" "agency fb" arial "arial black";
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+  overflow: hidden;
+}
+input {
+  outline: none;
+}

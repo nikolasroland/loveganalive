@@ -1,0 +1,80 @@
+<ion-view view-title="我的收入">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main earning">
+        <ion-list>
+            <div class="item month text-center">
+                <button class="button button-small fr-button-circle icon ion-ios-arrow-left" ng-click="prevMonth(month)"></button>
+                <span class="month-text">{{month}}</span>
+                <button class="button button-small fr-button-circle icon ion-ios-arrow-right" ng-click="nextMonth(month)" ng-disabled="end"></button>
+            </div>
+            <div class="item chat" style="height:263px;">
+                <!-- <div class="vertical-axis">
+                    <h2 class="quarter" style="top:{{$index / 4 * 100}}%" ng-repeat="quarter in quarters">{{quarter | number:0}}</h2>
+                </div> -->
+                <ion-scroll zooming="true" direction="x" style="height: 230px;">
+                    <svg class="paper-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style="width:{{svgWidth}}px" xml:space="preserve">
+                        <!-- 横线 -->
+                        <g>
+                            <path ng-repeat="a in [1,2,3,4,5]" d="M0,{{$index*40+0.5}} H{{svgWidth}}" fill="none" stroke-width="1" stroke-dasharray="3" stroke-opacity="0.15" stroke="#000"></path>
+                            <path d="M0,200.5 H{{svgWidth}}" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000"></path>
+                        </g>
+                        <!-- 竖线 -->
+                        <g ng-repeat="i in days">
+                            <path d="M{{$index*40+0.5}},0 V5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000" transform="translate(0,200)"></path>
+                            <path d="M{{$index*40+0.5}},0 V200.5" fill="none" stroke-width="1" stroke-dasharray="3" stroke-opacity="0.15" stroke="#000"></path>
+                        </g>
+                        
+                        <!-- y轴数值 -->
+                        <g transform="translate(5,0)" font-family="Verdana" font-size="11" opacity="1" fill="#000">
+                            <text y="-3" text-anchor="start" transform="translate(0,{{($index+1)*40+0.5}})" ng-repeat="quarter in quarters">{{quarter | number:0}}</text>
+                        </g>
+                        <!-- x轴数值 -->
+                        <g transform="translate(0,215)" font-family="Verdana" font-size="11" opacity="1" fill="#000">
+                            <text x="1" text-anchor="middle" transform="translate({{$index*40}},0)" ng-repeat="i in days">{{i}}</text>
+                        </g>
+                        <!-- 收入曲线 -->
+                        <path stroke="#1473d3" fill="#f0f7ff" fill-opacity="0" stroke-width="1" d="{{path}}" />
+                        <!-- 曲线背景 -->
+                        <path stroke="#1473d3" fill="#f0f7ff" fill-opacity="0.5" stroke-width="1" stroke-opacity="0" d="{{path}},200.5 L0,200.5" />
+                        <!-- 每天收入 -->
+                        <g>
+                            <circle ng-repeat="i in points" r="3" cx="{{points[$index].x}}" cy="{{points[$index].y}}" fill="#fff" stroke="#1473d3" fill-opacity="1" stroke-width="2" stroke-opacity="1" ng-click="showPoint($index, points[$index].x, points[$index].y)"></circle>
+                        </g>
+                    </svg>
+                    <div class="point-view" ng-show="pointShow" style="top:{{curPoint.top}}px;left:{{curPoint.left}}px"><span>{{curPoint.earning}}</span></div>    
+                    
+                </ion-scroll>
+            </div>
+            <div class="item total">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="total-money"> {{doctor.balances | number : 2}}</h2>
+                        <span>帐户余额（元）</span>
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div class="col">
+                    <h2 class="total-money"> {{curAmount | number : 2}} <span style="color:#7f7f7f;font-size:14px;">{{isSettlement}}<span></h2>
+                        <span>{{month}}月收入（元）</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item amount">
+                <div class="row">
+                    <a class="col amount-3" style="text-decoration: none;" href="#/tab/assistant/me/earning/insurance/{{month}}">
+                        <i class="amount-img icon ion-cube yellow"></i>
+                        <h2> {{subjectAmount.insurance | number : 2}}</h2>
+                        <p>订单（元）</p>
+                    </a>
+                    <div class="vertical-line"></div>
+                    <a class="col amount-4" style="text-decoration: none;" href="#/tab/assistant/me/earning/reward/{{month}}">
+                        <i class="amount-img icon ion-ios-heart assertive"></i>
+                        <h2> {{subjectAmount.reward | number : 2}}</h2>
+                        <p>打赏（元）</p>
+                    </a>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

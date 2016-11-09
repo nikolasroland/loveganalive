@@ -1,0 +1,21 @@
+<ion-view hide-tabs="true" view-title="我的订单">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <div class="list">
+            <a class="item item-avatar" href="{{service.productTypeCode!='04' && service.productTypeCode!='29' ? '#' : '#/tab/me/order-detail/' + service.orderCode}}" ng-repeat="service in serviceList">
+                <img ng-src="{{img(service.productId, service.productTypeCode)}}">
+                <span ng-if="service.productTypeCode!='04' && service.productTypeCode!='29'" class="item-note">{{service.price}} {{ticket}}</span>
+                <span ng-click="viewDetail()" ng-if="service.productTypeCode=='04' || service.productTypeCode=='29'" class="item-note">查看详情</span>
+                <h2>{{name(service.productId, service.productName)}}{{isIOS ? '' : ' X ' + service.productCount}}</h2>
+                <p>{{service.buyTime | date : 'yyyy-MM-dd'}} {{service.description}}</p>
+            </a>
+        </div>
+        <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+        </ion-infinite-scroll>
+        <div class="item item-image" ng-if="hasLoaded && serviceList.length==0">
+            <img src="img/default.png">
+        </div>
+    </ion-content>
+</ion-view>

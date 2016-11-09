@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>h5接口</title>
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Nav -->
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">h5接口</a>
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">患者端页面</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">首页-方案：#tab/home/plan</a>
+                            <a href="#" class="list-group-item">首页-复诊时间列表：#tab/home/referral</a>
+                            <a href="#" class="list-group-item">发现-活动：#tab/discover/act</a>
+                            <a href="#" class="list-group-item">发现-活动详情：#tab/discover/act/1</a>
+                            <a href="#" class="list-group-item">发现-游戏：#tab/discover/game</a>
+                            <a href="#" class="list-group-item">发现-游戏详情：#tab/discover/game/1</a>
+                            <a href="#" class="list-group-item">发现-医院：#tab/discover/hospital</a>
+                            <a href="#" class="list-group-item">发现-医院详情：#tab/discover/hospital/1</a>
+                            <a href="#" class="list-group-item">发现-知识：#tab/discover/knowledge</a>
+                            <a href="#" class="list-group-item">发现-知识详情：#tab/discover/knowledge/1</a>
+                            <a href="#" class="list-group-item">发现-药品：#tab/discover/medicine</a>
+                            <a href="#" class="list-group-item">发现-药品详情：#tab/discover/medicine/1</a>
+                            <a href="#" class="list-group-item">发现-故事：#tab/discover/story</a>
+                            <a href="#" class="list-group-item">发现-故事详情：#tab/discover/story/1</a>
+                            <a href="#" class="list-group-item">我-我的个管师：#tab/me/assistant</a>
+                            <a href="#" class="list-group-item">我-我的医生：#tab/me/doctor</a>
+                            <a href="#" class="list-group-item">我-根据id的医生详情：#tab/me/doctor-info/638</a>
+                            <a href="#" class="list-group-item">我-选择更换的医生详情：#tab/me/doctor-selected/638/true( true：首次选择医生，false：更换医生)</a>
+                            <a href="#" class="list-group-item">我-医生更换成功：#tab/me/succ/638</a>
+                            <a href="#" class="list-group-item">我-个人信息：#tab/me/info</a>
+                            <a href="#" class="list-group-item">我-常见问题：#tab/me/qa</a>
+                            <a href="#" class="list-group-item">我-常见问题详情：#tab/me/qa/1</a>
+                            <a href="#" class="list-group-item">我-我的预约：#tab/me/reservation</a>
+                            <a href="#" class="list-group-item">我-我购买的服务：#tab/me/service</a>
+                            <a href="#" class="list-group-item">我-帐户余额：#tab/me/wallet</a>
+                            <a href="#" class="list-group-item">IM-打赏医生：#tab/me/reward</a>
+                            <a href="#" class="list-group-item">IM-打赏个管师：#tab/me/reward/1</a>
+                            <a href="#" class="list-group-item">IM-预约加号：#tab/me/visit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">患者端JS通信</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">Auth：('getAuth', [prefix])</a>
+                            <a href="#" class="list-group-item">友盟：('umengLog', [id, key, value])</a>
+                            <a href="#" class="list-group-item">充值：('recharge', [])</a>
+                            <a href="#" class="list-group-item">分享：('share', [url])</a>
+                            <a href="#" class="list-group-item">打分：('rate', [modeid, userid, nickname])</a>
+                            <a href="#" class="list-group-item">修改昵称：('updatePatientName', [nickname, realname])</a>
+                            <a href="#" class="list-group-item">首次选择医生：('selectDoctor', [userid])</a>
+                            <a href="#" class="list-group-item">更换医生：('changeDoctor', [])</a>
+                            <a href="#" class="list-group-item">更换医生成功：('changeDoctorSucc', [])</a>
+                            <a href="#" class="list-group-item">返回IM：('goBack', [])</a>
+                            <a href="#" class="list-group-item">返回上一页：('historyBack', [])</a>
+                            <a href="#" class="list-group-item">加入治疗方案/更换治疗方案：('joinInPlan', [nativeDate])</a>
+                            <a href="#" class="list-group-item">更新复诊时间：('updateReferralDate', [nativeDate])</a>
+                            <a href="#" class="list-group-item">分享二维码：('shareQRCode', [imgUrl, doctorUrl, doctorName, doctorIcon])</a>
+                            <a href="#" class="list-group-item">操作日志：('html5Log', ['positionCode', 'EventCode'])</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">医生端页面</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">患者-患者列表：#tab/doctor/patients</a>
+                            <a href="#" class="list-group-item">预约-预约列表：#tab/doctor/reservation</a>
+                            <a href="#" class="list-group-item">我-个人信息：#tab/doctor/me/info</a>
+                            <a href="#" class="list-group-item">我-根据id查看医生详情：#tab/doctor/me/info/638</a>
+                            <a href="#" class="list-group-item">我-我的个管师：#tab/doctor/me/assistant</a>
+                            <a href="#" class="list-group-item">我-出诊设置：#tab/doctor/me/visit</a>
+                            <a href="#" class="list-group-item">我-我的收入：#tab/doctor/me/earning</a>
+                            <a href="#" class="list-group-item">我-常见问题：#tab/doctor/me/qa</a>
+                            <a href="#" class="list-group-item">我-患者复诊时间列表：#tab/doctor/me/referral/5543</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">医生端JS通信</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">Auth：('getAuth', [prefix])</a>
+                            <a href="#" class="list-group-item">友盟：('umengLog', [id, key, value])</a>
+                            <a href="#" class="list-group-item">聊天：('startChat', [id, name])</a>
+                            <a href="#" class="list-group-item">查看病历：('viewHistory', [id])</a>
+                            <a href="#" class="list-group-item">返回上一页：('historyBack', [])</a>
+                            <a href="#" class="list-group-item">分享二维码：('shareQRCode', [imgUrl, doctorUrl, doctorName, doctorIcon])</a>
+                            <a href="#" class="list-group-item">操作日志：('html5Log', ['positionCode', 'EventCode'])</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">个管师端页面</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">患者-患者列表：#tab/assistant/patients</a>
+                            <a href="#" class="list-group-item">预约-预约列表：#tab/assistant/reservation</a>
+                            <a href="#" class="list-group-item">我-个人信息：#tab/assistant/me/info</a>
+                            <a href="#" class="list-group-item">我-根据id查看医生详情：#tab/assistant/me/info/638</a>
+                            <a href="#" class="list-group-item">我-我的医生：#tab/assistant/me/doctors</a>
+                            <a href="#" class="list-group-item">我-我的收入：#tab/assistant/me/earning</a>
+                            <a href="#" class="list-group-item">我-常见问题：#tab/assistant/me/qa</a>
+                            <a href="#" class="list-group-item">我-患者复诊时间列表：#tab/assistant/me/referral/5543</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">个管师端JS通信</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">Auth：('getAuth', [prefix])</a>
+                            <a href="#" class="list-group-item">友盟：('umengLog', [id, key, value])</a>
+                            <a href="#" class="list-group-item">聊天：('startChat', [id, name])</a>
+                            <a href="#" class="list-group-item">群组聊天：('startGroupChat', [id, name])</a>
+                            <a href="#" class="list-group-item">查看病历：('viewHistory', [id])</a>
+                            <a href="#" class="list-group-item">返回上一页：('historyBack', [])</a>
+                            <a href="#" class="list-group-item">分享二维码：('shareQRCode', [imgUrl, doctorUrl, doctorName, doctorIcon])</a>
+                            <a href="#" class="list-group-item">操作日志：('html5Log', ['positionCode', 'EventCode'])</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

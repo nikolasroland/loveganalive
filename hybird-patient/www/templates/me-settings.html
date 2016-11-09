@@ -1,0 +1,28 @@
+<ion-view hide-tabs="false" view-title="设置与帮助">
+    <ion-content style="background-color:#efeff4;">
+        <ion-list class="tab-list">
+            <ion-item class="item-avatar item-icon-right item-complex">
+                <div class="item-content">
+                    <img src="../img/logo.png">
+                    <h2>爱肝一生（微信版）</h2>
+                    <p>v3.0.0 </p>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-list class="tab-list padding">
+            <ion-item ng-if="loginState" class="item-icon-left item-icon-right" href="#/tab/me/change-password">
+                <i class="icon ion-ios-unlocked-outline" style="background-color:#70d100; color:#fff;"></i>密码修改
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+            <ion-item class="item-icon-left item-icon-right" href="#/tab/me/qa">
+                <i class="icon icon-spitslot2" style="background-color:#8161c1; color:#fff;"></i>常见问题
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;"></i>
+            </ion-item>
+        </ion-list>
+        <ion-list ng-if="loginState" class="tab-list">
+            <ion-item>
+                <button class="button button-full button-assertive" ng-click="logout()">退出登录</button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

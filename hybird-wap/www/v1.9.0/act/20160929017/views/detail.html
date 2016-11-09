@@ -1,0 +1,9 @@
+<ion-view cache-view="false" view-title="产品说明">
+    <ion-content id="container" style="background-color:#f1f1f1;">
+        <div class="item item-image">
+            <img ng-src="{{JAVA_URL + product.productImg}}" />
+        </div>
+        <div id="remark" class="item item-text-wrap" ng-bind-html="product.remark | to_trusted">
+        </div>
+    </ion-content>
+</ion-view>

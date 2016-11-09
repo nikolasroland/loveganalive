@@ -1,0 +1,16 @@
+<ion-view view-title="编辑" cache-view="false">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="del()" ng-if="data.index!=-1" >删除</button>
+    </ion-nav-buttons>
+    <ion-content style="background-color:#f4f4f4;">
+        <div class="item item-input">
+            <span class="input-label">复诊时间</span>
+            <p style="position: absolute;right: 34px; top:14px" class="text-right" ng-click="openDatePicker()">{{data.time}}</p>
+            <input type="hidden" name="birthday" class="text-right" ng-model="data.time" format-date max="{{minDate | date : 'yyyy-MM-dd'}}" required>
+        </div>
+        <label class="item item-input padding" style="background-color:#f4f4f4;">
+            <textarea maxlength="680" rows="10" ng-model="data.content" style="border:1px solid #ebebeb;border-radius:2px;padding:8px;" onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')"></textarea>
+        </label>
+    </ion-content>
+     <button class="button button-block button-positive" ng-click="save()"  style="position:fixed;bottom:0;left:0;margin:0;">保 存</button>s
+</ion-view>

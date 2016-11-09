@@ -1,0 +1,20 @@
+<ion-view hide-tabs="true">
+    <ion-nav-title>
+        给{{nickname}}{{targetMode}}打分
+    </ion-nav-title>
+    <ion-content>
+        <div class="rate-stars">
+            <div style="display: inline-block;" ng-click="setRate(1)"><ion-icon name="star" ng-class="star[0]"></ion-icon></div>
+            <div style="display: inline-block;" ng-click="setRate(2)"><ion-icon name="star" ng-class="star[1]"></ion-icon></div>
+            <div style="display: inline-block;" ng-click="setRate(3)"><ion-icon name="star" ng-class="star[2]"></ion-icon></div>
+            <div style="display: inline-block;" ng-click="setRate(4)"><ion-icon name="star" ng-class="star[3]"></ion-icon></div>
+            <div style="display: inline-block;" ng-click="setRate(5)"><ion-icon name="star" ng-class="star[4]"></ion-icon></div>
+        </div>
+        <ion-item class="item-input">
+            <textarea placeholder="你的问题是否得到解答？对{{targetMode}}的服务还满意吗？" rows="4" ng-model="rate.content"></textarea>
+        </ion-item>
+        <ion-item>
+            <button class="button button-full button-positive" ng-click="commitRate(rate.score, rate.content)">提交评价</button>
+        </ion-item>
+    </ion-content>
+</ion-view>

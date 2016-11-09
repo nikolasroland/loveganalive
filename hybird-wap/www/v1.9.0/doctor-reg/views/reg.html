@@ -1,0 +1,112 @@
+<ion-view view-title="爱肝一生">
+    <ion-content>
+        <ion-list class="tab-list no-lines">
+            <ion-item class="login-avatar">
+                <img src="./img/logo.png" />
+            </ion-item>
+        </ion-list>
+        <ion-list class="tab-list no-lines padding list-inset form-style">
+            <input type="hidden" ng-model="reg.phone">
+            <input type="hidden" ng-model="reg.referees">
+            <ion-item class="item-input">
+                <i class="icon ion-ios-person-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="text" placeholder="真实姓名" maxlength="20" ng-model="reg.realname">
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input">
+                <i class="icon ion-ios-at-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="text" placeholder="电子邮箱" maxlength="255" ng-model="reg.email">
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input">
+                <i class="icon ion-ios-medkit-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="text" placeholder="医院" readonly="readonly" ng-model="reg.hospital" ng-click="findCity()">
+                <input type="hidden" ng-model="reg.hospitalId">
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input item-select">
+                <i class="icon ion-ios-list-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <span class="input-label">科室</span>
+                <select name="offices" ng-model="reg.offices">
+                    <optgroup label="内科">
+                        <option value="肝病科">肝病科</option>
+                        <option value="消化科">消化科</option>
+                        <option value="感染科">感染科</option>
+                        <option value="心血管内科">心血管内科</option>
+                        <option value="神经内科">神经内科</option>
+                        <option value="内分泌科">内分泌科</option>
+                        <option value="肿瘤科">肿瘤科</option>
+                        <option value="血液科">血液科</option>
+                        <option value="精神科">精神科</option>
+                        <option value="呼吸科">呼吸科</option>
+                        <option value="肾内科">肾内科</option>
+                        <option value="风湿免疫科">风湿免疫科</option>
+                        <option value="肝胆脾胃科">肝胆脾胃科</option>
+                    </optgroup>
+                    <optgroup label="外科">
+                        <option value="普通外科">普通外科</option>
+                        <option value="神经外科">神经外科</option>
+                        <option value="胸心外科">胸心外科</option>
+                        <option value="泌尿外科">泌尿外科</option>
+                        <option value="骨科">骨科</option>
+                        <option value="整形外科">整形外科</option>
+                        <option value="麻醉科外科">麻醉科外科</option>
+                        <option value="其他外科">其他外科</option>
+                    </optgroup>
+                    <optgroup label="专科">
+                        <option value="妇产科">妇产科</option>
+                        <option value="儿科">儿科</option>
+                        <option value="眼科">眼科</option>
+                        <option value="耳鼻咽喉科">耳鼻咽喉科</option>
+                        <option value="口腔科">口腔科</option>
+                        <option value="皮肤性病科">皮肤性病科</option>
+                        <option value="急诊/重症">急诊/重症</option>
+                        <option value="影像科">影像科</option>
+                        <option value="检验科">检验科</option>
+                        <option value="老年医学">老年医学</option>
+                    </optgroup>
+                    <optgroup label="体检科">
+                        <option value="体检科">体检科</option>
+                    </optgroup>
+                </select>
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input item-select">
+                <i class="icon ion-ios-compose-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <span class="input-label">职称</span>
+                <select name="professionId" ng-model="reg.professionId">
+                    <option value="1">主任医师</option>
+                    <option value="2">副主任医师</option>
+                    <option value="3">主治医师</option>
+                    <option value="4">住院医师</option>
+                    <option value="5" selected='true'>执业医师</option>
+                </select>
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input item-select">
+                <i class="icon ion-ios-paper-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <span class="input-label">出诊类别</span>
+                <select name="visitInfo" ng-model="reg.visitInfo">
+                    <option value="门诊" selected='true'>门诊</option>
+                    <option value="住院部">住院部</option>
+                    <option value="其他">其他</option>
+                </select>
+            </ion-item>
+            <ion-item>
+                <button class="button button-full button-positive" ng-click="register(reg.phone, reg.referees, reg.realname, reg.email, reg.hospitalId, reg.hospital, reg.offices, reg.professionId, reg.visitInfo)">提 交</button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="modal-citys.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-content>
+            <ion-item class="item-icon-left">
+                <i class="icon ion-ios-close-empty" style="color:#aaa;font-size:48px;" ng-click="closeCitysModal()"></i>
+            </ion-item>
+            <ion-item ng-click="findNext(item.id, item.level, item.hospital_id, item.name)" ng-repeat="item in cityList.list">
+                {{item.name}}
+            </ion-item>
+        </ion-content>
+    </ion-modal-view>
+</script>

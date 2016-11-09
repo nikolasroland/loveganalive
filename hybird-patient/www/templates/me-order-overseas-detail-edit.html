@@ -1,0 +1,47 @@
+<ion-view hide-tabs="true" hide-back-button="true">
+    <ion-nav-title>
+        {{tit}}
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="cancelBack()">取消</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="saveBack()">保存</button>
+    </ion-nav-buttons>
+    <ion-content class="main" style="background-color:#f9f9f9;">
+        <ion-list>
+            <ion-list ng-if="status==1">
+                <label class="item item-input">
+                    <input type="text" maxlength="12" ng-model="orderDetail.insurancePeople" />
+                </label>
+            </ion-list>
+            <ion-list ng-if="status==2">
+                <label class="item item-input">
+                    <input type="tel" maxlength="12" ng-model="orderDetail.insuranceMobile" />
+                </label>
+            </ion-list>
+            <ion-list ng-if="status==3">
+                <label class="item item-input item-select jld-item-input">
+                    <div class="input-label small">
+                        所在省份：
+                    </div>
+                    <select class="form-control jld-select-left" ng-model="orderDetail.insuranceProvince" ng-options="key as key for (key,value) in division" ng-change="orderDetail.insuranceCity='';orderDetail.district='';">
+                        <option value=""></option>
+                    </select>
+                </label>
+                <label class="item item-input item-select jld-item-input">
+                    <div class="input-label small">
+                        所在城市：
+                    </div>
+                    <select class="form-control jld-select-left" ng-model="orderDetail.insuranceCity" ng-options="key as key for (key,value) in division[orderDetail.insuranceProvince]" ng-change="orderDetail.district='';">
+                        <option value=""></option>
+                    </select>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">详细地址：</span>
+                    <textarea maxlength="140" style="width:70%" ng-model="orderDetail.insuranceAddress" cols="30" rows="2" placeholder="您的收货地址"></textarea>
+                </label>
+            </ion-list>
+        </ion-list>
+    </ion-content>
+</ion-view>

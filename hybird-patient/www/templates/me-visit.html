@@ -1,0 +1,83 @@
+<ion-view hide-tabs="true" view-title="预约">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="item item-text-wrap">
+            <div class="row  text-center">
+                <div class="item col item-divider text-center schedule-title">预约加号时间表 （{{week1}}）</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col"></div>
+                <div class="item col" ng-repeat="day in ['周一','周二','周三','周四','周五','周六','周日']">{{day}}</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">上午</div>
+                <div class="item col" ng-click="choose(i, 0, schedule.this_weeks.split('|')[i - 1].split(',')[0] > 0 && schedule.this_weeks.split('|')[i - 1].split(',')[0] < 3)" ng-repeat="i in [1,2,3,4,5,6,7]">
+                    <span ng-class="{
+                    'in-class': schedule.this_weeks.split('|')[i - 1].split(',')[0] > 0,
+                    'in-class-disabled' : schedule.this_weeks.split('|')[i - 1].split(',')[0] > 2,
+                    'in-class-selected' : (selected.week==i && selected.sxw===0)
+                    }">{{schedule.this_weeks.split('|')[i - 1].split(',')[0].replace('0','&nbsp;').replace('1','预约').replace('2','预约').replace('3','已满').replace('4','过期')}}
+                        </span>
+                </div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">下午</div>
+                <div class="item col" ng-click="choose(i, 1, schedule.this_weeks.split('|')[i - 1].split(',')[1] > 0 && schedule.this_weeks.split('|')[i - 1].split(',')[1] < 3)" ng-repeat="i in [1,2,3,4,5,6,7]">
+                    <span ng-class="{
+                    'in-class': schedule.this_weeks.split('|')[i - 1].split(',')[1] > 0,
+                    'in-class-disabled' : schedule.this_weeks.split('|')[i - 1].split(',')[1] > 2,
+                    'in-class-selected' : (selected.week==i && selected.sxw===1)
+                    }">{{schedule.this_weeks.split('|')[i - 1].split(',')[1].replace('0','&nbsp;').replace('1','预约').replace('2','预约').replace('3','已满').replace('4','过期')}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="item item-text-wrap">
+            <div class="row  text-center">
+                <div class="item col item-divider text-center schedule-title">预约加号时间表 （{{week2}}）</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col"></div>
+                <div class="item col" ng-repeat="day in ['周一','周二','周三','周四','周五','周六','周日']">{{day}}</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">上午</div>
+                <div class="item col" ng-click="choose((i+7), 0, schedule.next_weeks.split('|')[i - 1].split(',')[0] > 0 && schedule.next_weeks.split('|')[i - 1].split(',')[0] < 3)" ng-repeat="i in [1,2,3,4,5,6,7]">
+                    <span ng-class="{
+                    'in-class': schedule.next_weeks.split('|')[i - 1].split(',')[0] > 0,
+                    'in-class-disabled' : schedule.next_weeks.split('|')[i - 1].split(',')[0] > 2,
+                    'in-class-selected' : (selected.week==(i+7) && selected.sxw===0)
+                    }">{{schedule.next_weeks.split('|')[i - 1].split(',')[0].replace('0','&nbsp;').replace('1','预约').replace('2','预约').replace('3','已满').replace('4','过期')}}
+                    </span>
+                </div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">下午</div>
+                <div class="item col" ng-click="choose((i+7), 1, schedule.next_weeks.split('|')[i - 1].split(',')[1] > 0 && schedule.next_weeks.split('|')[i - 1].split(',')[1] < 3)" ng-repeat="i in [1,2,3,4,5,6,7]">
+                    <span ng-class="{
+                    'in-class': schedule.next_weeks.split('|')[i - 1].split(',')[1] > 0,
+                    'in-class-disabled' : schedule.next_weeks.split('|')[i - 1].split(',')[1] > 2,
+                    'in-class-selected' : (selected.week==(i+7) && selected.sxw===1)
+                    }">{{schedule.next_weeks.split('|')[i - 1].split(',')[1].replace('0','&nbsp;').replace('1','预约').replace('2','预约').replace('3','已满').replace('4','过期')}}
+                    </span>
+                </div>
+            </div>
+            <div class="fixed-bottom"></div>
+            <input type="hidden" ng-model="selected.sxw" />
+            <input type="hidden" ng-model="selected.selectedDate" />
+        </div>
+    </ion-content>
+    <div class="fixed-footer">
+        <div class="list">
+            <div class="item">
+                人数：{{schedule.limitPeoples}}人
+            </div>
+            <div class="item">
+                费用：{{schedule.servicePrice}}{{ticket}} （此费用不包含医院挂号费）
+            </div>
+            <button ng-disabled="selected.selectedDate == null" ng-click="reserve(selected.sxw, selected.selectedDate, schedule.servicePrice)" class="button button-block button-positive">预约加号</button>
+        </div>
+    </div>
+</ion-view>

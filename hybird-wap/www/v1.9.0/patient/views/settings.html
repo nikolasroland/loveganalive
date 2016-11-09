@@ -1,0 +1,34 @@
+<ion-view view-title="设置">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <div class="card">
+            <div class="item item-toggle">
+                是否接受消息通知
+                <label class="toggle">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-toggle">
+                勿扰模式
+                <label class="toggle">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="card">
+            <a ui-sref="tab.edit-password" class="item item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i> 修改密码
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

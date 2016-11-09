@@ -1,0 +1,58 @@
+<ion-view id="report" hide-tabs="true" view-title="检验报告单" cache-view="false">
+	<ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+	<ion-content class="reportCon">
+		<div class="reportlOne" ng-if="reportOne">
+			<header>
+				<div class="reportDetailTop">
+					<span>检查项目：{{reportItem.testlist}}</span>
+					<span>检查时间：{{reportItem.reportdate}}</span>
+				</div>
+			</header>		
+			<table class="table" border="" cellspacing="" cellpadding="">
+				<thead>
+					<tr>
+						<th>项目名称</th>
+						<th>结果</th>
+						<th>参考值</th>
+						<th>单位</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="list in patientInfo">
+						
+						<td>{{list.item}}<span>{{list.code}}</span></td>
+						<td>{{list.result}}<span  style="color:#f00;">{{list.normal_flag}}</span></td>
+						<td>{{list.normal_range}}</td>
+						<td>{{list.unit}}</td>
+					</tr>					
+				</tbody>
+			</table>
+		</div>
+		<div class="reportTwo" ng-if="reportTwo">
+			<ul>
+				<li><b>检查项目：</b><span>X光</span></li>
+				<li><b>检查时间：</b><span>2013年1月4日<span></li>
+				<li>
+					<p>
+						<span>X光所见：</span>
+						<span>XXX光提示X光提示X光提示X光提示X光提示XX光提示XXXXXXX</span>
+					</p>
+					<p>
+						<span>X光提示：（仅供临床参考）</span>
+						<span>X光提示光提示光提示光提示光提示光提示光提示光提示光提示光提示光提示光提示光提示光提示光提示</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div class="reportThree" ng-if="reportThree">
+			<ul>
+				<li><b>检查项目：</b><span>HIV，梅毒</span></li>
+				<li><b>检查时间：</b><span>2015年1月24日</span></li>
+				<li><b>TPAb（梅毒）：</b><span>XXXXXXXXXXX</span></li>
+				<li><b>HIV：</b><span>XXXXXXXXXXXX</span></li>				
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>

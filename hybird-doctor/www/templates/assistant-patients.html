@@ -1,0 +1,24 @@
+<ion-view view-title="患者">
+    <ion-content class="main">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="bar bar-header item-input-inset">
+            <label class="item item-input-wrapper">
+                <i class="icon ion-search placeholder-icon" style="font-size:22px;"></i>
+                <input type="text" style="font-size:16px;padding-top:8px;" placeholder="搜索" ng-model="nameFilter" ng-change="changeNameFilter(nameFilter)">
+            </label>
+            <button class="button button-small button-positive" ng-click="doRefresh()">搜索</button>
+        </div>
+        <ion-list>
+            <a class="item item-avatar item-icon-right" href="#tab/assistant/patients/{{doctor.userid}}" ng-repeat="doctor in doctorList.list">
+                <img ng-src="{{doctor.icon}}" />
+                <h2>{{doctor.nickname}}的患者（{{doctor.patient_num}}人）</h2>
+                <i class="icon ion-ios-arrow-right positive"></i>
+            </a>
+            <a class="item item-avatar item-icon-right" href="#tab/assistant/patients/search/{{doctor.userid}}" ng-repeat="doctor in searchList.list">
+                <img ng-src="{{doctor.icon}}" />
+                <h2>{{doctor.nickname}}的患者</h2>
+                <i class="icon ion-ios-arrow-right positive"></i>
+            </a>
+        </ion-list>
+    </ion-content>
+</ion-view>

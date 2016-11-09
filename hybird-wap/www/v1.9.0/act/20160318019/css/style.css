@@ -1,0 +1,210 @@
+.act-p {
+    text-indent: 2em;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+.plan-border {
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.plan-join-border {
+    border-radius: 6px;
+    border: 1px solid #3498db;
+    margin-bottom: 10px;
+}
+
+.plan-join-text {
+    color:#1d1d1d;
+    font-weight: normal;
+    font-size:12px;
+}
+
+.act-yellow {
+    color: #8a3615;
+}
+
+.act-white {
+    color: #3c3f49;
+}
+
+.act-align-center {
+    text-align: center;
+}
+
+.fr-order-detail {
+    border: 0;
+    padding: 8px 16px;
+}
+
+.act-btn {
+    padding: 10px 48px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-weight: bolder;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #49e3d6;
+    border: 0;
+    box-shadow: 1px 1px 6px #49e3d6;
+    line-height: 22px;
+    min-height: 22px;
+}
+
+.act-button-file {
+    border: 1px dashed #a0a0a0;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #ccc;
+    line-height: 22px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button.icon-top:before {
+    display: block;
+    font-size: 32px;
+    line-height: 44px;
+    color: #bbb;
+}
+
+.act-canvas {
+    height: 100px;
+}
+
+.picfile {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 82px;
+    height: 78px;
+    z-index: 2;
+    opacity: 0;
+}
+
+.imgzip {
+    border: 1px dashed #a0a0a0;
+    border-radius: 3px;
+    width: 82px;
+    height: 78px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.act-list {
+    background-color: #fff;
+}
+
+.act-radio {
+    margin: 12px 4px 0 12px;
+    text-align: center;
+    display: inline-block;
+}
+
+.act-radio input[type=radio] {
+    display: none;
+}
+
+.act-radio input[type=radio] + .act-radio-content {
+    width: 86px;
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid #bababa;
+    border-radius: 3px;
+    display: block;
+    background-color: #e7e7e7;
+}
+
+.act-radio input[type=radio]:checked + .act-radio-content {
+    border: 1px solid #1dc025;
+    background-color: #dbffe3;
+}
+
+.act-radio input[type=radio]:checked + .act-radio-content + span {
+    color: #1dc025;
+}
+
+.act-radio-a {
+    text-decoration: none;
+    color: #fd8016;
+}
+
+.container {
+    padding: 10px;
+}
+
+.form-group {
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.form-btn-group {
+    background-color: #e9e9e9;
+    text-align: center;
+}
+
+.form-group .control-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.form-group .control-label {
+    font-size: 14px;
+    vertical-align: top;
+    line-height: 28px;
+}
+
+.form-group .control-input {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 28px;
+}
+
+.form-group .control-input .form-control {
+    border: 0;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-group .control-input textarea.form-control {
+    padding-top: 6px;
+}
+
+.form-group .control-input .btn {
+    padding: 10px 16px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-group .control-input .btn.btn-cancel {
+    border: 2px solid #5b9ff4;
+    color: #5b9ff4;
+    background-color: #e8eff7;
+    box-shadow: 1px 1px 6px #d0dcea;
+}
+
+.form-group .control-input .btn.btn-submit {
+    border: 2px solid #ff872f;
+    color: #ff872f;
+    background-color: #f9f3ef;
+    box-shadow: 1px 1px 6px #dfc9c9;
+}
+
+.form-group .control-input .btn:active {
+    background-color: #ddd;
+}

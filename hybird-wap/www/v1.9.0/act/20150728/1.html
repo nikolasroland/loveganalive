@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- HTTP 1.1 -->
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- HTTP 1.0 -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Prevent caching at the proxy server -->
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>答题</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- <img src="img/q1.png" style="width:100%" /> -->
+    <div id="pro" class="progress">
+        <div id="probg" class="progress-bg"></div>
+        <img src="img/progress.png" style="width:100%;" />
+    </div>
+    <div id="q1" class="q_1" style="display:none;">
+        <div id="header" class="header">
+            <img id="dr" src="img/dr.png" style="width:23.8%;" />
+            <img id="no1" src="img/no1.png" style="width:33.4%;" />
+            <img id="qno1" src="img/q2801.png" style="width:62.3%;" />
+            <img id="no2" src="img/no2.png" style="width:33.4%;" />
+            <img id="qno2" src="img/q2802.png" style="width:62.3%;" />
+        </div>
+        <div id="content1" class="content_1" style="display:block;">
+            <img id="th1" src="img/th1.png" style="width:100%;" />
+            <img id="no1a" src="img/no1a.png" onclick="wrong(this)" style="width:100%;" />
+            <img id="no1b" src="img/no1b.png" onclick="right(this)" style="width:100%;" />
+        </div>
+        <div id="content2" class="content_2" style="display:block;">
+            <img id="th2" src="img/th2.png" style="width:100%;" />
+            <img id="no2a" src="img/no2a.png" onclick="lastWrong(this)" style="width:100%;" />
+            <img id="no2b" src="img/no2b.png" onclick="lastRight(this)" style="width:100%;" />
+        </div>
+    </div>
+    <div id="perload" class="perload" style="display:none;width:100%;">
+        <img src="img/act.png" style="width:100%" />
+        <img id="startbtn" src="img/start.png" style="width:42%;margin:12px 28%;" onclick="start()" />
+        <img src="img/remind.png" style="width:100%" />
+        <img src="img/detail.png" style="width:22.6%;float:right;" onclick="jumpToDetail()" />
+    </div>
+    <img id="end1" src="img/end1.png" style="width:100%;position: absolute;top:0;display:none;" />
+    <img id="end2" src="img/end2.png" style="width:100%;position: absolute;top:0;display:none;" />
+    <img id="end3" src="img/end3.png" style="width:100%;position: absolute;top:0;display:none;" />
+    <script>
+    var JAVA_URL = "http://testmanage.aiganyisheng.net/";
+    var PHP_URL = "http://testapi.aiganyisheng.net/";
+
+    window.onload = preload;
+
+    var percent = 0;
+    var isCorrect = 1;
+    var question = 1;
+    var imgArr = [{
+        url: "img/remind.png",
+        width: "100%"
+    }, {
+        url: "img/q1.png",
+        width: "100%"
+    }];
+
+    function preload() {
+        for (var i in imgArr) {
+            loadImg(imgArr[i]);
+        }
+    }
+
+    function loadImg(item) {
+        var img = new Image();
+        img.src = item.url;
+        img.style.width = item.width;
+        if (img.complete) {
+            progress();
+            return;
+        }
+        img.onload = function() {
+            progress();
+        }
+        img.onerror = function() {
+            setTimeout(function() {
+                loadImg(img);
+            }, 5000);
+        }
+    }
+
+    function progress() {
+        percent++;
+        if (percent < imgArr.length) {
+            document.getElementById("probg").style.transform = "scaleX(" + percent / imgArr.length + ")";
+            document.getElementById("probg").style.webkitTransform = "scaleX(" + percent / imgArr.length + ")";
+        } else {
+            document.getElementById("pro").style.display = "none";
+            document.getElementById("perload").style.display = "block";
+            document.getElementById("q1").style.display = "block";
+        }
+    }
+
+    function start() {
+        document.getElementById("perload").style.display = "none";
+        document.body.style.backgroundColor = "#7aff8a"
+        document.getElementById("dr").style.webkitTransform = "translateX(20%)";
+        document.getElementById("no1").style.webkitTransform = "translate(-30%, 200%)";
+        document.getElementById("qno1").style.webkitTransform = "translate(-5%, 0)";
+        document.getElementById("th1").style.webkitTransform = "translateY(-10%)";
+        document.getElementById("no1a").style.webkitTransform = "translateY(-10%)";
+        document.getElementById("no1b").style.webkitTransform = "translateY(-10%)";
+    }
+
+    function jumpToDetail() {
+        console.log('detail')
+    }
+
+    function right(ele) {
+        if (question == 1) {
+            ele.style.webkitFilter = "invert(20%)";
+            next();
+        }
+    }
+
+    function wrong(ele) {
+        if (question == 1) {
+            isCorrect = 0;
+            ele.style.webkitFilter = "invert(20%)";
+            next();
+        }
+    }
+
+    function lastRight(ele) {
+        if (question == 2) {
+            ele.style.webkitFilter = "invert(20%)";
+            end();
+        }
+    }
+
+    function lastWrong(ele) {
+        if (question == 2) {
+            isCorrect = 0;
+            ele.style.webkitFilter = "invert(20%)";
+            end();
+        }
+    }
+
+    function next() {
+        question = 2;
+        setTimeout(function() {
+            document.body.style.backgroundColor = "#ffbf45"
+            document.getElementById("header").style.backgroundColor = "#ff8228"
+            document.getElementById("no1").style.display = "none";
+            document.getElementById("qno1").style.display = "none";
+            document.getElementById("content1").style.display = "none";
+            document.getElementById("dr").style.webkitTransform = "translateX(300%)";
+            document.getElementById("no2").style.webkitTransform = "translate(30%, 200%)";
+            document.getElementById("qno2").style.webkitTransform = "translate(5%, 0)";
+            document.getElementById("th2").style.webkitTransform = "translateY(-10%)";
+            document.getElementById("no2a").style.webkitTransform = "translateY(-10%)";
+            document.getElementById("no2b").style.webkitTransform = "translateY(-10%)";
+        }, 500);
+    }
+
+    function end() {
+        question = 0;
+        setTimeout(function() {
+            postData();
+        }, 500);
+    }
+
+    function postData() {
+        var auth = window.localStorage.getItem("patient.auth");
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function() {
+            console.log(xmlhttp.readyState)
+            console.log(xmlhttp.status)
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                userInfo = JSON.parse(xmlhttp.responseText);
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var ret = JSON.parse(xhr.responseText);
+                        console.log(ret)
+                        if(ret.code == "0") {
+                            document.getElementById("end1").style.display = "block";
+                        } else if(ret.code == "400034") {
+                            document.getElementById("end2").style.display = "block";
+                        } else if(ret.code == "400033") {
+                            console.log()
+                            document.getElementById("end3").style.display = "block";
+                        }
+                    }
+                }
+
+                xhr.open("POST", JAVA_URL + "product/app/generateRedEnvelope.htm", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                console.log("sign=fc242d9da4e97636cddc3ee3beb0021d&userId=" + userInfo.data.userid + "&userName=" + userInfo.data.username + "&userNickName=" + userInfo.data.nickname + "&answerDate=" + (new Date(Date.now())).format('yyyy-MM-dd') + "&isCorrect=" + isCorrect)
+                xhr.send("sign=fc242d9da4e97636cddc3ee3beb0021d&userId=" + userInfo.data.userid + "&userName=" + userInfo.data.username + "&userNickName=" + userInfo.data.nickname + "&answerDate=" + (new Date(Date.now())).format('yyyy-MM-dd') + "&isCorrect=" + isCorrect);
+            }
+        }
+
+        xmlhttp.open("POST", PHP_URL + 'appApi/get_user_info.json', true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("auth=" + auth);
+
+    }
+
+    Date.prototype.format = function(format) {
+        var o = {
+            "M+": this.getMonth() + 1, //month 
+            "d+": this.getDate(), //day 
+            "h+": this.getHours(), //hour 
+            "m+": this.getMinutes(), //minute 
+            "s+": this.getSeconds(), //second 
+            "q+": Math.floor((this.getMonth() + 3) / 3), //quarter 
+            "S": this.getMilliseconds() //millisecond 
+        }
+
+        if (/(y+)/.test(format)) {
+            format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(format)) {
+                format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+            }
+        }
+        return format;
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+<ion-view view-title="肝病小知识">
+    <ion-nav-bar class="bar-positive" ng-show="noHeader">
+    </ion-nav-bar>
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="share()">分享</button>
+    </ion-nav-buttons>
+    <ion-content class="main" ng-style="noHeaderStyle">
+        <div id="remark" class="item item-text-wrap">
+        </div>
+    </ion-content>
+</ion-view>

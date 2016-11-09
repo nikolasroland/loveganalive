@@ -1,0 +1,30 @@
+<ion-view hide-tabs="true" view-title="服务列表">
+    <div class="row text-center shop-tabs" ng-style="iosTop">
+        <div class="col" ng-class="{active:status=='all'}" ng-click="setActive('all')">
+            <span>全部品类</span>
+        </div>
+        <div class="col" ng-class="{active:status=='00'}" ng-click="setActive('00')">
+            <span>抗病毒</span>
+        </div>
+        <div class="col" ng-class="{active:status=='01'}" ng-click="setActive('01')">
+            <span>抗纤维化</span>
+        </div>
+        <div class="col" ng-class="{active:status=='02'}" ng-click="setActive('02')">
+            <span>双抗</span>
+        </div>
+    </div>
+    <ion-content style="background-color:#f1f1f1;">
+        <div style="height:40px"></div>
+        <ion-list class="shop-list">
+            <div ng-repeat="item in list">
+                <ion-item class="item-avatar item-text-wrap item-button-right" ng-click="viewDetail(item.id, item.productName, item.mark)" style="padding-right:0;" ng-if="status=='all'||item.productSubTypeCode==status">
+                    <img ng-src="{{JAVA_URL + item.productImg}}" />
+                    <h2>{{item.productName}}</h2>
+                    <p>服药周期：{{item.mark=='2'?'12周':item.mark=='1'?'4周':'1年'}}&#12288预定数：{{item.sellQuantity}}</p>
+                    <button ng-click="reserve($event, item.id, item.productName, item.mark,item.productTypeCode)" class="button button-small button-assertive" style="min-width:28px;min-height:30px;line-height:26px;font-size:12px;padding:0 12px;">立即预定</button>
+                </ion-item>
+                <div class="line"></div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

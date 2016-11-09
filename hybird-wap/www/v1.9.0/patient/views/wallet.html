@@ -1,0 +1,20 @@
+<ion-view view-title="帐户余额">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="recharge()">充值</button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <div class="item item-text-wrap">
+            <h2>帐户余额：{{patient.balances | number:0}} {{ticket}}</h2>
+        </div>
+        <ion-list>
+            <a class="item item-icon-left" ng-repeat="recharge in rechargeList.list">
+                <i class="amount-img icon ion-social-yen yellow"></i>
+                <h2>{{recharge.reason}} {{recharge.tradeAmount | number:0}} {{ticket}}</h2>
+                <p>{{recharge.createTime}}</p>
+            </a>
+        </ion-list>
+    </ion-content>
+</ion-view>

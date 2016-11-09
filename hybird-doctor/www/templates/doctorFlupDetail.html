@@ -1,0 +1,23 @@
+<ion-view title="复诊记录">
+	<ion-nav-buttons side="left">
+		<button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div class="docDetailNo" ng-if="detailFlupNo">
+			<div class="detailNoImg">
+				<img src="./img/nofllup.png"/>
+			</div>
+			<div class="detailNoDescrip">
+				<p>还没有复诊记录</p>
+			</div>
+		</div>
+		<div class="doPatientRecord doPatientFlup" ng-if="detailFlupYes">
+			<div ng-repeat="itemList in flupDetailR track by $index">
+				<p class="patientTime">{{itemList.time}}</p>
+				<img ng-repeat="list in itemList.list track by $index" ng-src="{{list}}" />
+			</div>
+		</div>
+		
+
+	</ion-content>
+</ion-view>

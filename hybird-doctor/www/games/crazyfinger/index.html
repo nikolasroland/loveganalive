@@ -1,0 +1,232 @@
+<!-- saved from url=(0062)http://flash1.7k7k.com/h5/2015/fksz/game.htm?qq-pf-to=pcqq.c2c -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>疯狂手指</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="true">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="360-fullscreen" content="true">
+    <style>
+    body {
+        text-align: center;
+        background: #000000;
+        padding: 0;
+        border: 0;
+        margin: 0;
+        height: 100%;
+    }
+    
+    * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    
+    html {
+        -ms-touch-action: none;
+        /* Direct all pointer events to JavaScript code. */
+    }
+    
+    .button {
+        display: inline-block;
+        zoom: 1;
+        vertical-align: baseline;
+        margin: 0 2px;
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: 14px/100% Arial, Helvetica, sans-serif;
+        padding: .5em 2em .55em;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+        -webkit-border-radius: .5em;
+        -moz-border-radius: .5em;
+        border-radius: .5em;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    }
+    
+    .red {
+        color: #faddde;
+        border: solid 1px #980c10;
+        background: #d81b21;
+        background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
+        background: -moz-linear-gradient(top, #ed1c24, #aa1317);
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ed1c24', endColorstr='#aa1317');
+    }
+    
+    .active {
+        background: #d81b01;
+    }
+    </style>
+    <script type="text/javascript" src="./res/play68_sdk.js"></script>
+    <script language="javascript" type="text/javascript" src="./res/play68.js"></script>
+</head>
+
+<body>
+    <div style="display:none;">
+        <img src="./res/big_icon.jpg">
+    </div>
+    <div style="display:inline-block;width:100%; height:100%;margin: 0 auto; background: black; position:relative;" id="gameDiv">
+        <section id="wxArrow" style="display: none;" ontouchstart="document.getElementById(&#39;wxArrow&#39;).style.display=&#39;none&#39;;return false;">
+            <div style="position:absolute;width:100%;height:100%;opacity: 0.7;background-color:#000">
+            </div>
+            <img style="position: absolute;right:25px;" src="./res/arrow.gif">
+        </section>
+        <div style="text-align:center;margin-top:50px;">
+            <span id="timer" style="color:#fff;font-size:20px;">10.00 秒</span>
+        </div>
+        <div style="margin:15px;text-align:center;margin-bottom:0">
+            <div id="best" style="margin-top:5px;color:#fff;font-size:15px;"> </div>
+            <div id="result" style="color:#fff;font-size:20px;">0 次</div>
+        </div>
+        <button id="button" class="button red" style="margin-top: 10px;width: 160px;height:160px;border-radius:80px;font-size:18px;font-weight:bold;">点我点我</button>
+        <div id="result_panel" style="display:none;text-align:center;background-color:rgba(0,0,0,0.5)">
+            <div>
+                <p id="str" style="margin-top:20px;color:#fff;font-size:30px;"></p>
+                <button id="reset" style="font-size:25px">再玩一次</button>
+            </div>
+        </div>
+    </div>
+    <script src="./res/jquery.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        updateShare(0);
+    })();
+    var initial = 1000;
+    var count = initial;
+    var counter; //10 will  run it every 100th of a second
+    var state = 0;
+    var total = 0;
+    (function() {
+        updateShare(0);
+    })();
+    if (localStorage.max) {
+        $('#best').html('最好成绩：' + localStorage.max + ' 次');
+    }
+
+    function timer() {
+        if (count <= 0) {
+            clearInterval(counter);
+            state = 0;
+            $('#result_panel').show();
+            if (!localStorage.max || parseInt(localStorage.max) < total) {
+                localStorage.max = total;
+                $('#best').html('最好成绩：' + localStorage.max + ' 次');
+            }
+            $('#timer').hide();
+            localStorage.max = parseInt(localStorage.max) > total ? localStorage.max : total;
+            dp_submitScore(total);
+            document.getElementById("str").innerHTML = str1;
+            updateShare(str);
+            Play68.setRankingScoreDesc(total);
+            offEvent();
+            return;
+        }
+        count--;
+        displayCount(count);
+    }
+
+    function displayCount(count) {
+        var res = count / 100;
+        document.getElementById("timer").innerHTML = res.toPrecision(count.toString().length) + " 秒";
+    }
+    $(document).on('touchmove', function(e) {
+        e.preventDefault();
+    })
+
+    function reset() {
+        count = initial;
+        total = 0;
+        state = 0;
+        $('#result').html(total + ' 次');
+        $('#timer').html(10 + ' 秒');
+        initEvent();
+    }
+
+    $('#reset').on('touchend  click', function(e) {
+        reset();
+        $('#result_panel').hide();
+        $('#timer').show();
+        e.preventDefault();
+    });
+    displayCount(initial);
+    initEvent();
+
+    function offEvent() {
+        $('#button').unbind();
+    }
+
+    function initEvent() {
+        $('#button').on('touchstart click', function(e) {
+            if (!state) {
+                state = 1;
+                counter = setInterval(timer, 10);
+                window.parent.postMessage({
+                    func: 'run',
+                    params: ['html5Log', ['04', '0023']]
+                }, '*')
+            }
+            this.classList.add('active');
+            e.preventDefault();
+        });
+
+        $('#button').on('touchend click', function(e) {
+            if (state) {
+                total++;
+                $('#result').html(total + ' 次');
+            }
+            this.classList.remove('active');
+            e.preventDefault();
+        });
+    }
+    </script>
+    <script language="javascript">
+    function goHome() {}
+
+    function dp_Ranking() {}
+
+    function showAd() {}
+
+    function hideAd() {}
+
+    function dp_submitScore(score) {
+        if (score > 0) {
+            str = "我10秒点了" + score + "下，手机屏幕太新，舍不得点！";
+            str1 = "手机屏幕太新，不舍得点！"
+
+            if (score > 50) {
+                str = "我10秒点了" + score + "下，我的屏幕质量扛扛滴！";
+                str1 = "你确定你的屏幕还安好吗？"
+            } else if (score > 120) {
+                str = "我10秒点了" + score + "下，手脚并用方能创造奇迹。";
+                str1 = "手不够用的话，建议把脚也一起用上。"
+            } else if (score > 200) {
+                str = "我10秒点了" + score + "下，一不小心暴露了我的一阳指神功！";
+                str1 = "你是不是练过一阳指神功？"
+            } else if (score > 300) {
+                str = "我10秒点了" + score + "下，我去，还我的大猩猩玻璃屏！";
+                str1 = "屏幕碎了，我们可不赔哦~~"
+            }
+        } else
+            str = ""
+    }
+    </script>
+    <div id="wx_pic" style="margin:0 auto;display:none;">
+        <img src="./res/500.jpg">
+    </div>
+    <div style="display: none;"><img src="./res/1.jpg">
+    </div>
+</body>
+
+</html>

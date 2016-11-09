@@ -1,0 +1,44 @@
+<ion-view view-title="医生信息">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="wechat-home">
+        <div class="item item-thumbnail-left doctor-info item-text-wrap">
+            <img ng-src="{{doctor.avatarzxc}}">
+            <h2>{{doctor.nickname}}</h2>
+            <p>{{doctor.hospital}}</p>
+            <p>{{doctor.offices + doctor.profession}}</p>
+        </div>
+        <div class="item item-text-wrap">
+            <h3 class="item-title skill">擅 长</h3>
+            <p class="item-con">
+                {{doctor.adept}}
+            </p>
+            <h3 class="item-title experience">职业经历</h3>
+            <p class="item-con">
+                {{doctor.intro}}
+            </p>
+            <h3 class="item-title schedule">出诊时间表</h3>
+            <div class="row  text-center">
+                <div class="item col item-divider text-center schedule-title">出诊时间表</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col"></div>
+                <div class="item col" ng-repeat="day in ['周一','周二','周三','周四','周五','周六','周日']">{{day}}</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">上午</div>
+                <div class="item col" ng-repeat="i in [1,2,3,4,5,6,7]"><span ng-class="{'in-class':doctor.next_weeks.split('|')[i - 1].split(',')[0] == '1'}">{{doctor.next_weeks.split('|')[i - 1].split(',')[0] == '1' ? '在班' : '&nbsp;'}}</span></div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">下午</div>
+                <div class="item col" ng-repeat="i in [1,2,3,4,5,6,7]"><span ng-class="{'in-class':doctor.next_weeks.split('|')[i - 1].split(',')[1] == '1'}">{{doctor.next_weeks.split('|')[i - 1].split(',')[1] == '1' ? '在班' : '&nbsp;'}}</span></div>
+            </div>
+            <h3 class="item-title skill">二维码</h3>
+            <div class="text-center">
+                <img ng-src="{{doctor.code}}" />
+            </div>
+            <button class="button button-block button-positive" ng-click="selectDoctor(doctor.userid, doctor.username, doctor.nickname, doctor.profession, doctor.avatarzxc)">选择医生</button>
+        </div>
+    </ion-content>
+</ion-view>

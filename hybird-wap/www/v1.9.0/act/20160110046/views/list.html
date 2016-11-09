@@ -1,0 +1,16 @@
+<ion-view hide-nav-bar="true" view-title="订单列表">
+    <ion-content id="container" style="background-color:#f1f1f1;">
+        <div class="list">
+            <div class="item item-avatar item-text-wrap" ng-if="item.pro_code!='100018'" style="margin-bottom:6px" ng-repeat="item in list" ng-click="viewOrderDetail()">
+                <img src="./img/icon.png">
+                <p>已预订：{{item.pro_name}}</p>
+                <p>订单号：{{item.order_code}}</p>
+                <p>订单日期：{{item.create_date | date:"yyyy-MM-dd HH:mm:ss"}}</p>
+            </div>
+        </div>
+        <div class="padding">
+            <a href="#/shop" class="button button-block button-positive">继续购买</a>
+        </div>
+        <div style="height:240px;"></div>
+    </ion-content>
+</ion-view>

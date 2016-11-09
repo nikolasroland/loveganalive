@@ -1,0 +1,21 @@
+<ion-view id="report" hide-tabs="true" view-title="在线查报告" cache-view="false">
+	<ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+	<ion-content class="patientreportCon">
+		<div class="reportFirst" ng-show="firstDiv" ng-model="first">您好，首次查询，报告加载时间会较长，您可先退出该页面，稍后查询完成系统会通知您。</div>
+		<div class="reportSecond"ng-show="secondDiv" ng-model="second">
+			<img src="./img/jiazai.gif" />
+			<p>
+				还没有您的检查报告数据，请耐心等待...
+			</p>
+		</div>
+		<div ng-repeat="list in patientList" ng-show="threeDiv">
+			<a href="#/patientReport-detail/{{list.keyno}}" ng-click="viewDetail()" class="patientreportItem">
+				<span class="">{{list.testlist}}</span>
+				<span>检查时间：{{list.reportdate}}</span>
+				<i class="icon ion-chevron-right icon-accessory casereportDetailIcon" style="font-size:16px line-height:24px"></i>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

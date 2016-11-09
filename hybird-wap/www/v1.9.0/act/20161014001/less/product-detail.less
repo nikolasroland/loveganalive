@@ -1,0 +1,161 @@
+//html{
+//  font-size: 100px;
+//}
+//html,body{
+//  width: 100%;
+//}
+header{
+    display: flex;
+    padding: .1rem 0;
+    .headImg{
+        width: .75rem;
+        height: .61rem;
+        margin-left: .10rem;
+        img{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    nav{
+        flex: 1;
+        font-size: .14rem;
+        ul:nth-of-type(1){         
+            li:nth-of-type(1){              
+                height:.20rem;
+                line-height:.20rem;
+                font-weight: bold;
+            }   
+            li:nth-of-type(2){
+                color: #999;
+            } 
+            li:nth-of-type(3){
+                .detail-inform{
+                    display: flex;
+                    li:nth-of-type(1){
+                        font-size: .16rem;
+                        color: red;
+                        font-weight: bold;
+                        align-self:flex-end;
+                    }
+                    li:nth-of-type(2){
+                        margin-left: .5rem;
+                        #number{
+                            display: inline-block;
+                            width: .3rem;
+                            height: .3rem;
+                            border-radius: 5px;
+                            border: 1px solid #AAAAAA;
+                            line-height: 30px;
+                            text-align: center;
+                            font-size: .24rem;
+                            color: #666666;
+                            vertical-align: middle;
+                        }
+                       span{
+                            display: inline-block;
+                            width: .3rem;
+                            height: .3rem;
+                            border-radius: 5px;
+                            border: 1px solid #AAAAAA;
+                            line-height: 30px;
+                            text-align: center;
+                            font-size: .24rem;
+                            color: #666666;
+                            vertical-align: middle;
+                        }
+                        input{
+                            width: .30rem;
+                            height: .20rem;
+                            line-height: .20rem;
+                            text-align: center;
+                            border: 1px solid #AAAAAA;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+/*header结束*/
+.tishi{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #000000;
+    background: #f4f4f4;
+    font-size: .14rem;
+}
+
+.detail-form{
+    .detail-input{
+        display: flex;
+        margin-left: .1rem;
+        font-size: .14rem;
+        height: .4rem;
+        line-height: 32px;
+        border-bottom: 1px solid #aaa;
+        label{
+            width: 1rem;
+            color: #000000;
+            i{
+                color: red;
+                margin-right: .1rem;
+            }
+        }
+       .labelRem{
+           margin-left:.2rem;
+       }
+       .detail-recommend{
+          outline: none;
+       }
+        input{
+            flex: 2;
+            border: none;
+        }
+    }
+    .detail-words{
+        width:100%;
+//      margin-left: .1rem;
+        font-size: .14rem;
+        label{
+            margin-left:.3rem;
+            display: block;
+            height: 32px;
+            line-height: 32px;
+        }
+        textarea{
+            width:90%;
+            height: 68px;
+            padding: 10px;
+            border: 1px solid #AAAAAA;
+            border-radius: 5px;
+            margin:auto 5px;
+        }
+    }
+}
+
+.bottom{
+    margin-top: 70px;
+    height: 40px;
+    line-height: 40px;
+    ul{
+        font-size: .16rem;
+        display: flex;
+        margin:auto .1rem;
+        li:nth-of-type(1){
+            flex: 2;
+            text-align: center;
+            background: #fff;
+            color: #000000;
+        }
+        li:nth-of-type(2){
+            flex: 1;
+            text-align: center;
+            background: #4BA8F0;
+            color: #fff;
+        }
+    }
+}

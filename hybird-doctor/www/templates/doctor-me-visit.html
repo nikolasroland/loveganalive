@@ -1,0 +1,63 @@
+<ion-view view-title="出诊设置">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="item item-text-wrap">
+            <div class="row  text-center">
+                <div class="item col item-divider text-center schedule-title">出诊时间表 （{{week1}}）</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col"></div>
+                <div class="item col" ng-repeat="day in ['周一','周二','周三','周四','周五','周六','周日']">{{day}}</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">上午</div>
+                <div class="item col" ng-class="{
+                'out-class' : (weekday >= i || (schedule.this_weeks.split('|')[i - 1].split(',')[0] > 1 && (!(schedule.this_weeks.split('|')[i - 1].split(',')[0]==3 && schedule.limitPeoples==0))))
+                }" ng-click="setThisWeek(i, 0)" ng-repeat="i in [1,2,3,4,5,6,7]"><span ng-class="{'in-class' : schedule.this_weeks.split('|')[i - 1].split(',')[0] > 0}">{{schedule.this_weeks.split('|')[i - 1].split(',')[0]  > 0 ? '在班' : '&nbsp;'}}</span></div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">下午</div>
+                <div class="item col" ng-class="{
+                'out-class' : (weekday > i || (weekday == i && afternoon) || (schedule.this_weeks.split('|')[i - 1].split(',')[1] > 1 && (!(schedule.this_weeks.split('|')[i - 1].split(',')[1]==3 && schedule.limitPeoples==0))))
+                }" ng-click="setThisWeek(i, 1)" ng-repeat="i in [1,2,3,4,5,6,7]"><span ng-class="{'in-class' : schedule.this_weeks.split('|')[i - 1].split(',')[1] > 0}">{{schedule.this_weeks.split('|')[i - 1].split(',')[1]  > 0 ? '在班' : '&nbsp;'}}</span></div>
+            </div>
+        </div>
+        <div class="item item-text-wrap">
+            <div class="row  text-center">
+                <div class="item col item-divider text-center schedule-title">出诊时间表 （{{week2}}）</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col"></div>
+                <div class="item col" ng-repeat="day in ['周一','周二','周三','周四','周五','周六','周日']">{{day}}</div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">上午</div>
+                <div class="item col" ng-class="{
+                'out-class' : schedule.next_weeks.split('|')[i - 1].split(',')[0] > 1 && (!(schedule.next_weeks.split('|')[i - 1].split(',')[0]==3 && schedule.limitPeoples==0))
+                }" ng-click="setNextWeek(i, 0)" ng-repeat="i in [1,2,3,4,5,6,7]"><span ng-class="{'in-class' : schedule.next_weeks.split('|')[i - 1].split(',')[0] > 0}">{{schedule.next_weeks.split('|')[i - 1].split(',')[0]  > 0 ? '在班' : '&nbsp;'}}</span></div>
+            </div>
+            <div class="row  text-center item-text-wrap">
+                <div class="item col">下午</div>
+                <div class="item col" ng-class="{
+                'out-class' : schedule.next_weeks.split('|')[i - 1].split(',')[1] > 1 && (!(schedule.next_weeks.split('|')[i - 1].split(',')[1]==3 && schedule.limitPeoples==0))
+                }" ng-click="setNextWeek(i, 1)" ng-repeat="i in [1,2,3,4,5,6,7]"><span ng-class="{'in-class' : schedule.next_weeks.split('|')[i - 1].split(',')[1] > 0}">{{schedule.next_weeks.split('|')[i - 1].split(',')[1]  > 0 ? '在班' : '&nbsp;'}}</span></div>
+            </div>
+            <div class="fixed-bottom"></div>
+        </div>
+    </ion-content>
+    <div class="fixed-footer">
+        <label class="item item-input">
+            <span class="input-label">人数：</span>
+            <input type="number" maxlength="5" name="limit" ng-model="schedule.limitPeoples" step="1" placeholder="0" />
+            <span class="input-label">人</span>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">费用：</span>
+            <input type="number" maxlength="5" name="price" ng-model="schedule.servicePrice" step="1" placeholder="0" />
+            <span class="input-label">元</span>
+        </label>
+        <button style="position:relative;" ng-click="setVisit(schedule.limitPeoples, schedule.servicePrice)" class="button button-block button-positive">提交修改</button>
+    </div>
+</ion-view>

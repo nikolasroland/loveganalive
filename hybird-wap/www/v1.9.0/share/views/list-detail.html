@@ -1,0 +1,22 @@
+<ion-view>
+	<ion-nav-title>
+        {{tit}}
+    </ion-nav-title>
+    <!-- <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{false :'ion-android-arrow-back', true: 'ion-ios-arrow-back'}[isIOS]" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="share(detail.discoveryType, tit)">分享</button>
+    </ion-nav-buttons> -->
+    <ion-content scroll="true" overflow-scroll="true" style="top:0;">
+        <div ng-if="detail.slideType!='01'" id="remark" class="item item-text-wrap" ng-bind-html="detail.remark | to_trusted">
+        </div>
+        <iframe ng-if="detail.slideType=='01'" ng-src="{{link}}" frameborder="0" style="width:100%;min-height:100%;"></iframe>
+        <div class="list card" style="border:none;">
+            <div class="item" style="border:none;text-align:center;" ng-repeat="qrcode in qrcodeList">
+                <img ng-src="{{JAVA_URL + qrcode.captionUrl}}" style="border:none;">
+                <h2 style="color:#aeaeae;font-size:14px;">{{qrcode.captionName}}</h2>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

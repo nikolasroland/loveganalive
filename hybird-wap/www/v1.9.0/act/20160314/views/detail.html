@@ -1,0 +1,25 @@
+<ion-view hide-nav-bar="true" view-title="详情">
+    <ion-content id="container" style="background-color:#f1f1f1;top:0;" has-header="false">
+        <div ng-if="!isBuy">
+            <div id="remark" class="item item-text-wrap" style="margin:10px;border:none;border-radius: 8px;" ng-bind-html="remark | to_trusted">
+            </div>
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="saveProduct();">立即预定</button>
+            </div>
+        </div>
+        <div ng-if="isBuy">
+            <div class="list">
+                <div class="item item-avatar item-text-wrap" style="margin-bottom:6px" ng-repeat="item in list">
+                    <img src="./img/icon-2.png">
+                    <p>订单：<a href="#/order/{{item.order_id}}/{{item.order_code}}" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{item.order_code}}</a></p>
+                    <button ng-if="item.payment_status == '01'" class="button button-small button-positive button" style="position:absolute; top: 46px; right: 18px;" ng-click="login()">挑战脂肪肝</button>
+                    <p>购买时间：{{item.create_time | date: 'yyyy-MM-dd'}}</p>
+                    <p>申请状态：{{item.payment_status == '01' ? '申请成功' : '申请中'}}</p>
+                </div>
+            </div>
+<!--             <div class="padding">
+    <button type="button" ng-click="changeIsBuy()" class="button button-block button-positive">继续购买</button>
+</div> -->
+        </div>
+    </ion-content>
+</ion-view>

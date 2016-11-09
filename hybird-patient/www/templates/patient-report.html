@@ -1,0 +1,26 @@
+<ion-view id="report" hide-tabs="true" view-title="在线查报告" cache-view="false">	
+	 <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+	<ion-content>
+		<form class="patient-hos">
+			<div class="patient-row">
+				<label>就诊医院 ：</label>
+				<select style="outline: none; border:none;height:26px;font-size:14px;">
+					<option value="保定市传染病医院">保定市传染病医院</option>
+				</select>		
+			</div>
+			<div class="patient-row">
+				<label class="rowid">身份证号 ：</label>
+				<input ng-show="patientidNo" type="text" class="idendid" ng-model="id_card"/>
+				<span ng-show="patientidHas">{{id_card}}</span>
+			</div>
+		</form>
+		<div class="patient-check">
+			<button ng-click="showAlert(id_card)" >立即查看</button>   
+		</div>	
+		<div class="patient-warm">
+			<span>温馨提示：</span><b>报告单仅供参考，检验、检查结果以医院打印为准！</b>
+		</div>
+	</ion-content>	
+</ion-view>

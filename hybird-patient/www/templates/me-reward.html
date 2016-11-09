@@ -1,0 +1,67 @@
+<ion-view hide-tabs="true" view-title="打赏{{rewardTarget}}">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <ion-list>
+            <div class="item item-thumbnail-right">
+                <img ng-src="{{doctor.icon}}" style="border-radius: 50%" />
+                <h2>感谢您的真诚帮助</h2>
+                <p>&nbsp;</p>
+                <p>请接受我给您的礼物</p>
+            </div>
+            <div id="iosReward" class="item" style="border:0;display:none;">
+                <div class="row">
+                    <div class="col-33 text-center item-image" ng-click="rewardMoney(0)">
+                        <img src="img/1yuan.png" style="max-width:128px;" />
+                    </div>
+                    <div class="col-33 text-center item-image" ng-click="rewardMoney(1)">
+                        <img src="img/5yuan.png" style="max-width:128px;" />
+                    </div>
+                    <div class="col-33 text-center item-image" ng-click="rewardMoney(2)">
+                        <img src="img/10yuan.png" style="max-width:128px;" />
+                    </div>
+                </div>
+            </div>
+            <div id="androidReward" class="item" style="border:0;display:none;">
+                <div class="row">
+                    <div class="col-33 text-center item-image" ng-click="reward(0)">
+                        <img src="img/flower.png" style="max-width:128px;" />
+                    </div>
+                    <div class="col-33 text-center item-image" ng-click="reward(1)">
+                        <img src="img/flag.png" style="max-width:128px;" />
+                    </div>
+                    <div class="col-33 text-center item-image" ng-click="reward(2)">
+                        <img src="img/cup.png" style="max-width:128px;" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-33 text-center padding-right padding-left item-text-wrap">
+                        <h2>{{product[0].name}}<br />{{product[0].price}}{{ticket}}</h2>
+                    </div>
+                    <div class="col-33 text-center padding-right padding-left item-text-wrap">
+                        <h2>{{product[1].name}}<br />{{product[1].price}}{{ticket}}</h2>
+                    </div>
+                    <div class="col-33 text-center padding-right padding-left item-text-wrap">
+                        <h2>{{product[2].name}}<br />{{product[2].price}}{{ticket}}</h2>
+                    </div>
+                </div>
+            </div>
+            <script id="selectCount-modal" type="text/ng-template">
+                <div class="text-center">
+                    <h3 class="popup-title">{{product[index].name}}x{{productCount}}（{{product[index].price * (productCount || 0)}}{{ticket}}）</h3>
+                    <img ng-src="{{img}}" />
+                    <select style="width:100%;" ng-show="selectShow" ng-model="selectCount" ng-change="selectNum(selectCount)">
+                        <option value="0">其他数字</option>
+                        <option value="1">1 一心一意</option>
+                        <option value="10">10 十全十美</option>
+                        <option value="66">66 一切顺利</option>
+                        <option value="99">99 长长久久</option>
+                        <option value="1314">1314 一生一世</option>
+                    </select>
+                    <input type="number" min="1" max="1314" onchange="this.value = this.value > 1314 ? 1314 : this.value" ng-show="inputShow" ng-model="productCount">
+                </div>
+            </script>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,12 @@
+<ion-view view-title="{{header}}">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="joinIn()">加入</button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <div class="item item-image" ng-bind-html="remark">
+        </div>
+    </ion-content>
+</ion-view>

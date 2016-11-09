@@ -1,0 +1,27 @@
+<ion-view title="复诊记录">
+	<ion-nav-buttons side="left">
+		<button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div class="patientFlup" style="background:#f4f4f4">
+			<div class="patientWaiting">
+				<p>上传新的复诊记录，待审核</p>
+				<div class="patientflupDetailImg">
+					<img ng-repeat="item in flupDetailW track by $index" ng-src="{{item}}" />
+				</div>
+				
+			</div>
+			<div class="patientRecord">
+				<p>已审核的复诊记录</p>
+				<div ng-repeat="itemList in flupDetailR track by $index">
+					<p class="patientTime">{{itemList.time}}</p>
+					<div class="patientflupDetailImg">
+						<img ng-repeat="list in itemList.list track by $index" ng-src="{{list}}" />
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>

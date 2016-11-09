@@ -1,0 +1,41 @@
+<ion-view hide-tabs="true" view-title="服务列表">
+    <ion-content id="shopContent" style="background-color:#f1f1f1;">
+        <ion-item ng-if="!cloudshop" class="item-text-wrap" style="background-color:#ff6d6d;">
+            <p style=" color:#fff;">优惠信息：一次性购买6份（24周）及以上的乙肝基础服务立减100元；一次性购买12份（48周）及以上的乙肝基础服务立减200元。</p>
+        </ion-item>
+        <ion-list class="shop-list">
+            <div ng-repeat="item in shop.serviceProduct">
+                <ion-item class="item-avatar item-text-wrap">
+                    <img ng-src="{{JAVA_URL + item.productImg}}" ng-click="viewDetail()" />
+                    <span class="item-note" style="color:#0f91e4">￥{{item.price | number:2}}</span>
+                    <h2 ng-click="viewDetail()">{{item.productName}}</h2>
+                    <p ng-click="viewDetail()">购买数：{{item.sellQuantity}}</p>
+                    <div class="quantity">
+                        <i ng-hide="item.quantity<1" ng-click="minus()" class="ion-ios-minus-outline"></i> <span ng-hide="item.quantity<1">{{item.quantity}}</span> <i ng-click="plus()" class="ion-ios-plus-outline"></i>
+                    </div>
+                </ion-item>
+                <div class="line"></div>
+            </div>
+        </ion-list>
+        <div class="list shop-list" ng-class="{'gray': !canBuyDrug && amount==0}">
+            <div ng-repeat="item in shop.drugProduct">
+                <ion-item class="item-avatar item-text-wrap">
+                    <img ng-src="{{JAVA_URL + item.productImg}}" ng-click="viewDetail()" />
+                    <span class="item-note" style="color:#0f91e4">￥{{item.price | number:2}} <span style="color:red;font-size:12px;">(线下支付)</span></span>
+                    <h2>{{item.productName}}</h2>
+                    <p>{{item.description}}</p>
+                    <div class="quantity">
+                        <i ng-hide="item.quantity<1" ng-click="offlineMinus()" class="ion-ios-minus-outline"></i> <span ng-hide="item.quantity<1">{{item.quantity}}</span> <i ng-hide="!canBuyDrug && amount==0" ng-click="offlinePlus()" class="ion-ios-plus-outline"></i>
+                    </div>
+                </ion-item>
+                <div class="line"></div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="fixed">
+        <ion-item class="item-button-right">
+            <p>合计￥{{amount + offlineAmount | number:2}} 元 <span ng-show="serviceQuantity>=6 && serviceQuantity<=11" style="color:red">立减优惠100元</span><span ng-show="serviceQuantity>=12" style="color:red">立减优惠200元</span></p>
+            <button ng-disabled="(amount<=0 && offlineAmount<=0) || (amount<=0 && !canBuyDrug)" class="button button-assertive" ng-click="pay()">结算</button>
+        </ion-item>
+    </div>
+</ion-view>

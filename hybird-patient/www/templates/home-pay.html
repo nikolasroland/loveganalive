@@ -1,0 +1,36 @@
+<ion-view hide-tabs="true" view-title="支付">
+    <ion-content id="payContent" style="background-color:#e9e9e9;">
+        <div class="list">
+            <ion-item>
+                <span class="item-note">{{amount | number:2}} 元</span>
+                <p>{{proName}}</p>
+            </ion-item>
+        </div>
+        <ion-list class="tab-list">
+            <label class="item item-radio pay-radio">
+                <input type="radio" name="sex" value="1" ng-model="type">
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="item-content">
+                    <span class="item-note">{{balance}} 元</span> 账户余额
+                </div>
+            </label>
+            <label class="item item-radio pay-radio">
+                <input type="radio" name="sex" value="0" ng-model="type">
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="item-content">
+                    <span class="item-note">{{cashAccount}} 元</span> 奖金帐户
+                </div>
+            </label>
+            <label ng-show="hasWeixinPay" class="item item-radio pay-radio">
+                <input type="radio" name="sex" value="2" ng-model="type">
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="item-content">
+                    微信支付
+                </div>
+            </label>
+            <ion-item>
+                <button class="button button-full button-positive" ng-click="pay(type)">支付</button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

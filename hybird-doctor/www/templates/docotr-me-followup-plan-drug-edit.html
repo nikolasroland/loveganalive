@@ -1,0 +1,8 @@
+<ion-view view-title="药物计划修改" cache-view="false">
+    <ion-content style="background-color:#f4f4f4;">
+        <label class="item item-input padding" style="background-color:#fff;border: none;">
+            <textarea maxlength="680" rows="10" ng-model="drugTemplateEdit"  style="border:1px solid #ebebeb;border-radius:2px;" onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')"></textarea>
+        </label> 		
+    </ion-content>
+    <button class="button button-block button-positive" ng-click="saveDrug(drugTemplateEdit)" style="position: fixed;bottom:0;marign:0;left:0;">保存</button>
+</ion-view>	

@@ -1,0 +1,25 @@
+<ion-view view-title="修改信息">
+    <ion-content class="wechat-home">
+        <ion-list>
+            <label class="item item-input">
+                <span class="input-label">职 务：</span>
+                <select ng-model="doctor.profession">
+                    <option value="执业医师">执业医师</option>
+                    <option value="住院医师">住院医师</option>
+                    <option value="主治医师">主治医师</option>
+                    <option value="副主任医师">副主任医师</option>
+                    <option value="主任医师">主任医师</option>
+                </select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">擅 长：</span>
+                <textarea rows="4" ng-model="doctor.adept" style="width:60%;"></textarea>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">职业经历：</span>
+                <textarea rows="12" ng-model="doctor.intro" style="width:60%;"></textarea>
+            </label>
+            <button class="button button-block button-positive" ng-click="updateDoctorInfo(doctor.profession, doctor.adept, doctor.intro)">提交</button>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,55 @@
+<ion-view  view-title="咨询医生">
+    <ion-content style="background:#f5f4f3">
+       <div class="item item-thumbnail-left doctor-info item-text-wrap">
+            <img ng-src="{{doctorInfo.icon}}" style='border-radius: 50%;'>
+            <h2>{{doctorInfo.nickname}}</h2>
+            <p>{{doctorInfo.hospital}}</p>
+            <p>{{doctorInfo.offices + doctorInfo.profession}}</p>
+        </div>
+       <div class="item-body" style="background:#fff; margin-top:10px;border-top:1px solid #ddd;">
+           <textarea name="" id="" rows="5" style="width:100%;min-height:30px;font-size:14px;" placeholder="详细描述病状，发病时间，治疗经过，病情变化和想问我的问题" ng-model='user.casepoint'></textarea>
+           <i class="tips" style="font-size:12px; color:#666">请至少输入20个字</i>
+       </div>
+       <div class="item item-wrap">
+       <div class="content" >
+           <div id="picfilePrescription" class="item item-input act-canvas">
+                <input class="picfile" name="insurancePrescription" accept="image/*" capture="camera" type="file" />
+                <button class="button act-button-file icon-top ion-plus-round btnfile">上传病情</button>
+                <div class="imgzip" onclick="scaleImg(this)">
+                    <div></div>
+                </div>
+                <div class="btndel" style="display:none;background-color: #ef473a;border-radius: 50%;width:20px;height:20px;position: absolute;left: 82px;z-index: 100;top: 0px;color: #fff;text-align: center;line-height: 16px;" ng-click="delImg()">
+                  x
+                </div>
+            </div>
+       </div>
+           <i style="font-size:12px;display:block;padding-top:10px;width:100%;color:#666;clear:both;">为方便医生直观了解您的病情，请上传最新检查单</i>
+       </div>
+        <div class="item" style="margin:0;margin-top:10px; padding-left:0;padding-right:0;border-left:none;border-right:0;">
+            <i style="font-size: 12px;color:#666;float:left;margin-left: 20px;">患者性别</i>
+             <label class="item item-radio" style="float:left;margin-left:40px;" >
+                <input type="radio" name="type" value="1" ng-model="sex.type" required">
+                <i class="radio-icon ion-checkmark" style="width:20%"></i>
+                <div class="item-content" style="border:0;padding:0 10px 0 10px">
+                    男
+                </div>
+                </label>
+            <label class="item item-radio" style="float:left;margin-left:0px;">
+                <input type="radio" name="type" value="2" ng-model="sex.type" required>
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="item-content" style="border:0;padding:0 10px 0 10px">
+                    女
+                </div>
+            </label>
+        </div>
+        <div class="item" style="margin:0;margin-top:10px; padding-left:0;padding-right:0;border-left:none;border-right:0;">
+            <i style="font-size: 12px;color:#666;float:left;margin-left: 20px;">患者年龄</i>
+            <input type="number" max="100" style="width:33%;float:left;height:20px;margin-left:20px;text-align:center;" ng-model='user.age' placeholder="请填写您的年龄">
+           岁
+        </div>
+          <p ng-if="consultation==0" style="color:#ef681b;margin:12px 0;text-align: center;">本次咨询费用 {{consultProduct.price}} 元</p>
+        <div class="item" style="margin:0;margin-top:10px; padding-left:0;padding-right:0;border-left:none;border-right:0;">
+            <button class="button button-block button-positive" ng-click="goPay(user.casepoint,sex.type,user.age)">提交</button>
+        </div>
+    </ion-content>
+</ion-view>

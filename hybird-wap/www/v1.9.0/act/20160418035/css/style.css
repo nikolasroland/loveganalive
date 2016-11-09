@@ -1,0 +1,233 @@
+.item-avatar>img:first-child {
+    border:1px solid #a0a0a0;
+    border-radius: 4px;
+}
+
+.shop-list .list {
+    margin-bottom: 20px;
+}
+
+.shop-list .list .item {
+    border-top: 0;
+}
+
+.shop-list .list .item p {
+    padding-right:90px;
+}
+
+.settle-list .item {
+    border-top: 0;
+}
+
+.settle-list .item:last-child .line {
+    height:0;
+}
+
+.settle-list .settle-list-top{
+    padding:6px 16px;
+}
+
+.settle-list .settle-list-content{
+    background-color: #f6f6f6;
+    padding: 12px 16px 6px 16px;
+}
+
+.settle-list .settle-list-content h2 {
+    color:#68aee9;
+}
+
+.settle-list .settle-list-bottom{
+    text-align: right;
+    padding: 12px 16px;
+    z-index: 4;
+}
+
+.settle-list .settle-list-bottom h2 {
+    font-size:14px;
+}
+
+.gray { 
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+.line {
+    position: absolute;
+    z-index: 3;
+    left: 16px;
+    right: 0;
+    height: 1px;
+    background-color: #d2d2d2;
+}
+
+.fixed {
+    position: fixed;
+    right:0;
+    bottom: 0;
+    left:0;
+}
+
+.quantity {
+    position: absolute;
+    right:14px;
+    top:38px;
+}
+
+.quantity i {
+    font-size:28px;
+    color: #ff7335;
+    margin:0 6px;
+}
+
+.quantity span {
+    vertical-align: top;
+    line-height: 26px;
+}
+
+.act-p {
+    text-indent: 2em;
+}
+
+.act-yellow {
+    color: #8a3615;
+}
+
+.act-white {
+    color: #3c3f49;
+}
+
+.act-align-center {
+    text-align: center;
+}
+
+.fr-order-detail {
+    border: 0;
+    padding: 8px 16px;
+}
+
+.act-btn {
+    width: 40%;
+    min-height: 34px;
+    line-height: 34px;
+    padding: 0;
+    margin: 0 auto 20px auto;
+    background-color: #ce4444;
+    color: #ffdfdc;
+    border-radius: 5px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #a3303f;
+    font-size: 14px;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, .3);
+}
+
+.act-button-file {
+    border: 1px dashed #a0a0a0;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #ccc;
+    line-height: 22px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button.icon-top:before {
+    display: block;
+    font-size: 32px;
+    line-height: 44px;
+    color: #bbb;
+}
+
+.act-canvas {
+    height: 100px;
+}
+
+.picfile {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 82px;
+    height: 78px;
+    z-index: 2;
+    opacity: 0;
+}
+
+.imgzip {
+    border: 1px dashed #a0a0a0;
+    border-radius: 3px;
+    width: 82px;
+    height: 78px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.act-list {
+    background-color: #fff;
+}
+
+.act-radio {
+    margin: 12px 4px 0 12px;
+    text-align: center;
+    display: inline-block;
+}
+
+.act-radio input[type=radio] {
+    display: none;
+}
+
+.act-radio input[type=radio] + .act-radio-content {
+    width: 86px;
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid #bababa;
+    border-radius: 3px;
+    display: block;
+    background-color: #e7e7e7;
+}
+
+.act-radio input[type=radio]:checked + .act-radio-content {
+    border: 1px solid #1dc025;
+    background-color: #dbffe3;
+}
+
+.act-radio input[type=radio]:checked + .act-radio-content + span {
+    color: #1dc025;
+}
+
+.act-radio-a {
+    text-decoration: none;
+    color: #fd8016;
+}
+
+.item-radio .radio-icon {
+    padding: 14px 14px 14px 6px!important;
+}
+
+
+.comment {
+    background: #e7e7e7;
+    border:none;
+    padding:14px 16px;
+}
+
+.comment-item {
+    margin:0;
+    border-width:0 0 1px 0!important;
+}
+
+.comment-name {
+    font-size:14px;
+    color:#aaa;
+}

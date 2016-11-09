@@ -1,0 +1,223 @@
+.act-top {
+    background-image: url('../img/blue-bg.png');
+    padding-bottom: 60px;
+    background-blend-mode: overlay;
+    -webkit-transition: all .3s ease-in-out;
+    /* -webkit-clip-path: polygon(0px 0px, 200px 0px, 200px 100px, 0px 150px); */
+}
+
+.act-white {
+    color: #fff;
+}
+
+.act-padding {
+    padding: 20px 20px 10px 20px;
+}
+
+.act-left {
+    float: left;
+}
+
+.act-right {
+    float: right;
+}
+
+.act-subject {
+    background-color: #fff;
+    padding: 10px;
+    text-indent: 1.2em;
+    box-shadow: 10px 10px rgba(0, 0, 0, .4);
+}
+
+.act-option {}
+
+.act-option > input[type=radio] {
+    display: none;
+}
+
+.act-option > input[type=radio] + .radio-icon {
+    visibility: hidden;
+    position: relative;
+    top: 14px;
+    left: 28px;
+    font-size: 20px;
+    color: #ff9946;
+}
+
+.act-option > input[type=radio] + .radio-icon::before {
+    position: absolute;
+}
+
+.act-option > input[type=radio]:checked + .radio-icon {
+    visibility: visible;
+}
+
+.act-option > input[type=radio] + .radio-icon + div {
+    margin: 0 20px 10px 20px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.act-option > input[type=radio]:checked + .radio-icon + div {
+    background-color: white;
+}
+
+.act-option {}
+
+.act-option > input[type=checkbox] {
+    display: none;
+}
+
+.act-option > input[type=checkbox] + .radio-icon {
+    visibility: hidden;
+    position: relative;
+    top: 14px;
+    left: 28px;
+    font-size: 20px;
+    color: #ff9946;
+}
+
+.act-option > input[type=checkbox] + .radio-icon::before {
+    position: absolute;
+}
+
+.act-option > input[type=checkbox]:checked + .radio-icon {
+    visibility: visible;
+}
+
+.act-option > input[type=checkbox] + .radio-icon + div {
+    margin: 0 20px 10px 20px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.act-option > input[type=checkbox]:checked + .radio-icon + div {
+    background-color: white;
+}
+
+.act-btn-group {
+    text-align: center;
+}
+
+.act-btn {
+    background-color: #10aed6;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    padding: 8px 36px;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, .5);
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.act-btn:disabled {
+    background-color: #7ab4bc;
+}
+
+.act-result {
+    background-image: url('../img/blue-bg.png');
+    background-blend-mode: overlay;
+    /* padding: 20px 0 150px 0; */
+}
+
+.act-result-circle-1 {
+    margin: 0 auto;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    padding: 8px;
+    transform: rotate(-45deg)
+}
+
+.act-result-circle-2 {
+    margin: 0 auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    padding: 8px;
+    transform: rotate(45deg)
+}
+
+.act-result-circle-3 {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ffe4c4;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.act-result-circle-2 h2 {
+    color: #773815;
+    font-size: 20px;
+}
+
+.act-result-circle-2 p {
+    color: #ac4812;
+    font-size: 14px;
+}
+
+.act-result-content {
+    padding: 20px;
+}
+
+.act-result-content p {
+    text-indent: 2em;
+    color: #373737;
+    line-height: 2em;
+}
+
+.act-result-footer {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.act-result-btn {
+    background-color: #24bd97;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    padding: 8px 52px;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, .5);
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.act-analyze {}
+
+.act-analyze-text {}
+
+.act-analyze-text h2 {
+    font-size: 16px;
+    color: #cb5e16;
+}
+
+.act-analyze-text p {
+    text-indent: 2em;
+}
+
+.act-middle {
+    position: relative;
+    height: 68px;
+}
+
+.act-analyze-middle {
+    position: relative;
+    height: 24px;
+}
+
+.act-middle-clock {
+    background: url(../img/clock.png);
+    width: 46px;
+    height: 68px;
+    text-align: center;
+    padding-top: 33px;
+    color: #26a01c;
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+}

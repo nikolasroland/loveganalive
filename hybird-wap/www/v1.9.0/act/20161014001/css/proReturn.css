@@ -1,0 +1,83 @@
+header {
+  width: 100%;
+}
+header .returnTop {
+  display: flex;
+  flex-direction: column;
+}
+header .returnTop .returnImg {
+  height: .6rem;
+  width: .4rem;
+  margin: auto;
+}
+header .returnTop .returnImg img {
+  margin: .2rem auto;
+}
+header .returnTop .returnSucess {
+  font-size: .16rem;
+  margin: .2rem auto .06rem auto;
+}
+header .returnTop .returnMony {
+  font-size: .24rem;
+  margin: auto;
+}
+section {
+  border-top: 1px solid #666;
+  margin-top: .2rem;
+  width: 100%;
+  height: 1.5rem;
+}
+section .returnCon {
+  margin-top: -0.5rem;
+}
+section .returnCon .return-inform {
+  height: .3rem;
+}
+section .returnCon .return-inform span {
+  font-size: .16rem;
+  margin-left: .1rem;
+}
+section .returnCon .return-inform .spantwo {
+  color: #AAAAAA;
+}
+footer {
+  margin-top: .1rem;
+}
+footer p {
+  margin-top: .1rem;
+  display: block;
+  height: .5rem;
+  width: 100%;
+  background: #f4f4f4;
+  font-size: .12rem;
+  color: #AAAAAA;
+  text-align: center;
+  line-height: .5rem;
+}
+footer .returnTel {
+  font-size: .15rem;
+  height: .45rem;
+  width: 100%;
+  background: #f4f4f4;
+  text-align: center;
+  line-height: .45rem;
+  color: #666;
+}
+footer .returnTel a {
+  text-decoration: none ;
+  color: #666;
+}
+footer .returnPro {
+  height: .45rem;
+  width: 90%;
+  margin: auto;
+  border: 1px solid #f4f4f4;
+  border-radius: .1rem;
+  background: #4ba8f0;
+  font-size: .17rem;
+  text-align: center;
+  line-height: .45rem;
+}
+footer .returnPro a {
+  color: #fff;
+}

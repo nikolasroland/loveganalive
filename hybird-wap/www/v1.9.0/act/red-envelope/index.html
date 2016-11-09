@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- HTTP 1.1 -->
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- HTTP 1.0 -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Prevent caching at the proxy server -->
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>红包</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <img src="img/red.png" style="width:100%;" />
+    <input id="code" type="number" class="code" />
+    <img id="btn" src="img/btn.png" class="btn" style="width:79%;margin-left:-39.5%;display:block;" onclick="getRedEnvelope()" />
+    <div id="money" style="display:block;"></div>
+    <div id="tb"></div>
+    <script>
+    var JAVA_URL = "http://testmanage.aiganyisheng.net/";
+    var PHP_URL = "http://testapi.aiganyisheng.net/";
+
+    window.onload = setPos();
+    var isDisabled = false;
+
+    function setPos() {
+
+    }
+
+    function getRedEnvelope() {
+        if (isDisabled) return;
+        isDisabled = true;
+        var auth = window.localStorage.getItem("patient.auth");
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                userInfo = JSON.parse(xmlhttp.responseText);
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var ret = JSON.parse(xhr.responseText);
+                        console.log(ret.data)
+
+                        var list = ret.data.recordList;
+                        var str = "<table class='tb'>";
+                        var txt = "";
+                        for (var i in list) {
+                            str += "<tr>";
+                            str += "<td>" + list[i].userNickName + "</td>";
+                            str += "<td>…… …… …… ……</td>";
+                            str += "<td>" + list[i].amount + "元</td>";
+                            str += "</tr>";
+                        }
+                        str += "</table>"
+                        document.getElementById("tb").innerHTML = str;
+                        if (ret.code == "0") {
+                            if (ret.data.money > 0) {
+                                txt = "恭喜你抢到" + ret.data.money + "元红包！";
+                            } else if (list.length < 5) {
+                                txt = "你已经抢过该红包了";
+                            } else {
+                                txt = "该红包已经被抢光了";
+                            }
+                        }
+                        else {
+                           txt = ret.data;
+                        }
+
+                        document.getElementById("money").innerHTML = txt;
+                        document.getElementById("btn").style.display = "none";
+                    }
+                }
+                var randomCode = document.getElementById("code").value;
+                xhr.open("POST", JAVA_URL + "product/app/grabRedEnvelope.htm", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                console.log("sign=8870449ea3fa4a6c852a59057c43d6fc&userId=" + userInfo.data.userid + "&userName=" + userInfo.data.username + "&userNickName=" + userInfo.data.nickname + "&randomCode=" + randomCode)
+                xhr.send("sign=8870449ea3fa4a6c852a59057c43d6fc&userId=" + userInfo.data.userid + "&userName=" + userInfo.data.username + "&userNickName=" + userInfo.data.nickname + "&randomCode=" + randomCode);
+            }
+        }
+
+        xmlhttp.open("POST", PHP_URL + 'appApi/get_user_info.json', true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("auth=" + auth);
+    }
+    </script>
+</body>
+
+</html>

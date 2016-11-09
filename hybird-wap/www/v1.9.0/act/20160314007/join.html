@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>挑战脂肪肝</title>
+    <link href="./css/join.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <img class="header-img" src="./img/header.png" />
+        <div class="content">
+            <p>挑战脂肪肝活动规则</p>
+            <p>1. 患者须购买服务包后参加该活动，活动整个周期为52周；</p>
+            <p>2. 活动开始前须提交FibroScan的CAP检查报告单，并录入数值。提交后活动在当天开始;</p>
+            <p>3. 患者每天提交运动消耗卡路里，可以提交相关照片；</p>
+            <p>4. 每7天为一个周期，连续提交运动消耗后，分别可获得1、2、4、8、16、32、64元奖励，然后从1元开始重新轮动。任何一天没有提交，则从开始的1元开始奖励；</p>
+            <p> 5.活动开始后每13周为一个 奖励返款周期，奖励返款进入用户的奖金账户，CAP值检查值比较前一次降低为 奖励 条件。如果CAP值没有降低，则每13周的累积奖励清零；</p>
+        </div>
+        <div class="control-group control-btn-group">
+            <button class="btn btn-submit" onclick="checkUser();">即刻参加</button>
+        </div>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    function checkUser() {
+
+        window.parent.postMessage({
+            func: 'getAuth',
+            params: ['patient']
+        }, '*')
+
+        var uid = window.location.search.substr(5);
+        if (uid == '' || uid == '(null)') {
+            alert('需要先登录爱肝一生app才可以参与哦');
+        } else {
+            if (window.localStorage.getItem('doctorId') == 0) {
+                alert('您还没有绑定医生，请先选择一位距离您较近的医生吧。');
+                window.parent.postMessage({
+                    func: 'run',
+                    params: ['transfer', [0, 'selectDoctor']]
+                }, '*');
+                return;
+            } else if (window.localStorage.getItem('assistantId') == 0) {
+                alert('您的医生还没有绑定个管师，请先更换一位医生吧。');
+                window.parent.postMessage({
+                    func: 'run',
+                    params: ['transfer', [0, 'selectDoctor']]
+                }, '*');
+            } else {
+                window.location.href = "/act/20160314/buy.html?uid=" + uid;
+            }
+        }
+    }
+
+    window.addEventListener('message', function(e) {
+        if (e.data.func == 'getAuthCallback') {
+            window.localStorage.setItem('auth', e.data.resp.auth);
+            window.localStorage.setItem('userId', e.data.resp.patientId);
+            window.localStorage.setItem('userName', e.data.resp.patientName);
+            window.localStorage.setItem('nickName', e.data.resp.patientNickName);
+            window.localStorage.setItem('doctorId', e.data.resp.doctorId);
+            window.localStorage.setItem('assistantId', e.data.resp.assistantId);
+        }
+    });
+    </script>
+</body>
+
+</html>

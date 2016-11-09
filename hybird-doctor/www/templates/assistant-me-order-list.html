@@ -1,0 +1,20 @@
+<ion-view cache-view="false" view-title="订单列表">
+    <ion-content class="main">
+        <ion-list>
+            <div class="item" ng-repeat="order in orderList">
+                <h2><a style="color:#139799;text-decoration:none" ng-click="viewDetail();" href="#/tab/assistant/me/product/{{order.pro_code}}">{{order.pro_name}}</a><span class="item-note"><a href="#/tab/assistant/me/order-detail" ng-click="viewOrderDetail()" style="color:#32d350;text-decoration:underline">{{order.order_code}}</a></span></h2>
+                <span class="item-note assertive">￥{{order.amount | number:2}}</span>
+                <button ng-disabled="order.btnDisabled" ng-if="order.payment == '1' && order.payment_status=='00'" class="button button-small button-positive" style="float:right;padding:2px 16px;max-height:26px;min-height:26px;line-height:18px;clear:right;" ng-click="pay(order.amount, order.order_code)">支付</button>
+                <button ng-disabled="order.btnDisabled" ng-if="order.payment == '1' && order.payment_status=='00'" class="button button-small button-positive" style="float:right;padding:2px 16px;max-height:26px;min-height:26px;line-height:18px;margin-right:8px;" ng-click="cancel(order.order_code)">取消</button>
+                <p>患者名：{{order.realname}}</p>
+                <span ng-if="order.payment == '2' && order.payment_status=='00'" class="item-note">未支付</span>
+                <span ng-if="order.payment_status=='01'" class="item-note">已支付</span>
+                <span ng-if="order.payment_status=='03'" class="item-note">已取消</span>
+                <p>{{order.create_date | date:"yyyy-MM-dd"}}</p>
+            </div>
+        </ion-list>
+        <div class="item item-image" ng-if="doctorList.list.length==0">
+            <img src="img/default.png">
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,55 @@
+<ion-view hide-tabs="true">
+    <ion-nav-title>
+        预约
+    </ion-nav-title>
+    <div class="tabs-top discover-tabs">
+        <div class="tabs" ng-class="{true:ios-tabs, false:android-tabs}[isIOS]">
+            <ion-scroll direction="x" zooming="false" scrollbar-x="false">
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='all'}" ng-click="setActive('all')">
+                     全部
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='00'}" ng-click="setActive('00')">
+                     待确认
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='01'}" ng-click="setActive('01')">
+                     已确认
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='02'}" ng-click="setActive('02')">
+                     已取消
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='03'}" ng-click="setActive('03')">
+                     待审核
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='04'}" ng-click="setActive('04')">
+                     已就诊
+                </a>
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-class="{active: status=='05'}" ng-click="setActive('05')">
+                     未就诊
+                </a>
+            </ion-scroll>
+        </div>
+    </div>
+    <ion-content style="background-color: #e8e8e8">
+        <div style="height:36px;"></div>
+        <ion-refresher on-refresh="doRefresh(discoverTitle)"></ion-refresher>
+        <ion-list class="tab-list chat-list ">
+            <div class="item item-text-wrap item-avatar item-complex" ng-repeat="reservation in reservationList" ng-if="all||reservation.status==status">
+                <div class="item-content" style="padding-right:16px;" ng-click="reservationDetail(reservation.id)">
+                    <img class="fr-pic-circle" ng-src="{{doctor.icon}}" />
+                    <span class="item-note" style="font-size:13px;">{{statusName[reservation.status]}}</span>
+                    <h2 class="positive">{{reservation.datetime}}</h2>
+                    <h2>{{reservation.doctorNickName}}</h2>
+                    <div class="button-bar fr-button-bar-right" ng-if="reservation.status=='00' || reservation.status=='03'" style="top:36px;width:64px;">
+                        <button class="button button-small button-assertive" style="font-size:13px;min-height:26px;line-height:22px;padding:0;" ng-click='rejectReserv($event, reservation.id)'>取消预约</button>
+                    </div>
+                    <div class="button-bar fr-button-bar-right" ng-if="reservation.status=='04' && reservation.isEveluate!='1'" style="top:36px;width:64px;">
+                        <button ng-disabled="reservation.btnDisabled" class="button button-small button-assertive" style="font-size:13px;min-height:26px;line-height:22px;padding:0;" ng-click='comment(reservation.orderCode, $event)'>评价</button>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+        <div class="item item-image" ng-if="hasLoaded && (reservationList.length==0 || !all && !hasData[status])">
+            <img src="img/default.png">
+        </div>
+    </ion-content>
+</ion-view>

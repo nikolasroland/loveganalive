@@ -1,0 +1,17 @@
+<ion-view view-title="文章详情">
+	<ion-content scroll="true" overflow-scroll="true">
+	    <div class="item text-center item-text-wrap" style="padding-bottom:0;">
+	        <h2><strong>{{tit}}</strong></h2>
+	    </div>
+
+	    <div id="remark" class="item item-text-wrap" ng-bind-html="detail.info.content | to_trusted">
+        </div>
+	    <!--<div class="item item-text-wrap">
+	    	<a ng-click="praise()" style="border-color:#ccc;width: 108px;color:#ccc;min-height: 32px;height: 32px;line-height: 32px;position:absolute;right: 0px;top: 6px;z-index:12;" class="button button-light icon-left">
+                	<i id="iconHeart" class="icon ion-heart " ng-class="{'assertive': detail.praise=='yes'}" style="position: relative;top:-4px;">
+                		
+                	</i> 赞（<span id="num">{{detail.info.praisenum}}</span>）
+	    	</a>
+	    </div>-->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view hide-tabs="true">
+    <ion-nav-title>
+        挑战脂肪肝
+    </ion-nav-title>
+    <ion-content style="background-color: #e8e8e8">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="list">
+            <a class="item item-avatar item-text-wrap" href="#/tab/me/order-challenge-detail/{{item.order_code}}" style="margin-bottom:6px" ng-repeat="item in list">
+                <img src="./img/icon-2.png">
+                <p>订单：{{item.order_code}}</p>
+                <button ng-if="item.payment_status == '01'" class="button button-small button-positive button" style="position:absolute; top: 46px; right: 18px;" ng-click="challenge($event)">挑战脂肪肝</button>
+                <p>购买时间：{{item.create_time | date: 'yyyy-MM-dd'}}</p>
+                <p>申请状态：{{item.payment_status == '01' ? '申请成功' : '申请中'}}</p>
+            </a>
+            <div class="item item-image" ng-if="hasLoaded && list.length==0">
+                <img src="img/default.png">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

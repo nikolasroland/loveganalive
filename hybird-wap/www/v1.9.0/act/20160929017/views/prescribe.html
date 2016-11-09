@@ -1,0 +1,32 @@
+<ion-view cache-view="false">
+    <ion-nav-title>
+        {{patient.realname}}
+    </ion-nav-title>
+    <ion-content style="background-color:#f1f1f1;">
+        <div class="list settle-list">
+            <div class="item row">
+                <div class="col">
+                    <p>项目</p>
+                </div>
+                <div class="col">
+                    <p>剩余</p>
+                </div>
+                <div class="col">
+                    <p>操作</p>
+                </div>
+            </div>
+            <div class="item row" ng-repeat="item in patient.tradeOrderServe">
+                <div class="col">
+                    <p>{{item.itemName}}</p>
+                </div>
+                <div class="col">
+                    <p>{{item.itemSurplusCount}} {{item.serveType == '1' ? '次' : '盒'}}</p>
+                </div>
+                <div class="col">
+                    <button ng-if="item.serveType=='0'" ng-click="drug()" class="button button-small button-positive" style="min-width:28px;min-height:30px;line-height:26px;font-size:12px;padding:0 12px;">开处方</button>
+                        <button ng-if="item.serveType=='1'" ng-click="checklist()" class="button button-small button-positive" style="min-width:28px;min-height:30px;line-height:26px;font-size:12px;padding:0 12px;">开检查单</button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

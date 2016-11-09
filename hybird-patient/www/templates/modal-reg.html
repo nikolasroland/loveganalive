@@ -1,0 +1,99 @@
+<ion-modal-view>
+    <ion-content>
+        <ion-list class="tab-list no-lines">
+            <ion-item class="item-icon-left">
+                <i class="icon ion-ios-close-empty" style="color:#aaa;font-size:48px;" ng-click="closeRegModal()"></i>
+            </ion-item>
+            <ion-item class="login-avatar">
+                <img src="./img/avatar.png" />
+            </ion-item>
+        </ion-list>
+        <ion-list class="tab-list no-lines padding list-inset form-style">
+            <ion-item class="item-input">
+                <i class="icon ion-iphone placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="tel" placeholder="手机号" ng-model="$root.regTel">
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input">
+                <i class="icon ion-ios-unlocked-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="text" placeholder="验证码" ng-model="$root.regCode">
+                <button class="button button-clear button-positive" ng-click="$root.sendCode($root.regTel, 1)" style="margin-right:32px;text-decoration: none;font-size:12px">获取验证码</button>
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input">
+                <i class="icon icon-personage placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="text" placeholder="昵称" ng-model="$root.regNickName">
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input">
+                <i class="icon icon-personage placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="text" placeholder="真实姓名" ng-model="$root.regRealName">
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input item-input item-input-inset">
+                <i class="icon ion-ios-paper-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <span class="input-label">是否自费</span>
+                <label class="item item-radio">
+                    <input type="radio" name="is_own" value="1" ng-model="$root.regIsOwn">
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0">
+                        是
+                    </div>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" name="is_own" value="0" ng-model="$root.regIsOwn">
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0">
+                        否
+                    </div>
+                </label>
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input item-input item-input-inset">
+                <i class="icon ion-ios-color-filter-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <span class="input-label">性别</span>
+                <label class="item item-radio">
+                    <input type="radio" name="sex" value="1" ng-model="$root.regSex">
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0">
+                        男
+                    </div>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" name="sex" value="2" ng-model="$root.regSex">
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0">
+                        女
+                    </div>
+                </label>
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input">
+                <i class="icon ion-ios-calendar-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <span class="input-label">生日</span>
+                <input type="date" name="birthday" ng-model="$root.regBirthday" format-date max="{{maxDate | date : 'yyyy-MM-dd'}}">
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input item-select">
+                <i class="icon ion-ios-medkit-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <span class="input-label">疾病</span>
+                <select name="disease" ng-model="$root.regDisease">
+                    <option value="乙肝">乙肝</option>
+                    <option value="丙肝">丙肝</option>
+                    <option value="脂肪肝">脂肪肝</option>
+                    <option value="肝硬化">肝硬化</option>
+                    <option value="其他" selected='true'>其他</option>
+                </select>
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="text-center">
+                <input id="agreement" type="checkbox" checked="checked" />
+                <label for="agreement">我已阅读并同意 </label><a ng-click="openAgreementModal()">《爱肝一生用户协议》</a>
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item>
+                <button class="button button-full button-positive" ng-click="$root.reg($root.regTel, $root.regCode, $root.regNickName, $root.regRealName, $root.regIsOwn, $root.regSex, $root.regBirthday, $root.regDisease)">注册</button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

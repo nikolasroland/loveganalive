@@ -1,0 +1,123 @@
+<ion-view hide-tabs="true" view-title="个人基本信息">
+	<ion-nav-buttons side="left">
+		<button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="infoHistoryBack()"></button>
+	</ion-nav-buttons>
+	<ion-content class="main" style="background-color:#efeff4;">
+		<form name="infoForm" class="list tab-list no-lines list-inset form-style" method="post" novalidate style="margin:0; padding-left:0;padding-right:0;" ng-click="contentClick(infoForm)">
+			<ion-item class="text-center patient-photo">
+				<img ng-src="{{patient.icon}}" />
+				<!-- <input id="file" type="file" class="info-upload-file" accept="image/*" capture="camera" custom-on-change="upload()" /> -->
+			</ion-item>
+			<div class="login-line"></div>
+			<label class="item item-input">
+                <span class="input-label">用户ID</span>
+                <input type="text" name="userid" class="text-right" ng-model="patient.userid" ng-disabled="true">
+            </label>
+			<div class="login-line"></div>
+			<label class="item item-input">
+                <span class="input-label">头衔</span>
+                <input type="text" name="header" class="text-right" ng-model="patient.header" ng-disabled="true">
+            </label>
+			<div class="login-line"></div>
+			<label class="item item-input">
+                <span class="input-label">昵称</span>
+                <input type="text" maxlength="14" name="nickname" class="text-right" ng-model="patient.nickname" required onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')">
+            </label>
+			<span class="error" ng-if="infoForm.nickname.$dirty && infoForm.nickname.$invalid">
+                <i class="ion-alert-circled"></i> 请输入昵称</span>
+			<div class="login-line"></div>
+			<label class="item item-input">
+                <span class="input-label">真实姓名</span>
+                <input type="text" maxlength="14" name="realname" class="text-right" ng-model="patient.realname" required onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')"/>
+            </label>
+			<span class="error" ng-if="infoForm.realname.$dirty && infoForm.realname.$invalid">
+                <i class="ion-alert-circled"></i> 请输入真实姓名
+            </span>
+			<div class="login-line"></div>
+			<label class="item item-input">
+                <span class="input-label">性别</span>
+                <label class="item item-radio text-right">
+                    <input type="radio" name="sex" value="男" ng-model="patient.sex" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0">
+                        男
+                    </div>
+                </label>
+			<label class="item item-radio text-right">
+                    <input type="radio" name="sex" value="女" ng-model="patient.sex" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0">
+                        女
+                    </div>
+                </label>
+			</label>
+			<div class="login-line"></div>
+			<div class="item item-input">
+				<span class="input-label">生日</span>
+				<p style="position: absolute;right: 34px; top:14px;min-width:120px;min-height:44px;" class="text-right" ng-click="openDatePicker()">{{patient.birthday}}</p>
+				<input type="hidden" name="birthday" class="text-right" ng-model="patient.birthday" format-date max="{{maxDate | date : 'yyyy-MM-dd'}}" required>
+			</div>
+			<span class="error" ng-if="infoForm.birthday.$dirty && infoForm.birthday.$invalid && !editState"><i class="ion-alert-circled"></i> 生日不能晚于今天</span>
+			<div class="login-line"></div>
+			<label class="item item-input">
+                <span class="input-label">是否自费</span>
+                <label class="item item-radio text-right">
+                    <input type="radio" name="is_own" value="1" ng-model="patient.is_own" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0">
+                        是
+                    </div>
+                </label>
+			<label class="item item-radio text-right">
+                    <input type="radio" name="is_own" value="0" ng-model="patient.is_own" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content" style="border:0">
+                        否
+                    </div>
+                </label>
+			</label>
+			<div class="login-line"></div>
+			<label class="item item-input item-select">
+                <div class="input-label">
+                    主疾病
+                </div>
+				<select name="main_disease" ng-model="patient.main_disease" required>
+					<option value="乙肝">乙肝</option>
+					<option value="丙肝">丙肝</option>
+					<option value="脂肪肝">脂肪肝</option>
+					<option value="肝硬化">肝硬化</option>
+					<option value="肝癌">肝癌</option>
+					<option value="其他" selected='true'>其他</option>
+				</select>
+			</label>
+			<div class="login-line"></div>
+			<label class="item item-input item-select">
+                <div class="input-label">
+                    伴随疾病
+                </div>
+                <select name="other_disease" ng-model="patient.other_disease" required>
+                    <option value="糖尿病">糖尿病</option>
+                    <option value="高血压">高血压</option>
+                    <option value="高血脂">高血脂</option>
+                    <option value="其他">其他</option>
+                    <option value="无" selected='true'>无</option>
+                </select>
+            </label>
+			<span class="error" ng-if="infoForm.main_disease.$dirty && infoForm.main_disease.$invalid">
+                <i class="ion-alert-circled"></i> 请选择疾病
+            </span>
+			<div class="login-line"></div>
+			<label class="item item-input ">          
+                <span class="input-label">身份证号</span>
+                <input type="text" class="text-right" name="idcard" ng-model="patient.id_card" required onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')">
+            </label>
+			<span class="error" ng-if="infoForm.idcard.$dirty && infoForm.idcard.$invalid">
+                <i class="ion-alert-circled"></i> 请输入身份证号
+            </span>
+			<div class="login-line"></div>
+			<ion-item>
+				<button type="submit" ng-disabled="infoForm.$invalid" ng-click="updateUser(patient.realname ,patient.nickname, patient.sex, patient.birthday, patient.is_own,patient.main_disease,patient.other_disease, patient.id_card)" class="button button-full button-positive">保存修改</button>
+			</ion-item>
+		</form>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,404 @@
+
+.flupContent{	
+	background:#E6E6E6;
+}
+.flupInfo{
+	margin-top:15px;
+}
+.ion-ios-plus-outline {
+	width:100%;
+	height: 100px;
+	line-height:100px;
+	text-align: center;
+	font-size: 64px;
+}
+
+.tabs-striped .tab-item.tab-item-active {
+	border-color: rgb(0, 153, 255);
+}
+
+.flupTab ion-tabs .tabs {
+	position: static;
+	bottom: 0;
+	border-bottom: none;
+}
+.referralReminders li{
+	border-bottom:1px solid #E6E6E6;
+	line-height:34px;
+}
+.referralReminders li p{
+	line-height:24px;
+}
+.doctorRow{
+	line-height:25px;
+	padding:5px 0;
+	background:#fff;
+	border-bottom:1px solid #E6E6E6!important;
+}
+.doctorCol{
+padding:0!important	;
+text-align: center;
+font-size:13px;
+line-height:34px;
+border-bottom:1px solid #E6E6E6;
+}
+.doctorItem{
+	border:none;
+	font-size:14px;
+	padding:10px;
+	width: 100%;
+	height: 21rem;
+	display: flex;
+	flex-direction: column;
+	white-space: normal!important;
+}
+.docItemVisit{
+	padding: 0!important;
+	border:none;
+	font-size:14px;
+	padding:10px;
+	width: 100%;
+	white-space: normal!important;
+}
+.docItemVisit .flexff{
+	overflow-y: auto;
+}
+.doctorItem .flexff{
+	flex: 1;
+	overflow-y: auto;
+}
+.doctorItem .flexff p span{
+	font-weight:bold;
+	color:#111;
+	font-size:14px;
+}
+.flup-active {
+	border-bottom:2px solid #387ef5;
+}
+	
+.flup-unactive {
+	border-bottom:2px solid #e6e6e6;
+}
+.doctorFlupImg{
+	width:100%;
+	min-height:130px;
+	background:#fff;
+    margin-bottom: 15px;
+
+}
+.docFlupImg{
+	width:60px;
+	height:65px;
+	margin:0 auto;	
+	padding-top:5px;
+}
+.docFlupImg img{
+	height:100%;
+	width:100%;
+	border-radius:50%;
+	margin:0 auto;
+
+}
+.doctorFlupImg .docPatientInfo{
+	width:80%;
+	margin:5px auto;
+	text-align: center;
+}
+.doctorVisit-title{
+	height: 28px;
+	line-height: 28px;
+	clear: both;
+	padding-right: 10px;
+}
+.doctorVisit-title div:nth-of-type(1){
+	margin-left: 10px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #e6e6e6;
+}					
+.doctorVisit-title h4{
+	font-size: 16px;
+	line-height: 40px;
+	float: left;
+}
+.doctorVisit-title .bianji{
+	font-size: 14px;
+	float: right;
+}
+.doctorVisit-title .bianji a{
+	text-decoration: none;
+}
+.doctorVisit-container{
+	padding: 15px 10px 15px 10px;
+	border-bottom: 6px solid #e6e6e6;
+}
+.doctorVisit-container h4{
+	width: 100%;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+.doctorVisit-container div{
+	width: 100%;
+}
+.doctorVisit-add{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+.doctorVisit-add span:nth-of-type(1){
+	font-size: 60px;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.doctorVisit-add span:nth-of-type(2){
+	font-size: 14px;
+	vertical-align: middle;
+}
+.foot_box{
+	height:44px;
+	width:100%;
+}
+ .foot_box button{
+	width: 100%;
+    height: 44px!important;
+    background:#0099FF;
+    border: 1px #fff solid!important;
+    border-radius: 5px;
+    color: #fff;
+}
+.doctorDail {
+    margin: 10px auto;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 8px;
+}
+.doctorDail a{
+	display:inline-block;
+	width:85px;
+	height:30px;
+	line-height:30px;
+	border-radius:5px;
+	border:1px solid #fff;
+	color:#fff;
+	background: #0099FF;
+	text-align: center;
+	text-decoration: none;
+}
+/*------------doctortemplateChange-----------------*/
+.doctorTextChange{
+	min-height:90px;
+	width:95%;
+	margin:10px auto 0;
+	border:1px solid #E6E6E6;
+	/*text-indent:2em;*/
+	padding:5px;
+}
+.doctorFluChange{
+	padding:10px;
+	margin-bottom: 20px;
+}
+.doctorAdd{
+	width:100%;
+	height: 100%;
+}
+.doctorAdd div{
+	width:100%;
+	margin:0 auto;
+	text-align: center;
+}
+.doctorAdd .ion-ios-plus-outline{
+	font-size:34px;
+	vertical-align: middle;
+}
+.doctorAdd span:nth-of-type(2){
+	line-height:54px;
+	font-size:14px;	
+	display: inline-block;
+	height:54px;
+	padding-top:0px;
+}
+/*-------------doctorFlupDetail----------------*/
+.docDetailNo .detailNoImg{
+	min-height:100px;
+	width:60%;
+	margin:50px auto 0;
+}
+.docDetailNo .detailNoDescrip{
+	width:50%;
+	margin:0 auto;
+	text-align: center;
+	color:#6e6e6e;
+}
+.docDetailNo .detailNoImg img{
+	height:100%;
+	width:100%;
+	margin:0 auto;
+}
+.doPatientFlup{
+	padding:10px 16px;
+}
+.doPatientRecord img{
+	width:25%;
+}
+.flupJump{
+	position:absolute;
+	z-index:2000;
+	right:15px;
+	top:10px;
+	
+}
+.flupJump a{
+	text-decoration: none;
+	color:#fff;
+}
+
+
+/*-----------reportList----------*/
+
+.patientreportItem {
+	display: flex;
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	font-family: "微软雅黑";
+	border-bottom: 1px solid #eee;
+	background: #fff;
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+}
+
+.patientreportItem span:nth-of-type(1) {
+	flex: 2;
+	padding-left: 14px;
+}
+
+.patientreportItem .icon {
+	display: inline-block;
+	line-height: 44px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #9a9a9a;
+}
+
+.patientreportItem span:nth-of-type(2) {
+	color: #9a9a9a;
+}
+
+.reportFirst {
+	padding: 0 16px;
+	margin-top: 25px;
+	color: #9a9a9a;
+	font-size: 12px;
+}
+
+.reportSecond {
+	padding-left: 16px;
+	margin-top: 150px;
+	width: 100%;
+	font-size: 14px;
+}
+
+.reportSecond img {
+	display: block;
+	margin: 0 auto;
+}
+
+.reportSecond p {
+	padding: 0 16px;
+	font-size: 14px;
+	color: #6C6C6C;
+}
+
+
+/*------------reportDetail-----------*/
+
+header {
+	height: 44px;
+	line-height: 44px;
+	font-size: 13px;
+}
+
+.reportCon {
+	background: #fff;
+}
+
+.reportDetailTop {
+	padding: 0 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.table {
+	width: 100%;
+}
+
+.table tr {
+	text-align: center;
+	font-size: 12px;
+	height: 34px;
+	line-height: 34px;
+}
+
+.table thead {
+	border: 1px solid #eee;
+	border-right: none;
+	border-left: none;
+	color: #0099FF;
+}
+
+.table tr th:nth-of-type(1) {
+	text-align: left;
+	padding: 0 10px;
+}
+
+.table tr td:nth-of-type(1) {
+	text-align: left;
+	padding-left: 5px;
+}
+
+.table tr td:nth-of-type(4) {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.reportTwo ul {
+	height: auto;
+}
+
+.reportTwo ul li {
+	border-bottom: 1px solid #eee;
+	line-height: 44px;
+	padding-left: 16px;
+	font-size: 14px;
+}
+
+.reportTwo ul li span {
+	color: #A0A0A0;
+}
+
+.reportTwo ul li b {
+	font-weight: 400;
+}
+
+.reportTwo ul li:nth-of-type(3) {
+	border-bottom: none;
+	line-height: 26px;
+	text-align: left;
+	padding: 15px 12px 0 16px;
+}
+
+.reportTwo ul li:nth-of-type(3) span:nth-of-type(1) {
+	color: #0099FF;
+}
+
+.reportThree ul li {
+	border-bottom: 1px solid #eee;
+	line-height: 44px;
+	padding: 0px 16px 0 16px;
+	font-size: 14px;
+}
+
+.reportThree ul li span {
+	color: #A0A0A0;
+}

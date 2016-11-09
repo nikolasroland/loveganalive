@@ -1,0 +1,99 @@
+<ion-view view-title="填写个人信息">
+    <ion-content class="main">
+        <form name="userForm" class="list list-inset form-style" method="post" novalidate>
+            <!-- <label class="item item-input">
+                <span class="input-label">头像</span>
+                <input type="text" name="avatar" ng-model="avatar">
+            </label> -->
+            <label class="item item-input">
+                <span class="input-label">昵称</span>
+                <input type="text" name="nickname" ng-model="nickname" required>
+            </label>
+            <span class="error" ng-show="userForm.nickname.$dirty && userForm.nickname.$invalid">请输入昵称</span>
+            <label class="item item-input">
+                <span class="input-label">密码</span>
+                <input type="password" name="password" ng-model="password" required>
+            </label>
+            <span class="error" ng-show="userForm.password.$dirty && userForm.password.$invalid">
+                <span ng-show="userForm.password.$error.required">请输入密码</span>
+            </span>
+            <label class="item item-input">
+                <span class="input-label">确认密码</span>
+                <input type="password" name="pwdconfirm" ng-model="pwdconfirm" ui-validate=" '$value==password' " ui-validate-watch=" 'password' " required>
+            </label>
+            <span class="error" ng-show="userForm.pwdconfirm.$dirty">
+               <span ng-show="userForm.pwdconfirm.$error.required">请再次输入密码</span>
+            <span ng-show="!userForm.pwdconfirm.$error.required && password != pwdconfirm">密码不一致</span>
+            </span>
+            <label class="item item-input">
+                <span class="input-label">真实姓名</span>
+                <input type="text" name="realname" ng-model="realname" required>
+            </label>
+            <span class="error" ng-show="userForm.realname.$dirty && userForm.realname.$invalid">请输入真实姓名</span>
+            <label class="item item-input item-input-inset">
+                <span class="input-label">性别</span>
+                <label class="item item-radio">
+                    <input type="radio" name="sex" value="1" ng-model="sex" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content">
+                        男
+                    </div>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" name="sex" value="2" ng-model="sex" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content">
+                        女
+                    </div>
+                </label>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">生日</span>
+                <ionic-datepicker idate="birthday">
+                    <input type="text" readonly='readonly' name="birthday" ng-model="birthday | date:'yyyy年MM月dd日'" max="{{maxDate | date : 'yyyy-MM-dd'}}" required>
+                </ionic-datepicker>
+            </label>
+            <span class="error" ng-show="userForm.birthday.$dirty && userForm.birthday.$invalid">生日不能晚于今天</span>
+            <!--             <label class="item item-input">
+    <span class="input-label">生日</span>
+    <input type="date" name="birthday" ng-model="birthday" value="1990-01-01" max="{{maxDate | date : 'yyyy-MM-dd'}}" required>
+</label>
+<span class="error" ng-show="userForm.birthday.$dirty && userForm.birthday.$invalid">生日不能晚于今天</span> -->
+            <label class="item item-input item-input-inset">
+                <span class="input-label">是否自费</span>
+                <label class="item item-radio">
+                    <input type="radio" name="is_own" value="1" ng-model="is_own" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content">
+                        是
+                    </div>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" name="is_own" value="0" ng-model="is_own" required>
+                    <i class="radio-icon ion-checkmark"></i>
+                    <div class="item-content">
+                        否
+                    </div>
+                </label>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    疾病
+                </div>
+                <select name="disease" ng-model="disease" required ng-disabled="editState">
+                    <option value="乙肝">乙肝</option>
+                    <option value="丙肝">丙肝</option>
+                    <option value="脂肪肝">脂肪肝</option>
+                    <option value="肝硬化">肝硬化</option>
+                    <option value="新生儿">新生儿</option>
+                    <option value="准妈妈">准妈妈</option>
+                </select>
+            </label>
+            <span class="error" ng-show="userForm.disease.$dirty && userForm.disease.$invalid">
+                <i class="ion-alert-circled"></i> 请选择疾病
+            </span>
+            <p class="reg-tips">*以上均为必填项</p>
+            <button type="submit" ng-disabled="userForm.$invalid || password != pwdconfirm" ng-click="reg(avatar, nickname, password, pwdconfirm, realname, sex, birthday, is_own, disease)" class="button button-block button-positive">确定</button>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view hide-nav-bar="true" view-title="保险保障 优质服务">
+    <ion-content id="mainContent" style="background:url(./img/bg.png)">
+        <div class="item item-image" style="border:none;">
+            <img src="img/bg-1.jpg" />
+        </div>
+        <div class="padding">
+            <p class="act-p act-yellow">
+                爱肝保——送给亲人的暖心之礼
+            </p>
+            <p class="act-p act-yellow">
+                爱肝保 A包，包括：
+            </p>
+            <p class="act-p act-white">
+                1、  最高赔付30000元健康宝肝肝癌疾病保险，保期一年，为肝炎病情潜在恶化风险提供必要性保障；
+            </p>
+            <p class="act-p act-white">
+                2、  恩替卡韦分散片，全年26盒（14片每盒），可按年或按季度邮寄，保证药物服用连续性及方便快捷；
+            </p>
+<!--             <p class="act-p act-white">
+    3、  爱肝一生app价值550元健康券，享受主诊医生及专属个案管理师提供从疾病咨询、复诊提醒到远程预约、诊后随访等全方位线上及线下健康管理服务；
+</p> -->
+            <p class="act-p act-white">
+                3、  药品配送消息提醒、奖励活动及通知、疾病相关科普信息等。
+            </p>
+            <p class="act-p act-yellow">
+                点击马上办理，可以选择更多服务包。
+            </p>
+            <div data-tap-disabled="true" class="item act-align-center" style="border:0;background:url(./img/bg.png)">
+                <button class="button act-btn" ng-click="start();">马上办理</button>
+<!--                 <button class="button act-btn" ng-click="startBaotou();">包头地区办理</button> -->
+                <h2 ng-if="hasTelphone">个案管理师电话：<a ng-click="tel(telphone)" href="tel:{{telphone}}">{{telphone}}</a></h2>
+            </div>
+            <div data-tap-disabled="true" class="item act-align-center" style="border:0;background:url(./img/bg.png)">
+                
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

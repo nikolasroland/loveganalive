@@ -1,0 +1,46 @@
+<ion-view view-title="我的医生">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="changeDoctor()">更换医生</button>
+    </ion-nav-buttons>
+    <ion-content class="main advisory">
+        <div class="item item-thumbnail-left doctor-info item-text-wrap">
+            <img ng-src="{{doctor.avatar}}">
+            <h2>{{doctor.nickname}}</h2>
+            <p>{{doctor.hospital}}</p>
+            <p>{{doctor.offices + doctor.profession}}</p>
+        </div>
+        <div class="item item-text-wrap">
+            <h3 class="item-title skill">擅 长</h3>
+            <p class="item-con">
+                {{doctor.adept}}
+            </p>
+            <h3 class="item-title experience">职业经历</h3>
+            <p class="item-con">
+                {{doctor.intro}}
+            </p>
+        </div>
+        <div class="item comment">
+            <span>评价（{{comment.count}}条）</span>
+            <span ng-star="comment.avg"></span>
+            <span>{{comment.avg}}分</span>
+        </div>
+        <ion-list>
+            <div class="item comment-item item-text-wrap" ng-repeat="list in comment.list">
+                <span class="comment-name">{{list.name}}</span>
+                <span ng-star="list.star"></span>
+                <p>{{list.content}}</p>
+            </div>
+            <ion-infinite-scroll icon="ion-loading-c" ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="10%">
+            </ion-infinite-scroll>
+        </ion-list>
+        <div class="fixed-bottom" style="height:101px;"></div>
+    </ion-content>
+    <div class="fixed-footer">
+        <div class="item">
+            <button ng-click="rate(12, doctor.userid, doctor.nickname)" class="button button-block button-positive">给医生打分</button>
+        </div>
+    </div>
+</ion-view>

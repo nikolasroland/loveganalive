@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>挑战脂肪肝</title>
+    <link href="./css/join.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #e9e9e9;">
+    <div class="container">
+        <div class="buy-content">
+            <h3 style="color:#54cfc5;">挑战脂肪肝活动规则</h3>
+            <p>1. 患者须购买服务包后参加该活动，活动整个周期为52周；</p>
+            <p>2. 活动开始前须提交FibroScan的CAP检查报告单，并录入数值。提交后活动在当天开始;</p>
+            <p>3. 患者每天提交运动消耗卡路里，可以提交相关照片；</p>
+            <p>4. 每7天为一个周期，连续提交运动消耗后，分别可获得1、2、4、8、16、32、64元奖励，然后从1元开始重新轮动。任何一天没有提交，则从开始的1元开始奖励；</p>
+            <p> 5.活动开始后每13周为一个 奖励返款周期，奖励返款进入用户的奖金账户，CAP值检查值比较前一次降低为 奖励 条件。如果CAP值没有降低，则每13周的累积奖励清零；</p>
+        </div>
+        <div class="control-group control-btn-group">
+            <button class="btn btn-submit" onclick="buy();">立即购买</button>
+        </div>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    var productId = 18;
+
+    window.onload = function() {
+        $.post('http://testmanage.aiganyisheng.net/product/app/getHeartList.htm', {
+            sign: '7f187df2e535ba793353ac6b9814a63b'
+        }).success(function(resp) {
+            console.log(resp)
+        })
+    }
+
+    function buy() {
+        $.post('http://testmanage.aiganyisheng.net/product/app/buyProductHeart.htm', {
+            sign: '8745ee4a06bec220447d761e4191ca40',
+            userId:window.localStorage.getItem('userId'),
+            userName:window.localStorage.getItem('userName'),
+            nickName:window.localStorage.getItem('nickName'),
+            productId:111
+        }).success(function(resp) {
+            console.log(resp)
+        })
+    }
+    </script>
+</body>
+
+</html>

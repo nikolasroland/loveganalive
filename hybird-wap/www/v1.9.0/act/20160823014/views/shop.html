@@ -1,0 +1,63 @@
+<ion-view hide-nav-bar="true" view-title="印度之旅">
+    <ion-content style="background-color:#fff;" class="form-style">
+        <div class="item row">
+            <div class="col step active" style="border:none;">
+                <p><span class="circle-num">1</span> 填写信息</p>
+            </div>
+            <div class="col step" style="border:none;">
+                <p><span class="circle-num">2</span> 支付定金</p>
+            </div>
+            <div class="col step" style="border:none;">
+                <p><span class="circle-num">3</span> 提交成功</p>
+            </div>
+        </div>
+        <label class="item item-input">
+            <span class="input-label">患者姓名：</span>
+            <input type="text" maxlength="14" name="nickname" class="text-right" ng-model="user.realname" required placeholder="请填写真实姓名">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">手机号：</span>
+            <input type="tel" maxlength="11" name="nickname" class="text-right" ng-model="user.username" required placeholder="请填写手机号">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">性别：</span>
+            <label class="item item-radio text-right">
+                <input type="radio" name="sex" value="男" ng-model="user.sex" required>
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="item-content" style="border:0">
+                    先生
+                </div>
+            </label>
+            <label class="item item-radio text-right">
+                <input type="radio" name="sex" value="女" ng-model="user.sex" required>
+                <i class="radio-icon ion-checkmark"></i>
+                <div class="item-content" style="border:0">
+                    女士
+                </div>
+            </label>
+        </label>
+        <label class="item item-input item-select jld-item-input">
+            <div class="input-label small">
+                所在省份：
+            </div>
+            <select class="form-control jld-select-left" ng-model="user.province" ng-options="key as key for (key,value) in division" ng-change="user.city='';user.district='';">
+                <option value=""></option>
+            </select>
+        </label>
+        <label class="item item-input item-select jld-item-input">
+            <div class="input-label small">
+                所在城市：
+            </div>
+            <select class="form-control jld-select-left" ng-model="user.city" ng-options="key as key for (key,value) in division[user.province]" ng-change="user.district='';">
+                <option value=""></option>
+            </select>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">详细地址：</span>
+            <textarea maxlength="140" style="width:60%;text-align:right;" ng-model="user.address" cols="30" rows="2" placeholder="您的收货地址"></textarea>
+        </label>
+        <ion-item>
+            <button class="button button-positive button-block" ng-click="save(user.realname, user.username, user.sex, user.province, user.city, user.address)">提交</button>
+        </ion-item>
+    </ion-content>
+</ion-view>

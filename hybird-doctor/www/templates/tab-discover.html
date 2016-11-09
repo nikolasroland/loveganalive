@@ -1,0 +1,103 @@
+<ion-view hide-tabs="false">
+    <ion-nav-title>
+        发现
+    </ion-nav-title>
+    <div class="tabs-top discover-tabs">
+        <div class="tabs">
+            <ion-scroll direction="x" zooming="false" scrollbar-x="false">
+                <a class="tab-item" style="font-size:16px;min-width:80px;padding:0 8px;" ng-repeat="item in discoverList" ng-class="{active: item.isActive}" ng-click="setActive(discoverList)">
+                     {{item.title}}
+                </a>
+            </ion-scroll>
+        </div>
+    </div>
+    <ion-content style="background-color: #e8e8e8">
+        <div style="height:36px;"></div>
+        <ion-refresher on-refresh="doRefresh(discoverTitle)"></ion-refresher>
+        <div ng-if="discoverTitle=='00'">
+            <div class="list card no-padding no-lines" style="margin:0;">
+                <div class="item no-lines" style="margin:-1px 0 0 0;background-color: #e8e8e8" ng-repeat="row in pageState[discoverTitle].rows">
+                    <div class="item item-divider" style="color:#fd7400;border-radius:5px 5px 0 0;">{{row.title}}</div>
+                    <div class="item item-body" style="padding:0;border-radius:0 0 5px 5px;">
+                        <a class="item-image" href="#/tab/discover/act/{{row.id}}">
+                            <img ng-src="{{JAVA_URL + row.cropImageUrl}}" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="discoverTitle=='02'">
+            <div class="bar bar-header item-input-inset">
+                <label class="item item-input-wrapper" style="padding:0 8px;">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" maxlength="26" placeholder="请输入药品名称" ng-model="pageState[discoverTitle].nameFilter" onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')">
+                </label>
+                <button class="button button-small button-positive" ng-click="search(discoverTitle)">搜索</button>
+            </div>
+            <ion-item class="item-avatar item-icon-right item-text-wrap" href="#/tab/discover/act/{{row.id}}" style="padding-left:12px;" ng-repeat="row in pageState[discoverTitle].rows">
+                <img style="max-width:76px; height:48px; border-radius:0;" ng-src="{{JAVA_URL + row.cropImageUrl}}">
+                <h3 style="padding:0 0 0 98px;margin-top:8px;">{{row.title}}</h3>
+                <i class="icon stable ion-ios-arrow-right"></i>
+            </ion-item>
+        </div>
+        <div ng-if="discoverTitle=='03'">
+            <div class="item no-lines" style="margin:-1px 0 0 0;background-color: #e8e8e8" ng-repeat="row in pageState[discoverTitle].rows">
+                <div class="item item-divider" style="color:#fd7400;border-radius:5px 5px 0 0;">{{row.title}}</div>
+                <div class="item item-body" style="padding:0;border-radius:0 0 5px 5px;">
+                    <a class="item-image" href="#/tab/discover/act/{{row.id}}">
+                        <img ng-src="{{JAVA_URL + row.cropImageUrl}}" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div ng-if="discoverTitle=='06'">
+            <div class="bar bar-header item-input-inset">
+                <label class="item item-input-wrapper" style="padding:0 8px;">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" maxlength="26" placeholder="请输入医院名称" ng-model="pageState[discoverTitle].nameFilter" onchange="value=value.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '')">
+                </label>
+                <button class="button button-small button-positive" ng-click="search(discoverTitle)">搜索</button>
+            </div>
+            <ion-item class="item-avatar item-icon-right item-text-wrap" href="#/tab/discover/act/{{row.id}}" style="padding-left:12px;" ng-repeat="row in pageState[discoverTitle].rows">
+                <img style="max-width:76px; height:48px; border-radius:0;" ng-src="{{JAVA_URL + row.cropImageUrl}}">
+                <h3 style="padding:0 0 0 98px;margin-top:8px;">{{row.title}}</h3>
+                <i class="icon stable ion-ios-arrow-right"></i>
+            </ion-item>
+        </div>
+        <div ng-if="discoverTitle=='04'">
+            <div class="item no-lines" style="margin:-1px 0 0 0;background-color: #e8e8e8" ng-repeat="row in pageState[discoverTitle].rows">
+                <div class="item item-divider" style="color:#fd7400;border-radius:5px 5px 0 0;">{{row.title}}</div>
+                <div class="item item-body" style="padding:0;border-radius:0 0 5px 5px;">
+                    <a class="item-image" href="#/tab/discover/act/{{row.id}}">
+                        <img ng-src="{{JAVA_URL + row.cropImageUrl}}" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div ng-if="discoverTitle=='05'">
+            <div class="item no-lines" style="margin:-1px 0 0 0;background-color: #e8e8e8" ng-repeat="row in pageState[discoverTitle].rows">
+                <div class="item item-divider" style="color:#fd7400;border-radius:5px 5px 0 0;">{{row.title}}</div>
+                <div class="item item-body" style="padding:0;border-radius:0 0 5px 5px;">
+                    <a class="item-image" href="#/tab/discover/act/{{row.id}}">
+                        <img ng-src="{{JAVA_URL + row.cropImageUrl}}" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div style="height:44px;"></div>
+        <ion-infinite-scroll ng-if="moreDataCanBeLoaded(discoverTitle)" on-infinite="loadMore(discoverTitle)" distance="10%" class="active"><i class="icon ion-loading-d icon-refreshing"></i>
+        </ion-infinite-scroll>
+        <p style="text-align:center;color:#aaa;font-size:14px;" ng-if="!moreDataCanBeLoaded(discoverTitle) && pageState[discoverTitle].rows.length!=0">— 已经到底啦 —</p>
+        <div class="item item-image" ng-if="pageState[discoverTitle].hasLoaded && pageState[discoverTitle].rows.length==0">
+            <img src="img/default.png">
+        </div>
+        <!--         <ion-list>
+    <ion-item href="#/tab/discover/medicine">药品</ion-item>
+    <ion-item href="#/tab/discover/act">活动</ion-item>
+    <ion-item href="#/tab/discover/knowledge">知识</ion-item>
+    <ion-item href="#/tab/discover/story">故事</ion-item>
+    <ion-item href="#/tab/discover/hospital">医院</ion-item>
+    <ion-item href="#/tab/discover/game">游戏</ion-item>
+</ion-list> -->
+    </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-modal-view>
+        <ion-content>
+            <ion-list class="tab-list no-lines">
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-ios-close-empty" style="color:#aaa;font-size:48px;" ng-click="closeFindpwdModal()"></i>
+                </ion-item>
+                <ion-item class="login-avatar">
+                    <img src="./img/avatar.png" />
+                </ion-item>
+            </ion-list>
+            <ion-list class="tab-list no-lines padding list-inset">
+                <ion-item class="item-input">
+                    <i class="icon ion-iphone placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                    <input type="tel" ng-model="$root.findpwdTel" placeholder="输入手机号">
+                </ion-item>
+                <div class="login-line"></div>
+                <ion-item class="item-input">
+                    <i class="icon ion-ios-unlocked-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                    <input type="text" ng-model="$root.findpwdCode" placeholder="验证码">
+                <button class="button button-clear button-positive" ng-click="$root.sendCode($root.findpwdTel, 2)" style="margin-right:32px;text-decoration: none;font-size:12px">获取验证码</button>
+                </ion-item>
+                <div class="login-line"></div>
+                <ion-item>
+                    <button class="button button-full button-positive" ng-click="$root.findPwdAndlogin($root.findpwdTel, $root.findpwdCode)">验证并登录</button>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>

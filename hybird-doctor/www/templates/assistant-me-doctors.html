@@ -1,0 +1,14 @@
+<ion-view view-title="我的医生">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+            <div class="item item-avatar" ng-click="startChat(doctor.userid, doctor.nickname)" ng-repeat="doctor in doctorList.list">
+                <img ng-src="{{doctor.icon}}" ng-click="viewInfo($event, doctor.userid)" />
+                <h2>{{doctor.nickname}}</h2>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

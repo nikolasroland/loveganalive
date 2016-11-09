@@ -1,0 +1,15 @@
+<ion-view view-title="我的预约">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon" ng-class="{true :'ion-android-arrow-back', false: 'ion-ios-arrow-back'}[isAndroid]" ng-show="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <ion-list>
+            <div class="item item-text-wrap item-avatar" ng-repeat="reservation in reservationList">
+            	<img class="fr-pic-circle" ng-src="{{doctor.avatar}}" />
+                <h2 class="positive">{{reservation.datetime}}</h2>
+                <span class="item-note">{{reservation.status == '00' ? '等待确认' : (reservation.status == '01' ? '已确认' : '已取消' )}}</span>
+                <h2>{{reservation.doctorNickName}}</h2>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

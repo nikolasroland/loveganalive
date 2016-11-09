@@ -1,0 +1,41 @@
+<ion-view view-title="预约订单详情">
+    <ion-content>
+        <div class="item item-text-wrap">
+            <h2>订单状态<span class="item-note">{{reservDetail.status}}</span></h2>
+            <h2>订单号<span class="item-note">{{reservDetail.orderCode}}</span></h2>
+            <h2>订单生成时间<span class="item-note">{{reservDetail.createTime}}</span></h2>
+        </div>
+        <div class="list item-text-wrap">
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>医生姓名：<span class="item-note">{{reservDetail.doctorName}}</span></p>
+            </ion-item>
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>医院：<span class="item-note">{{reservDetail.hospital}}</span></p>
+            </ion-item>
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>科室：<span class="item-note">{{reservDetail.department}}</span></p>
+            </ion-item>
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>预约时间：<span class="item-note">{{reservDetail.subscribeTime}}</span></p>
+            </ion-item>
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>姓名：<span class="item-note">{{reservDetail.patientName}}</span></p>
+            </ion-item>
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>身份证号：<span class="item-note">{{reservDetail.idCard}}</span></p>
+            </ion-item>
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>所患疾病：<span class="item-note">{{reservDetail.disease}}</span></p>
+            </ion-item>
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>预约目的：<span class="item-note">{{reservDetail.objective}}</span></p>
+            </ion-item>
+            <ion-item style="border:none;margin:0;padding:4px 16px;">
+                <p>症状描述：<span class="item-note" style="max-width: 200px;">{{reservDetail.symptom}}</span></p>
+            </ion-item>
+            <ion-item ng-if="reservDetail.medicalRecordImages" style="border:none;margin:0;padding:4px 16px;">
+                <p>上传病例：<span class="item-note" style="max-width: 200px;"><img style="width:45px;height:45px;" ng-repeat="img in imgArr" onclick="scaleImg(this)" ng-src="{{JAVA_URL + img.split(',')[0]}}" /></span></p>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

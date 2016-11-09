@@ -1,0 +1,41 @@
+<ion-view hide-tabs="true" view-title="我的病历">
+    <ion-nav-buttons side="right">
+        <input id="file" type="file" accept="image/*" capture="camera" custom-on-change="uploadFile($event)" ng-model="history.file"/>
+        <button class="button button-clear" ng-click="add()">添加</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list class="no-lines">
+            <ion-item class="item-input item-select no-lines">
+                <div class="history-line"></div>
+                <select ng-change="changeYear(history.year)" ng-options="item as item for item in history.years" ng-model="history.year">
+                </select>
+            </ion-item>
+            <ion-item class="history-pics no-lines" ng-repeat="pic in history.pics">
+                <span class="history-pics-month">{{pic.month}}</span>
+                <div class="history-pics-border"></div>
+                <div class="history-pics-content" style="border-left:2px solid #ddd;">
+                    <span class="item-note" style="font-size:12px">上传时间 {{pic.date}}</span>
+                    <p style="color:#50a6dd;font-size:12px">病历夹</p>
+                    <ion-scroll zooming="true" direction="x">
+                        <div class="row">
+                            <div class="col col-33 text-center" ng-repeat="item in pic">
+                                <img ng-click="openImageModal(item.images.url)" style="width:60px;height:60px;" ng-src="{{item.small.url}}" />
+                                <p style="font-size:12px">{{item.small.alt}}</p>
+                            </div>
+                        </div>
+                    </ion-scroll>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+<script id="modal-image.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-content style="background-color:#ddd;" ng-click="closeImageModal()">
+            <ion-item class="item-image">
+                <img ng-src="{{imageUrl}}" sb-load="afterImageLoaded();" />
+            </ion-item>
+        </ion-content>
+    </ion-modal-view>
+</script>

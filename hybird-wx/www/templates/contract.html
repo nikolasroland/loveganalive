@@ -1,0 +1,57 @@
+<ion-view view-title="签约服务">
+    <ion-content class="main">
+        <ion-list>
+            <a class="item item-input item-icon-right" href="#/contract-detail" style="padding-right:44px;">
+                <span class="input-label">{{orderDetail.proName}}</span>
+                <i class="icon ion-ios-arrow-forward" style="color:#aaa;font-size:16px;"></i>
+            </a>
+        </ion-list>
+        <ion-list>
+            <div class="item" style="border:0;margin:0;padding:8px 24px;">
+                <p>订单日期：{{orderDetail.createDate}}</p>
+            </div>
+            <div class="item" style="border:0;margin:0;padding:8px 24px;">
+                <p>订单编号：{{orderDetail.orderCode}}</p>
+            </div>
+            <div class="item" style="border:0;margin:0;padding:8px 24px;">
+                <p>订单金额：{{orderDetail.costPrice}} 元</p>
+            </div>
+            <div class="item" style="border:0;margin:0;padding:8px 24px;">
+                <p>优惠金额：{{orderDetail.offsetAmount}} 元</p>
+            </div>
+            <div class="item" style="border:0;margin:0;padding:8px 24px;">
+                <p>应付金额：{{orderDetail.amount}} 元</p>
+            </div>
+        </ion-list>
+        <ion-list>
+            <div class="item" style="padding:8px 24px;">
+                <p>患者姓名：{{orderDetail.nickName}}</p>
+            </div>
+            <div class="item" style="border:0;margin:0;padding:8px 24px;">
+                <p>联系电话：{{orderDetail.userName}}</p>
+            </div>
+        </ion-list>
+        <ion-list>
+            <label class="item item-input" style="padding:8px 24px;max-height:44px;">
+                <span class="input-label"><span style="color:#ff6666;">*</span>身份证：</span>
+                <input type="text" ng-model="info.insuranceIdCard" placeholder="请填写您的身份证">
+            </label>
+            <label class="item item-input" style="padding:8px 24px;max-height:44px;">
+                <span class="input-label">医保卡：</span>
+                <input type="text" ng-model="info.medicare" placeholder="请填写您的医保卡">
+            </label>
+            <label class="item item-input" style="padding:8px 24px;max-height:44px;">
+                <span class="input-label"><span style="color:#ff6666;">*</span>地址：</span>
+                <input type="text" ng-model="info.insuranceAddress" placeholder="请填写您的收货地址">
+            </label>
+        </ion-list>
+        <div class="item text-center">
+            <p>
+                <input type="checkbox" ng-model="isAgree" ng-init="isAgree=true" /> <a href="./docs/乙肝基础签约服务信息登记表1009.htm"> 同意签约服务条款</a>
+            </p>
+        </div>
+            <ion-item>
+                <button ng-disabled="!isAgree" class="button button-block button-positive" ng-click="buy(info)">立即购买</button>
+            </ion-item>
+    </ion-content>
+</ion-view>

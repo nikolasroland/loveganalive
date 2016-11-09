@@ -1,0 +1,18 @@
+<ion-view hide-tabs="true" view-title="方案">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list card" ng-repeat="row in table">
+            <div class="item item-body" style="padding:0">
+                <a class="item-image" href="#/tab/home/plan-logic/{{row.productCode}}/{{row.productName}}">
+                    <img ng-src="{{JAVA_URL + row.productImg}}" />
+                </a>
+            </div>
+            <div class="item item-footer">{{row.productName}}</div>
+        </div>
+        <div class="item item-image" ng-if="hasLoaded && table.length==0">
+            <img src="img/default.png">
+        </div>
+    </ion-content>
+</ion-view>

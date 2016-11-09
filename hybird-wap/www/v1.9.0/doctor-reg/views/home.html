@@ -1,0 +1,32 @@
+<ion-view view-title="爱肝一生">
+    <ion-content>
+        <ion-list class="tab-list no-lines">
+            <ion-item class="login-avatar">
+                <img src="./img/logo.png" />
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <p>你领到 {{reg.docName}}医生 送的50元红包，快到爱肝一生领取吧！</p>
+            </ion-item>
+        </ion-list>
+        <ion-list class="tab-list no-lines padding list-inset form-style">
+            <ion-item class="item-input">
+                <i class="icon ion-iphone placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="tel" placeholder="手机号" ng-model="reg.phone">
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="item-input">
+                <i class="icon ion-ios-unlocked-outline placeholder-icon" style="text-align:center;font-size:28px;width:42px;"></i>
+                <input type="text" placeholder="验证码" ng-model="reg.code">
+                <button ng-disabled="!getCode" class="button button-clear button-positive" ng-click="sandCode(reg.phone)" style="margin-right:32px;text-decoration: none;font-size:12px">{{getCodeTxt}}</button>
+            </ion-item>
+            <div class="login-line"></div>
+            <ion-item class="text-center">
+                <input id="agreement" type="checkbox" checked="checked" />
+                <label for="agreement">我已阅读并同意 </label><a ng-click="openAgreementModal()">《爱肝一生用户协议》</a>
+            </ion-item>
+            <ion-item>
+                <button class="button button-full button-positive" ng-click="next(reg.phone, reg.code)">注册</button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

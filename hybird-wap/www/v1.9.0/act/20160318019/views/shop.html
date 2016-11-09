@@ -1,0 +1,38 @@
+<ion-view hide-nav-bar="true" view-title="服务列表">
+    <ion-content id="shopContent" style="background-color:#f1f1f1;">
+        <ion-list class="shop-list">
+            <div ng-repeat="item in shop.serviceProduct">
+                <ion-item class="item-avatar item-text-wrap">
+                    <img ng-src="{{JAVA_URL + item.productImg}}" ng-click="viewDetail()"/>
+                    <span class="item-note" style="color:#0f91e4">￥{{item.price | number:2}}</span>
+                    <h2>{{item.productName}}</h2>
+                    <p>{{item.description}}</p>
+                    <div class="quantity">
+                        <i ng-hide="item.quantity<1" ng-click="minus()" class="ion-ios-minus-outline"></i> <span ng-hide="item.quantity<1">{{item.quantity}}</span> <i ng-click="plus()" class="ion-ios-plus-outline"></i>
+                    </div>
+                </ion-item>
+                <div class="line"></div>
+            </div>
+        </ion-list>
+        <div class="list shop-list" ng-class="{'gray': !canBuyDrug && amount==0}">
+            <div ng-repeat="item in shop.drugProduct">
+                <ion-item class="item-avatar item-text-wrap">
+                    <img ng-src="{{JAVA_URL + item.productImg}}" ng-click="viewDetail()"/>
+                    <span class="item-note" style="color:#0f91e4">￥{{item.price | number:2}} <span style="color:red;font-size:12px;">(线下支付)</span></span>
+                    <h2>{{item.productName}}</h2>
+                    <p>{{item.description}}</p>
+                    <div class="quantity">
+                        <i ng-hide="item.quantity<1" ng-click="offlineMinus()" class="ion-ios-minus-outline"></i> <span ng-hide="item.quantity<1">{{item.quantity}}</span> <i ng-hide="!canBuyDrug && amount==0" ng-click="offlinePlus()" class="ion-ios-plus-outline"></i>
+                    </div>
+                </ion-item>
+                <div class="line"></div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="fixed">
+        <ion-item class="item-button-right">
+            <h2>合计￥{{amount + offlineAmount | number:2}} 元 </h2>
+            <button ng-disabled="(amount<=0 && offlineAmount<=0) || (amount<=0 && !canBuyDrug)" class="button button-assertive" ng-click="pay()">结算</button>
+        </ion-item>
+    </div>
+</ion-view>

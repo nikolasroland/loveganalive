@@ -1,0 +1,52 @@
+<ion-view view-title="患者列表">
+    <ion-content class="main">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon" style="font-size:22px;"></i>
+            <input type="text" style="font-size:16px;padding-top:8px;" placeholder="搜索" ng-init="nameFilter=''" ng-model="nameFilter">
+        </label>
+        <div class="item-input-inset fr-attention" style="width:254px">
+            <label class="item item-radio item-input-wrapper fr-item-radio first">
+                <input type="radio" name="attention" ng-click="resizeScroll()" value="1" ng-init="attention=1" ng-model="attention">
+                <div class="item-content">
+                    已关注
+                </div>
+            </label>
+            <label class="item item-radio item-input-wrapper fr-item-radio">
+                <input type="radio" name="attention" ng-click="resizeScroll()" value="0" ng-model="attention">
+                <div class="item-content">
+                    未关注
+                </div>
+            </label>
+            <label class="item item-radio item-input-wrapper fr-item-radio last">
+                <input type="radio" name="attention" ng-click="resizeScroll()" value="-1" ng-model="attention">
+                <div class="item-content">
+                    已欠费
+                </div>
+            </label>
+        </div>
+        <div class="list" ng-if="attention==1">
+            <a class="item item-avatar item-icon-right" ng-repeat="patient in patientList.list | filter:{'balance': '1', 'is_attention': '1', 'realname' : nameFilter}" ng-click="startChat(patient.userid, patient.realname)">
+                <img ng-src="{{patient.icon}}" ng-click="viewReferral($event, patient.userid)">
+                <h2 class="energized">{{patient.realname}}<span class="stable">（{{patient.nickname}}）</span></h2>
+                <p class="positive">疾病：{{patient.disease}}</p>
+                <i ng-click="cancelAttention($event, patient.userid)" class="icon ion-star font-24 yellow"></i>
+            </a>
+        </div>
+        <div class="list" ng-if="attention==0">
+            <a class="item item-avatar item-icon-right" ng-repeat="patient in patientList.list | filter:{'balance': '1', 'is_attention': '0', 'realname' : nameFilter}" ng-click="startChat(patient.userid, patient.realname)">
+                <img ng-src="{{patient.icon}}" ng-click="viewReferral($event, patient.userid)">
+                <h2 class="energized">{{patient.realname}}<span class="stable">（{{patient.nickname}}）</span></h2>
+                <p class="positive">疾病：{{patient.disease}}</p>
+                <i ng-click="setAttention($event, patient.userid)" class="icon ion-star font-24 stable"></i>
+            </a>
+        </div>
+        <div class="list" ng-if="attention==-1">
+            <a class="item item-avatar item-icon-right" ng-repeat="patient in patientList.list | filter:{'balance': '0', 'realname' : nameFilter}" ng-click="startChat(patient.userid, patient.realname)">
+                <img class="gray" ng-src="{{patient.icon}}" ng-click="viewReferral($event, patient.userid)">
+                <h2 class="energized">{{patient.realname}}<span class="stable">（{{patient.nickname}}）</span></h2>
+                <p class="positive">疾病：{{patient.disease}}</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

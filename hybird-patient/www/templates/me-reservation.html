@@ -1,0 +1,24 @@
+<ion-view hide-tabs="true" view-title="我的预约">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-if="showHistoryBack" ng-click="historyBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <ion-list class="tab-list chat-list ">
+            <div class="item item-text-wrap item-avatar item-complex" ng-repeat="reservation in reservationList">
+                <div class="item-content" style="padding-right:16px;">
+                    <img class="fr-pic-circle" ng-src="{{doctor.icon}}" />
+                    <span class="item-note" style="font-size:13px;">{{reservation.status == '00' ? '等待确认' : (reservation.status == '01' ? '已确认' : '已取消' )}}</span>
+                    <h2 class="positive">{{reservation.datetime}}</h2>
+                    <h2>{{reservation.doctorNickName}}</h2>
+                    <div class="button-bar fr-button-bar-right" ng-if="reservation.status=='00'" style="top:36px;width:64px;">
+                        <button class="button button-small button-assertive" style="font-size:13px;min-height:26px;line-height:22px;padding:0;" ng-click='rejectReserv(reservation.id)'>取消预约</button>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+        <div class="item item-image" ng-if="hasLoaded && reservationList.length==0">
+            <img src="img/default.png">
+        </div>
+        <!-- <p class="empty-title" ng-if="reservationList.length==0">暂无任何记录</p> -->
+    </ion-content>
+</ion-view>
